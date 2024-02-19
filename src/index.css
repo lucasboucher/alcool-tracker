@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Crucial';
+    src: url('./fonts/crucial.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
