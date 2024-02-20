@@ -4,6 +4,34 @@ import Quote from './components/Quote';
 
 import { Car as CarIcon } from 'iconoir-react';
 
+const consumption = [
+  {
+    time: '23:30',
+    centilitersVolume: 50,
+    alcoholContent: 10,
+  },
+  {
+    time: '01:40',
+    centilitersVolume: 40,
+    alcoholContent: 10,
+  },
+  {
+    time: '02:20',
+    centilitersVolume: 30,
+    alcoholContent: 10,
+  },
+  {
+    time: '02:50',
+    centilitersVolume: 45,
+    alcoholContent: 10,
+  },
+  {
+    time: '04:10',
+    centilitersVolume: 10,
+    alcoholContent: 70,
+  },
+];
+
 function App() {
   return (
     <main class="min-h-screen bg-dark-1 px-4 pt-8 text-white">
@@ -14,7 +42,7 @@ function App() {
       />
       <p className="mb-2">
         Bienvenue dans votre application (très pratique si vous êtes alcoolique comme moi) qui donne
-        votre taux d’alcoolémie .
+        votre taux d’alcoolémie.
       </p>
       <a className="underline" href="/">
         En savoir plus
@@ -31,12 +59,14 @@ function App() {
         <p>Vous êtes limite pour prendre la route</p>
       </div>
       <h2 className="mb-2 font-crucial text-xl">Mes verres</h2>
-      <div className="flex gap-2 overflow-scroll pb-6">
-        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
-        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
-        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
-        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
-        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
+      <div className="mb-6 flex gap-2 overflow-scroll">
+        {consumption.map((glass) => (
+          <Card
+            time={glass.time}
+            centilitersVolume={glass.centilitersVolume}
+            alcoholContent={glass.alcoholContent}
+          />
+        ))}
       </div>
     </main>
   );
