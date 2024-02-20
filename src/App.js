@@ -1,3 +1,4 @@
+import Card from './components/Card';
 import Figure from './components/Figure';
 import Quote from './components/Quote';
 
@@ -25,9 +26,17 @@ function App() {
         <Figure number="0.25" text="g/L de sang" />
         <Figure number="0.50" text="mg/L d’air expriré" />
       </div>
-      <div className="flex text-main">
+      <div className="mb-6 flex text-main">
         <CarIcon className="mr-1" />
         <p>Vous êtes limite pour prendre la route</p>
+      </div>
+      <h2 className="mb-2 font-crucial text-xl">Mes verres</h2>
+      <div className="flex gap-2 overflow-scroll pb-6">
+        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
+        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
+        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
+        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
+        <Card time="13:59" centilitersVolume={50} alcoholContent={10} />
       </div>
     </main>
   );
