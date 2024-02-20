@@ -22,3 +22,10 @@
   font-weight: 700;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('./fonts/Barlow-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}

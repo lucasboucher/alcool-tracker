@@ -68,6 +68,9 @@ function App() {
           />
         ))}
       </div>
+      <button class="w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
+        Mes paramètres
+      </button>
     </main>
   );
 }
