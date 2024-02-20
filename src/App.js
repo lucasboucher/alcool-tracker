@@ -4,7 +4,12 @@ function App() {
   return (
     <main class="bg-dark-1 text-white min-h-screen px-4 pt-8">
       <h1 className="font-crucial text-2xl mb-2">Mon alcool tracker</h1>
-      <Quote content="Quoi qu’il arrive, s’il y a au moins une chose qui restera positive dans votre vie : votre taux d'alcoolémie." />
+      <Quote className="mb-4" content="Quoi qu’il arrive, s’il y a au moins une chose qui restera positive dans votre vie : votre taux d'alcoolémie." />
+      <p className='mb-2'>Bienvenue dans votre application (très pratique si vous êtes alcoolique comme moi) qui donne votre taux d’alcoolémie .</p>
+      <a className="underline" href="/">En savoir plus</a>
+      <div className='mt-6'>
+        <h2 className='font-crucial text-xl'>Mon taux</h2>
+      </div>
     </main>
   );
 }
