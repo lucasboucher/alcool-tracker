@@ -3,12 +3,13 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
-      white: '#ffffff',
+      white: '#FFFFFF',
       main: '#FFA500',
       'dark-1': '#040618',
       'dark-2': '#111224',
       'dark-3': '#1D1F2F',
-      red: '#FF0000',
+      red: '#FF2200',
+      green: '#009F00',
     },
     extend: {
       fontFamily: {

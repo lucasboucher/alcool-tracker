@@ -1,9 +1,9 @@
 import Card from './components/Card';
 import Figure from './components/Figure';
 import Quote from './components/Quote';
+import Result from './components/Result';
 
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
-import { Car as CarIcon } from 'iconoir-react';
 import { PlusCircle as PlusCircleIcon } from 'iconoir-react';
 
 const consumption = [
@@ -34,9 +34,11 @@ const consumption = [
   },
 ];
 
+const bloodAlcoholLevel = 0.45;
+
 function App() {
   return (
-    <main class="min-h-screen px-4 pt-8 text-white">
+    <main className="min-h-screen px-4 pt-8 text-white">
       <div className="md:hidden">
         <h1 className="mb-2 font-crucial text-2xl">Mon alcool tracker</h1>
         <Quote
@@ -54,13 +56,10 @@ function App() {
           <h2 className="font-crucial text-xl">Mon taux</h2>
         </div>
         <div className="mb-2 flex gap-2">
-          <Figure number="0.25" text="g/L de sang" />
-          <Figure number="0.50" text="mg/L d’air expriré" />
+          <Figure number={bloodAlcoholLevel} text="g/L de sang" />
+          <Figure number={bloodAlcoholLevel / 2} text="mg/L d’air expriré" />
         </div>
-        <div className="mb-6 flex text-main">
-          <CarIcon className="mr-1" />
-          <p>Vous êtes limite pour prendre la route</p>
-        </div>
+        <Result bloodAlcoholLevel={bloodAlcoholLevel} className="mb-6" />
         <h2 className="mb-2 font-crucial text-xl">Mes verres</h2>
         <div className="mb-6 flex gap-2 overflow-scroll">
           {consumption.map((glass) => (
@@ -71,17 +70,17 @@ function App() {
             />
           ))}
         </div>
-        <button class="mb-6 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
+        <button className="mb-6 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
           Mes paramètres
         </button>
         <p className="pb-20 italic">© 2024 Alcool Tracker par Lucas Boucher</p>
-        <button class="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1">
+        <button className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1">
           <PlusCircleIcon className="mr-1" />
           Ajouter une consommation
         </button>
       </div>
       <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
-        <div class="text-center">
+        <div className="text-center">
           <GlassEmptyIcon height={48} width={48} className="mx-auto mb-4" />
           <p className="text-lg">
             L'application <span className="font-bold">Mon alcool tracker</span> n'est pas optimisée
