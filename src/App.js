@@ -3,6 +3,7 @@ import Figure from './components/Figure';
 import Quote from './components/Quote';
 
 import { Car as CarIcon } from 'iconoir-react';
+import { PlusCircle as PlusCircleIcon } from 'iconoir-react';
 
 const consumption = [
   {
@@ -71,7 +72,11 @@ function App() {
       <button class="mb-6 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
         Mes paramètres
       </button>
-      <p className="pb-16 italic">© 2024 Alcool Tracker par Lucas Boucher</p>
+      <p className="pb-20 italic">© 2024 Alcool Tracker par Lucas Boucher</p>
+      <button class="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1">
+        <PlusCircleIcon className="mr-1" />
+        Ajouter une consommation
+      </button>
     </main>
   );
 }
