@@ -36,7 +36,7 @@ const consumption = [
 
 function App() {
   return (
-    <main class="min-h-screen bg-dark-1 px-4 pt-8 text-white">
+    <main class="min-h-screen px-4 pt-8 text-white">
       <div className="md:hidden">
         <h1 className="mb-2 font-crucial text-2xl">Mon alcool tracker</h1>
         <Quote

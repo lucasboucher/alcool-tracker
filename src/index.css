@@ -36,3 +36,6 @@
   font-weight: normal;
   font-style: italic;
 }
+body {
+  @apply bg-dark-1;
+}
