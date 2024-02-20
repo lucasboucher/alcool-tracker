@@ -36,6 +36,16 @@
   font-weight: normal;
   font-style: italic;
 }
+
 body {
   @apply bg-dark-1;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* pour Webkit */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

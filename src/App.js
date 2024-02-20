@@ -34,7 +34,7 @@ function App() {
         </div>
         <Result bloodAlcoholLevel={bloodAlcoholLevel} className="mb-6" />
         <h2 className="mb-2 font-crucial text-xl">Mes verres</h2>
-        <div className="mb-6 flex gap-2 overflow-scroll">
+        <div className="hide-scrollbar mx-[-1rem] mb-6 flex gap-2 overflow-scroll px-4">
           {consumption.map((glass) => (
             <Card
               time={glass.time}
@@ -49,7 +49,7 @@ function App() {
         <p className="pb-20 italic">© 2024 Alcool Tracker par Lucas Boucher</p>
         <button className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1">
           <PlusCircleIcon className="mr-1" />
-          Ajouter une consommation
+          Ajouter un verre
         </button>
       </div>
       <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
