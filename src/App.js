@@ -68,9 +68,10 @@ function App() {
           />
         ))}
       </div>
-      <button class="w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
+      <button class="mb-6 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
         Mes paramètres
       </button>
+      <p className="pb-16 italic">© 2024 Alcool Tracker par Lucas Boucher</p>
     </main>
   );
 }
