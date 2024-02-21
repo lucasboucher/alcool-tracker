@@ -4,7 +4,7 @@ import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 function Card({ time, centilitersVolume, alcoholContent, onClick }) {
   return (
     <div
-      className="card flex min-h-32 min-w-32 flex-col rounded bg-dark-3 p-2 transition"
+      className="card flex min-h-32 min-w-32 flex-col rounded bg-dark-3 p-2 transition active:bg-dark-2"
       onClick={onClick}
     >
       <div className="flex justify-between text-sm">
