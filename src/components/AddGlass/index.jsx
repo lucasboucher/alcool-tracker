@@ -5,7 +5,7 @@ function AddGlass({ onClick }) {
     <>
       <button
         onClick={onClick}
-        className="active:bg-main-2 fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1"
+        className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1 active:bg-main-2"
       >
         <PlusCircleIcon className="mr-1" />
         Ajouter un verre

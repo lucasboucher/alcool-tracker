@@ -19,13 +19,16 @@ function AddGlassModal({ onClose, isAddGlassOpen }) {
           <label className="mb-1 text-sm font-semibold uppercase" htmlFor="volume">
             Volume
           </label>
-          <input
-            className="h-12 w-full border pl-2"
-            type="number"
-            id="volume"
-            inputMode="numeric"
-            placeholder="0"
-          />
+          <div className="relative flex items-center">
+            <input
+              className="h-12 w-full border pl-2"
+              type="number"
+              id="volume"
+              inputMode="numeric"
+              placeholder="0"
+            />
+            <span className="bg-grey absolute right-2 rounded px-3 py-1 text-dark-1">cl</span>
+          </div>
         </div>
         <div className="flex flex-col">
           <label className="mb-1 text-sm font-semibold uppercase" htmlFor="time">
@@ -38,13 +41,16 @@ function AddGlassModal({ onClose, isAddGlassOpen }) {
         <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
           Teneur
         </label>
-        <input
-          className="h-12 w-full border pl-2"
-          type="number"
-          id="alcoholContent"
-          inputMode="decimal"
-          placeholder="0"
-        />
+        <div className="relative flex items-center">
+          <input
+            className="h-12 w-full border pl-2"
+            type="number"
+            id="alcoholContent"
+            inputMode="decimal"
+            placeholder="0"
+          />
+          <span className="bg-grey absolute right-2 rounded px-3 py-1 text-dark-1">°</span>
+        </div>
       </div>
       <button className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3">
         Valider
