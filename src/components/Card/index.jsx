@@ -7,7 +7,7 @@ function Card({ time, centilitersVolume, alcoholContent, onClick }) {
       className="card flex min-h-32 min-w-32 flex-col rounded bg-dark-3 p-2 transition active:bg-dark-2"
       onClick={onClick}
     >
-      <div className="flex justify-between text-sm">
+      <div className="flex justify-between text-sm font-medium">
         {time}
         <XmarkIcon
           height={24}

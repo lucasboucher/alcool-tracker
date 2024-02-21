@@ -9,7 +9,7 @@ function ScreenTooWide() {
           L'application <span className="font-bold">Mon alcool tracker</span> n'est pas optimisée
           pour cette taille d'écran
         </p>
-        <p className="text-sm">
+        <p className="text-sm font-medium">
           Pour profiter d'une expérience optimale, nous vous recommandons d'avoir une résolution
           inférieure à 768 pixels de large.
         </p>
