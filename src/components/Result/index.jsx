@@ -1,6 +1,6 @@
 import { Car as CarIcon } from 'iconoir-react';
 
-import { canIDrive, canIDriveTextColor } from '../../utils/functions';
+import { canIDrive, canIDriveTextColor } from '../../utils/helpers';
 
 function Result({ bloodAlcoholLevel }) {
   const result = canIDrive(bloodAlcoholLevel);

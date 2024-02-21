@@ -1,13 +1,26 @@
-import Quote from '../../components/Quote';
-import LearnMore from '../../components/LearnMore';
-import { getRandomIdioms } from '../../utils/functions';
+import React, { useState, useEffect } from 'react';
 
-function Header({ className }) {
+import Quote from '../../components/Quote';
+import LearnMoreButton from '../../components/LearnMoreButton';
+
+import { getRandomIdioms } from '../../utils/helpers';
+
+function Header({ isLearnMoreOpen, setIsLearnMoreOpen, className }) {
+  const [idiom, setIdiom] = useState('');
+
+  useEffect(() => {
+    setIdiom(getRandomIdioms());
+  }, []);
+
+  const learnMoreHandler = () => {
+    setIsLearnMoreOpen((prevState) => !prevState);
+  };
+
   return (
     <div className={className}>
       <h1 className="mb-2 font-crucial text-3xl">Mon alcool tracker</h1>
-      <Quote content={getRandomIdioms()} className="relative z-10" />
-      <LearnMore />
+      <Quote content={idiom} className="relative z-10" />
+      <LearnMoreButton onClick={learnMoreHandler} isLearnMoreOpen={isLearnMoreOpen} />
     </div>
   );
 }

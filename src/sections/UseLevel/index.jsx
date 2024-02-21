@@ -1,7 +1,7 @@
 import Figure from '../../components/Figure';
 import Result from '../../components/Result';
 
-import { canIDriveBackgroundColor } from '../../utils/functions';
+import { canIDriveBackgroundColor } from '../../utils/helpers';
 
 function UseLevel({ bloodAlcoholLevel, className }) {
   return (
