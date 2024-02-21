@@ -64,6 +64,10 @@ body {
   scrollbar-width: none;
 }
 
+input[type='time'] {
+  background-color: white;
+}
+
 .card:active .card__delete {
   opacity: 1;
 }

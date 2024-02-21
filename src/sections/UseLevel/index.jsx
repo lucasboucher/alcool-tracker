@@ -8,7 +8,7 @@ function UseLevel({ bloodAlcoholLevel, className }) {
     <div className={className}>
       <div className="mb-2 flex items-center">
         <div
-          class={`mr-1 h-2 w-2 rounded-full ${canIDriveBackgroundColor(bloodAlcoholLevel)}`}
+          className={`mr-1 h-2 w-2 rounded-full ${canIDriveBackgroundColor(bloodAlcoholLevel)}`}
         ></div>
         <h2 className="font-crucial text-xl">Mon taux</h2>
       </div>
