@@ -1,12 +1,19 @@
 import { Xmark as XmarkIcon } from 'iconoir-react';
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 
-function Card({ time, centilitersVolume, alcoholContent }) {
+function Card({ time, centilitersVolume, alcoholContent, onClick }) {
   return (
-    <div className="flex min-h-32 min-w-32 flex-col rounded bg-dark-3 p-2">
+    <div
+      className="card flex min-h-32 min-w-32 flex-col rounded bg-dark-3 p-2 transition"
+      onClick={onClick}
+    >
       <div className="flex justify-between text-sm">
         {time}
-        <XmarkIcon height={24} width={24} className="text-red opacity-50 active:opacity-100" />
+        <XmarkIcon
+          height={24}
+          width={24}
+          className="card__delete text-red opacity-50 transition-opacity"
+        />
       </div>
       <div className="flex grow flex-col items-center justify-center">
         <GlassEmptyIcon height={32} width={32} className="mb-1" />

@@ -37,6 +37,13 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'Barlow';
+  src: url('./fonts/Barlow-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
 body {
   @apply bg-dark-1;
 }
@@ -48,4 +55,8 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.card:active .card__delete {
+  opacity: 1;
 }

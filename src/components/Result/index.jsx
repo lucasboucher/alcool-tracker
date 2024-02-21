@@ -3,7 +3,6 @@ import { canIDrive, canIDriveColor } from '../../utils/functions';
 
 function Result({ bloodAlcoholLevel, className }) {
   const result = canIDrive(bloodAlcoholLevel);
-  console.log(canIDriveColor(bloodAlcoholLevel));
 
   return (
     <div className={`flex text-${canIDriveColor(bloodAlcoholLevel)} ${className}`}>
