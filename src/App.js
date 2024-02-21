@@ -61,7 +61,7 @@ function App() {
         <Footer className="pb-20" />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
         <ModalLayout onClick={() => setIsModal(false)} isModal={isModal} />
-        <AddGlassModal isAddGlassOpen={isAddGlassOpen} />
+        <AddGlassModal onClose={() => setIsModal(false)} isAddGlassOpen={isAddGlassOpen} />
       </div>
       <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
         <ScreenTooWide />

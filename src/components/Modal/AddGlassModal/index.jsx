@@ -1,12 +1,18 @@
 import { getNow } from '../../../utils/helpers';
 
-function AddGlassModal({ isAddGlassOpen }) {
+import { Xmark as XmarkIcon } from 'iconoir-react';
+
+function AddGlassModal({ onClose, isAddGlassOpen }) {
   const now = getNow();
 
   return (
     <div
       className={`${!isAddGlassOpen && 'hidden'} fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1`}
     >
+      <XmarkIcon
+        className="absolute right-4 top-4 text-red opacity-50 transition-opacity active:opacity-100"
+        onClick={onClose}
+      />
       <h2 className="mb-3 font-crucial text-xl">Ajouter un verre</h2>
       <div className="mb-2 flex">
         <div className="mr-2 w-full">
@@ -18,7 +24,7 @@ function AddGlassModal({ isAddGlassOpen }) {
             type="number"
             id="volume"
             inputMode="numeric"
-            defaultValue={0}
+            placeholder="0"
           />
         </div>
         <div className="flex flex-col">
@@ -28,7 +34,7 @@ function AddGlassModal({ isAddGlassOpen }) {
           <input className="h-12 w-24 border pl-2" type="time" id="time" defaultValue={now} />
         </div>
       </div>
-      <div>
+      <div className="mb-4">
         <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
           Teneur
         </label>
@@ -37,9 +43,12 @@ function AddGlassModal({ isAddGlassOpen }) {
           type="number"
           id="alcoholContent"
           inputMode="decimal"
-          defaultValue={0}
+          placeholder="0"
         />
       </div>
+      <button className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3">
+        Valider
+      </button>
     </div>
   );
 }
