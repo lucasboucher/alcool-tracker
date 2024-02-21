@@ -8,6 +8,8 @@ import ScreenTooWide from './sections/ScreenTooWide';
 import LearnMore from './sections/LearnMore';
 
 import AddGlass from './components/AddGlass';
+import ModalLayout from './components/Modal';
+import AddGlassModal from './components/Modal/AddGlassModal';
 
 import { bloodAlcoholLevel } from './utils/consts';
 import { consumption } from './utils/consts';
@@ -16,6 +18,20 @@ function App() {
   const [myConsumption, setMyConsumption] = useState(consumption);
   const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(bloodAlcoholLevel);
   const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
+  const [isModal, setIsModal] = useState(false);
+  const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isModal) {
+      setIsAddGlassOpen(false);
+    }
+  }, [isModal]);
+
+  useEffect(() => {
+    if (isAddGlassOpen) {
+      setIsModal(true);
+    }
+  }, [isAddGlassOpen]);
 
   // test for blood alcohol level state
   useEffect(() => {
@@ -43,7 +59,9 @@ function App() {
           <LearnMore className="mb-6" />
         )}
         <Footer className="pb-20" />
-        <AddGlass />
+        <AddGlass onClick={() => setIsAddGlassOpen(true)} />
+        <ModalLayout onClick={() => setIsModal(false)} isModal={isModal} />
+        <AddGlassModal isAddGlassOpen={isAddGlassOpen} />
       </div>
       <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
         <ScreenTooWide />
