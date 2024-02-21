@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import Figure from './components/Figure';
 import Quote from './components/Quote';
-import Result from './components/Result';
 
+import UseLevel from './sections/UseLevel';
 import Glasses from './sections/Glasses';
 
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
@@ -14,6 +13,11 @@ import { consumption } from './utils/consts';
 
 function App() {
   const [myConsumption, setMyConsumption] = useState(consumption);
+  const [mybloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(bloodAlcoholLevel);
+
+  useEffect(() => {
+    setMyBloodAlcoholLevel(mybloodAlcoholLevel - bloodAlcoholLevel / 6);
+  }, [myConsumption]);
 
   return (
     <main className="min-h-screen px-4 pt-8 text-white">
@@ -30,16 +34,13 @@ function App() {
         <a className="underline" href="/">
           En savoir plus
         </a>
-        <div className="mb-2 mt-6">
-          <h2 className="font-crucial text-xl">Mon taux</h2>
-        </div>
-        <div className="mb-2 flex gap-2">
-          <Figure number={bloodAlcoholLevel} text="g/L de sang" />
-          <Figure number={bloodAlcoholLevel / 2} text="mg/L d’air expriré" />
-        </div>
-        <Result bloodAlcoholLevel={bloodAlcoholLevel} className="mb-6" />
-        <Glasses myConsumption={myConsumption} setMyConsumption={setMyConsumption} />
-        <button className="mb-6 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase active:bg-dark-2">
+        <UseLevel bloodAlcoholLevel={mybloodAlcoholLevel} className="mb-6 mt-6" />
+        <Glasses
+          myConsumption={myConsumption}
+          setMyConsumption={setMyConsumption}
+          className="mb-6"
+        />
+        <button className="mb-6 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2">
           Mes paramètres
         </button>
         <p className="pb-20 italic">

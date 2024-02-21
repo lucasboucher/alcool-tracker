@@ -1,5 +1,5 @@
 function Figure({ number, text }) {
-  const formattedNumber = Math.round(number * 100) / 100;
+  const formattedNumber = number.toFixed(2);
 
   return (
     <div className="flex h-24 w-full flex-col justify-center rounded bg-dark-3 px-2">

@@ -1,3 +1,5 @@
+export const bloodAlcoholLevel = 1.5;
+
 export const consumption = [
   {
     time: '23:30',
@@ -25,5 +27,3 @@ export const consumption = [
     alcoholContent: 70,
   },
 ];
-
-export const bloodAlcoholLevel = 0.45;
