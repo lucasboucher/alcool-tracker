@@ -13,10 +13,11 @@ import { consumption } from './utils/consts';
 
 function App() {
   const [myConsumption, setMyConsumption] = useState(consumption);
-  const [mybloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(bloodAlcoholLevel);
+  const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(bloodAlcoholLevel);
 
+  // test for blood alcohol level state
   useEffect(() => {
-    setMyBloodAlcoholLevel(mybloodAlcoholLevel - bloodAlcoholLevel / 6);
+    setMyBloodAlcoholLevel((currentValue) => currentValue - bloodAlcoholLevel / 7);
   }, [myConsumption]);
 
   return (
@@ -34,7 +35,7 @@ function App() {
         <a className="underline" href="/">
           En savoir plus
         </a>
-        <UseLevel bloodAlcoholLevel={mybloodAlcoholLevel} className="mb-6 mt-6" />
+        <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6 mt-6" />
         <Glasses
           myConsumption={myConsumption}
           setMyConsumption={setMyConsumption}

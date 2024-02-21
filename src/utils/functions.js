@@ -8,12 +8,12 @@ export const canIDrive = (bloodAlcoholLevel) => {
   }
 };
 
-export const canIDriveColor = (bloodAlcoholLevel) => {
+export const canIDriveTextColor = (bloodAlcoholLevel) => {
   if (bloodAlcoholLevel >= 0.5) {
-    return 'red';
+    return 'text-red';
   } else if (bloodAlcoholLevel < 0.5 && bloodAlcoholLevel >= 0.4) {
-    return 'main';
+    return 'text-main';
   } else {
-    return 'green';
+    return 'text-green';
   }
 };
