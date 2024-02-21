@@ -2,7 +2,7 @@ function Footer({ className }) {
   return (
     <div className={className}>
       <button className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2">
-        Mes paramètres
+        Mon profil
       </button>
       <a
         href="https://lucasboucher.fr"

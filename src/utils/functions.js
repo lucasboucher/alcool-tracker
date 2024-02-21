@@ -1,3 +1,5 @@
+import { alcoholIdioms } from './consts';
+
 export const canIDrive = (bloodAlcoholLevel) => {
   if (bloodAlcoholLevel >= 0.5) {
     return 'no';
@@ -26,4 +28,9 @@ export const canIDriveBackgroundColor = (bloodAlcoholLevel) => {
   } else {
     return 'bg-green';
   }
+};
+
+export const getRandomIdioms = () => {
+  let randomIndex = Math.floor(Math.random() * alcoholIdioms.length);
+  return alcoholIdioms[randomIndex];
 };
