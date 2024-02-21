@@ -17,3 +17,13 @@ export const canIDriveTextColor = (bloodAlcoholLevel) => {
     return 'text-green';
   }
 };
+
+export const canIDriveBackgroundColor = (bloodAlcoholLevel) => {
+  if (bloodAlcoholLevel >= 0.5) {
+    return 'bg-red';
+  } else if (bloodAlcoholLevel < 0.5 && bloodAlcoholLevel >= 0.4) {
+    return 'bg-main';
+  } else {
+    return 'bg-green';
+  }
+};
