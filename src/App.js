@@ -15,6 +15,7 @@ import ProfileModal from './components/Modal/ProfileModal';
 
 import { bloodAlcoholLevel } from './utils/consts';
 import { consumption } from './utils/consts';
+import { getData } from './utils/helpers';
 
 function App() {
   const [myConsumption, setMyConsumption] = useState(consumption);
@@ -45,12 +46,24 @@ function App() {
     setMyBloodAlcoholLevel(myConsumption.length * 0.15);
   }, [myConsumption]);
 
+  useEffect(() => {
+    if (!getData('weight')) {
+      setIsProfileOpen(true);
+    }
+  }, []);
+
   const deleteGlass = () => {
     const newConsumption = [...myConsumption];
     newConsumption.splice(selectedDeleteIndexGlass, 1);
     setMyConsumption(newConsumption);
     setIsDeleteGlassOpen(false);
     setIsModal(false);
+  };
+
+  const onModalLayoutClick = () => {
+    if (getData('weight')) {
+      setIsModal(false);
+    }
   };
 
   return (
@@ -76,7 +89,7 @@ function App() {
         )}
         <Footer onProfileClick={() => setIsProfileOpen(true)} className="pb-20" />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
-        <ModalLayout onClick={() => setIsModal(false)} isModal={isModal} />
+        <ModalLayout onClick={onModalLayoutClick} isModal={isModal} />
         <AddGlassModal
           closeModal={() => setIsModal(false)}
           isAddGlassOpen={isAddGlassOpen}

@@ -41,3 +41,11 @@ export const getNow = () => {
   const minutes = date.getMinutes().toString().padStart(2, '0');
   return `${hours}:${minutes}`;
 };
+
+export const getData = (key) => {
+  return JSON.parse(localStorage.getItem(key));
+};
+
+export const setData = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
