@@ -5,9 +5,9 @@ import { getNow } from '../../../utils/helpers';
 import { Xmark as XmarkIcon } from 'iconoir-react';
 
 function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
-  const [volume, setVolume] = useState(undefined);
+  const [volume, setVolume] = useState('');
   const [time, setTime] = useState(getNow());
-  const [alcoholContent, setAlcoholContent] = useState(undefined);
+  const [alcoholContent, setAlcoholContent] = useState('');
 
   useEffect(() => {
     setTime(getNow());
@@ -26,9 +26,9 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
   };
 
   const handleSubmitClick = () => {
+    setVolume('');
     closeModal();
-    setVolume(undefined);
-    setAlcoholContent(undefined);
+    setAlcoholContent('');
     setMyConsumption((prevState) => [
       ...prevState,
       {
@@ -60,6 +60,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
               id="volume"
               inputMode="numeric"
               placeholder="0"
+              value={volume}
               onChange={handleVolumeChange}
             />
             <span className="bg-grey absolute right-2 rounded px-3 py-1 text-dark-1">cl</span>
@@ -89,6 +90,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
             id="alcoholContent"
             inputMode="decimal"
             placeholder="0"
+            value={alcoholContent}
             onChange={handleAlcoholContentChange}
           />
           <span className="bg-grey absolute right-2 rounded px-3 py-1 text-dark-1">°</span>
