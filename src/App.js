@@ -13,13 +13,11 @@ import AddGlassModal from './components/Modal/AddGlassModal';
 import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
 
-import { bloodAlcoholLevel } from './utils/consts';
-import { consumption } from './utils/consts';
-import { getData } from './utils/helpers';
+import { getData, setData } from './utils/helpers';
 
 function App() {
-  const [myConsumption, setMyConsumption] = useState(consumption);
-  const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(bloodAlcoholLevel);
+  const [consumption, setConsumption] = useState(getData('consumption') || []);
+  const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(0);
   const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
@@ -41,21 +39,25 @@ function App() {
     }
   }, [isAddGlassOpen, isDeleteGlassOpen, isProfileOpen]);
 
-  // test for blood alcohol level state
-  useEffect(() => {
-    setMyBloodAlcoholLevel(myConsumption.length * 0.15);
-  }, [myConsumption]);
-
   useEffect(() => {
     if (!getData('weight')) {
       setIsProfileOpen(true);
     }
   }, []);
 
+  useEffect(() => {
+    setData('consumption', consumption);
+  }, [consumption]);
+
+  // test for blood alcohol level state
+  useEffect(() => {
+    setMyBloodAlcoholLevel(consumption.length * 0.15);
+  }, [consumption]);
+
   const deleteGlass = () => {
-    const newConsumption = [...myConsumption];
+    const newConsumption = [...consumption];
     newConsumption.splice(selectedDeleteIndexGlass, 1);
-    setMyConsumption(newConsumption);
+    setConsumption(newConsumption);
     setIsDeleteGlassOpen(false);
     setIsModal(false);
   };
@@ -78,7 +80,7 @@ function App() {
           <>
             <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6" />
             <Glasses
-              myConsumption={myConsumption}
+              consumption={consumption}
               setSelectedDeleteIndexGlass={setSelectedDeleteIndexGlass}
               setIsDeleteGlassOpen={setIsDeleteGlassOpen}
               className="mb-6"
@@ -93,13 +95,13 @@ function App() {
         <AddGlassModal
           closeModal={() => setIsModal(false)}
           isAddGlassOpen={isAddGlassOpen}
-          setMyConsumption={setMyConsumption}
+          setConsumption={setConsumption}
         />
         <DeleteGlassModal
           closeModal={() => setIsModal(false)}
           isDeleteGlassOpen={isDeleteGlassOpen}
           onButtonClick={() => deleteGlass()}
-          selectedGlassTime={isDeleteGlassOpen && myConsumption[selectedDeleteIndexGlass].time}
+          selectedGlassTime={isDeleteGlassOpen && consumption[selectedDeleteIndexGlass].time}
         />
         <ProfileModal closeModal={() => setIsModal(false)} isProfileOpen={isProfileOpen} />
       </div>

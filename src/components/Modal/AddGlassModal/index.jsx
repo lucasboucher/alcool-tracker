@@ -4,7 +4,7 @@ import { Xmark as XmarkIcon } from 'iconoir-react';
 
 import { getNow } from '../../../utils/helpers';
 
-function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
+function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
   const [volume, setVolume] = useState('');
   const [time, setTime] = useState(getNow());
   const [alcoholContent, setAlcoholContent] = useState('');
@@ -29,7 +29,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
     setVolume('');
     closeModal();
     setAlcoholContent('');
-    setMyConsumption((prevState) => [
+    setConsumption((prevState) => [
       ...prevState,
       {
         time: time,
@@ -63,7 +63,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
               value={volume}
               onChange={handleVolumeChange}
             />
-            <span className="bg-grey absolute right-2 rounded px-3 py-1 text-dark-1">cl</span>
+            <span className="absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">cl</span>
           </div>
         </div>
         <div className="flex flex-col">
@@ -93,7 +93,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
             value={alcoholContent}
             onChange={handleAlcoholContentChange}
           />
-          <span className="bg-grey absolute right-2 rounded px-3 py-1 text-dark-1">°</span>
+          <span className="absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">°</span>
         </div>
       </div>
       <button
