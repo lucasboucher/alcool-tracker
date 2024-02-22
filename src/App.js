@@ -84,12 +84,10 @@ function App() {
           closeModal={() => setIsModal(false)}
           isDeleteGlassOpen={isDeleteGlassOpen}
           onButtonClick={() => deleteGlass()}
-          selectedGlassTime={myConsumption[selectedDeleteIndexGlass].time}
+          selectedGlassTime={isDeleteGlassOpen && myConsumption[selectedDeleteIndexGlass].time}
         />
       </div>
-      <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
-        <ScreenTooWide />
-      </div>
+      <ScreenTooWide />
     </main>
   );
 }
