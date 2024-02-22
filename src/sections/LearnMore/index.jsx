@@ -19,7 +19,7 @@ function LearnMore({ className }) {
         Selon le rapport volume/teneur de votre verre, l'icône changera automatiquement dans la
         liste.
       </p>
-      <div className="flex justify-between gap-3">
+      <div className="mb-6 flex justify-between gap-3">
         <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-6">
           <GlassEmptyIcon height={32} width={32} />
           <p className="text-center text-green">Peu</p>
@@ -33,6 +33,11 @@ function LearnMore({ className }) {
           <p className="text-center text-red">Beaucoup</p>
         </div>
       </div>
+      <h2 className="mb-2 font-crucial text-xl">Détail</h2>
+      <p>
+        Cette application prend pas en compte la capacité de métabolisation de l'alccol, le taux de
+        digestion et la tolérance à l'alcool.
+      </p>
     </div>
   );
 }

@@ -35,7 +35,7 @@ function App() {
 
   // test for blood alcohol level state
   useEffect(() => {
-    setMyBloodAlcoholLevel((currentValue) => currentValue - bloodAlcoholLevel / 7);
+    setMyBloodAlcoholLevel(myConsumption.length * 0.15);
   }, [myConsumption]);
 
   return (
@@ -61,7 +61,11 @@ function App() {
         <Footer className="pb-20" />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
         <ModalLayout onClick={() => setIsModal(false)} isModal={isModal} />
-        <AddGlassModal onClose={() => setIsModal(false)} isAddGlassOpen={isAddGlassOpen} />
+        <AddGlassModal
+          closeModal={() => setIsModal(false)}
+          isAddGlassOpen={isAddGlassOpen}
+          setMyConsumption={setMyConsumption}
+        />
       </div>
       <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
         <ScreenTooWide />
