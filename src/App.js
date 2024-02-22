@@ -56,7 +56,7 @@ function App() {
             />
           </>
         ) : (
-          <LearnMore className="mb-6" />
+          <LearnMore className="mb-8" />
         )}
         <Footer className="pb-20" />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
