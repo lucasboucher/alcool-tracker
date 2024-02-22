@@ -49,3 +49,39 @@ export const getData = (key) => {
 export const setData = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
+
+export const getAlcoholRatio = (centilitersVolume, alcoholContent) => {
+  if (centilitersVolume < 10) {
+    if (alcoholContent < 35) {
+      return 'weak';
+    }
+    if (alcoholContent >= 35 && alcoholContent < 50) {
+      return 'average';
+    }
+    if (alcoholContent >= 50) {
+      return 'strong';
+    }
+  }
+  if (centilitersVolume >= 10 && centilitersVolume < 40) {
+    if (alcoholContent < 10) {
+      return 'weak';
+    }
+    if (alcoholContent >= 10 && alcoholContent < 30) {
+      return 'average';
+    }
+    if (alcoholContent >= 30) {
+      return 'strong';
+    }
+  }
+  if (centilitersVolume >= 40) {
+    if (alcoholContent < 5) {
+      return 'weak';
+    }
+    if (alcoholContent >= 5 && alcoholContent < 10) {
+      return 'average';
+    }
+    if (alcoholContent >= 10) {
+      return 'strong';
+    }
+  }
+};

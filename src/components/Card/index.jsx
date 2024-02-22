@@ -1,7 +1,10 @@
-import { Xmark as XmarkIcon } from 'iconoir-react';
-import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
+import { cloneElement } from 'react';
 
-function Card({ time, centilitersVolume, alcoholContent, onClick }) {
+import { Xmark as XmarkIcon } from 'iconoir-react';
+
+function Card({ time, centilitersVolume, alcoholContent, onClick, icon }) {
+  const iconWithProps = cloneElement(icon, { className: 'mb-1', height: 32, width: 32 });
+
   return (
     <div
       className="card transition-color flex min-h-32 min-w-32 flex-col rounded bg-dark-3 p-2 active:bg-dark-2"
@@ -16,7 +19,7 @@ function Card({ time, centilitersVolume, alcoholContent, onClick }) {
         />
       </div>
       <div className="flex grow flex-col items-center justify-center">
-        <GlassEmptyIcon height={32} width={32} className="mb-1" />
+        {iconWithProps}
         <p>
           <span className="font-bold">{centilitersVolume}</span>cl à{' '}
           <span className="font-bold">{alcoholContent}</span>°

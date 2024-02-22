@@ -1,8 +1,8 @@
-- Gérer les erreur dans les formulaires
-- Montrer le bon icon sur la carte selon le taux
+- Personnaliser checkbox
 - Utiliser la formule pour calculer le taux d'alcoolémie
 - Dans les détails ajouter lien vers limite du taux d'alcoolémie et ressources
 - Afficher la vraie heure où on peut conduire
 - Refaire les citations
 - Corriger le bug de layout avec les modales
 - Classement
+- README

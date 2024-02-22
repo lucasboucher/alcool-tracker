@@ -1,9 +1,21 @@
 import Card from '../../components/Card';
 
+import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
+import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
+import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
+import { getAlcoholRatio } from '../../utils/helpers';
+
 function Glasses({ consumption, setSelectedDeleteIndexGlass, setIsDeleteGlassOpen, className }) {
   const onGlassClick = (index) => {
     setSelectedDeleteIndexGlass(index);
     setIsDeleteGlassOpen(true);
+  };
+
+  const glassIcon = (centilitersVolume, alcoholContent) => {
+    const ratio = getAlcoholRatio(centilitersVolume, alcoholContent);
+    if (ratio === 'weak') return <GlassEmptyIcon />;
+    if (ratio === 'average') return <GlassHalfAltIcon />;
+    if (ratio === 'strong') return <GlassHalfIcon />;
   };
 
   return (
@@ -18,6 +30,7 @@ function Glasses({ consumption, setSelectedDeleteIndexGlass, setIsDeleteGlassOpe
               alcoholContent={glass.alcoholContent}
               key={index}
               onClick={() => onGlassClick(index)}
+              icon={glassIcon(glass.centilitersVolume, glass.alcoholContent)}
             />
           ))}
         </div>

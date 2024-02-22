@@ -89,7 +89,7 @@ function App() {
         ) : (
           <LearnMore className="mb-8" />
         )}
-        <Footer onProfileClick={() => setIsProfileOpen(true)} className="pb-20" />
+        <Footer onProfileClick={() => setIsProfileOpen(true)} className="pb-24" />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
         <ModalLayout onClick={onModalLayoutClick} isModal={isModal} />
         <AddGlassModal
