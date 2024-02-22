@@ -1,3 +1,5 @@
+import { OpenNewWindow as OpenNewWindowIcon } from 'iconoir-react';
+
 function Footer({ className }) {
   return (
     <div className={className}>
@@ -6,13 +8,17 @@ function Footer({ className }) {
       </button>
       <a
         href="https://lucasboucher.fr"
-        className="mb-6 block w-full rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
+        className="mb-6 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
       >
-        lucasboucher.fr
+        Lucas Boucher
+        <OpenNewWindowIcon width={16} height={16} className="ml-2" />
       </a>
-      <p className="italic">
-        © 2024 <span className="font-bold">Mon alcool tracker</span>
-      </p>
+      <div className="flex items-center justify-between italic">
+        <p>
+          © 2024 <span className="font-bold">Mon alcool tracker</span>
+        </p>
+        <img src="./lucasboucher.svg" alt="Logo de Lucas Boucher" className="mr-3 h-4 w-4" />
+      </div>
     </div>
   );
 }
