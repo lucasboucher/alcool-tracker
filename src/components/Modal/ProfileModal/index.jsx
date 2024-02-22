@@ -17,7 +17,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
   };
 
   const handleSubmit = () => {
-    if (weight && weight > 0) {
+    if (weight && weight >= 0) {
       setError('');
       setData('weight', weight);
       setData('temporaryLicense', temporaryLicense);
