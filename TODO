@@ -1,6 +1,8 @@
 - Faire la modale pour modifier son profil
 - Connecter les données avec le localStorage
+- Gérer les erreur dans les formulaires
 - Utiliser la formule pour calculer le taux d'alcoolémie
+- Dans les détails ajouter lien vers limite du taux d'alcoolémie et ressources
 - Afficher la vraie heure où on peut conduire
 - Refaire les citations
 - Corriger le bug de layout avec les modales

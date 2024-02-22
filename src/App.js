@@ -10,10 +10,11 @@ import LearnMore from './sections/LearnMore';
 import AddGlass from './components/AddGlass';
 import ModalLayout from './components/Modal';
 import AddGlassModal from './components/Modal/AddGlassModal';
+import DeleteGlassModal from './components/Modal/DeleteGlassModal';
+import ProfileModal from './components/Modal/ProfileModal';
 
 import { bloodAlcoholLevel } from './utils/consts';
 import { consumption } from './utils/consts';
-import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 
 function App() {
   const [myConsumption, setMyConsumption] = useState(consumption);
@@ -22,20 +23,22 @@ function App() {
   const [isModal, setIsModal] = useState(false);
   const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
   const [isDeleteGlassOpen, setIsDeleteGlassOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [selectedDeleteIndexGlass, setSelectedDeleteIndexGlass] = useState(null);
 
   useEffect(() => {
     if (!isModal) {
       setIsAddGlassOpen(false);
       setIsDeleteGlassOpen(false);
+      setIsProfileOpen(false);
     }
   }, [isModal]);
 
   useEffect(() => {
-    if (isAddGlassOpen || isDeleteGlassOpen) {
+    if (isAddGlassOpen || isDeleteGlassOpen || isProfileOpen) {
       setIsModal(true);
     }
-  }, [isAddGlassOpen, isDeleteGlassOpen]);
+  }, [isAddGlassOpen, isDeleteGlassOpen, isProfileOpen]);
 
   // test for blood alcohol level state
   useEffect(() => {
@@ -45,7 +48,6 @@ function App() {
   const deleteGlass = () => {
     const newConsumption = [...myConsumption];
     newConsumption.splice(selectedDeleteIndexGlass, 1);
-    console.log(selectedDeleteIndexGlass);
     setMyConsumption(newConsumption);
     setIsDeleteGlassOpen(false);
     setIsModal(false);
@@ -72,7 +74,7 @@ function App() {
         ) : (
           <LearnMore className="mb-8" />
         )}
-        <Footer className="pb-20" />
+        <Footer onProfileClick={() => setIsProfileOpen(true)} className="pb-20" />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
         <ModalLayout onClick={() => setIsModal(false)} isModal={isModal} />
         <AddGlassModal
@@ -86,6 +88,7 @@ function App() {
           onButtonClick={() => deleteGlass()}
           selectedGlassTime={isDeleteGlassOpen && myConsumption[selectedDeleteIndexGlass].time}
         />
+        <ProfileModal closeModal={() => setIsModal(false)} isProfileOpen={isProfileOpen} />
       </div>
       <ScreenTooWide />
     </main>
