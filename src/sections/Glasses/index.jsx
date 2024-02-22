@@ -1,10 +1,9 @@
 import Card from '../../components/Card';
 
-function Glasses({ myConsumption, setMyConsumption, className }) {
-  const deleteGlass = (index) => {
-    const newConsumption = [...myConsumption];
-    newConsumption.splice(index, 1);
-    setMyConsumption(newConsumption);
+function Glasses({ myConsumption, setSelectedDeleteIndexGlass, setIsDeleteGlassOpen, className }) {
+  const onGlassClick = (index) => {
+    setSelectedDeleteIndexGlass(index);
+    setIsDeleteGlassOpen(true);
   };
 
   return (
@@ -18,7 +17,7 @@ function Glasses({ myConsumption, setMyConsumption, className }) {
               centilitersVolume={glass.centilitersVolume}
               alcoholContent={glass.alcoholContent}
               key={index}
-              onClick={() => deleteGlass(index)}
+              onClick={() => onGlassClick(index)}
             />
           ))}
         </div>

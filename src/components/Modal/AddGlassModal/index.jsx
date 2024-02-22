@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { getNow } from '../../../utils/helpers';
-
 import { Xmark as XmarkIcon } from 'iconoir-react';
+
+import { getNow } from '../../../utils/helpers';
 
 function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
   const [volume, setVolume] = useState('');
@@ -25,7 +25,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
     setAlcoholContent(e.target.value);
   };
 
-  const handleSubmitClick = () => {
+  const handleSubmit = () => {
     setVolume('');
     closeModal();
     setAlcoholContent('');
@@ -97,7 +97,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setMyConsumption }) {
         </div>
       </div>
       <button
-        onClick={handleSubmitClick}
+        onClick={handleSubmit}
         className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3"
       >
         Valider

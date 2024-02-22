@@ -13,6 +13,7 @@ import AddGlassModal from './components/Modal/AddGlassModal';
 
 import { bloodAlcoholLevel } from './utils/consts';
 import { consumption } from './utils/consts';
+import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 
 function App() {
   const [myConsumption, setMyConsumption] = useState(consumption);
@@ -20,23 +21,35 @@ function App() {
   const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
+  const [isDeleteGlassOpen, setIsDeleteGlassOpen] = useState(false);
+  const [selectedDeleteIndexGlass, setSelectedDeleteIndexGlass] = useState(null);
 
   useEffect(() => {
     if (!isModal) {
       setIsAddGlassOpen(false);
+      setIsDeleteGlassOpen(false);
     }
   }, [isModal]);
 
   useEffect(() => {
-    if (isAddGlassOpen) {
+    if (isAddGlassOpen || isDeleteGlassOpen) {
       setIsModal(true);
     }
-  }, [isAddGlassOpen]);
+  }, [isAddGlassOpen, isDeleteGlassOpen]);
 
   // test for blood alcohol level state
   useEffect(() => {
     setMyBloodAlcoholLevel(myConsumption.length * 0.15);
   }, [myConsumption]);
+
+  const deleteGlass = () => {
+    const newConsumption = [...myConsumption];
+    newConsumption.splice(selectedDeleteIndexGlass, 1);
+    console.log(selectedDeleteIndexGlass);
+    setMyConsumption(newConsumption);
+    setIsDeleteGlassOpen(false);
+    setIsModal(false);
+  };
 
   return (
     <main className="min-h-screen px-4 pt-8 text-white">
@@ -51,7 +64,8 @@ function App() {
             <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6" />
             <Glasses
               myConsumption={myConsumption}
-              setMyConsumption={setMyConsumption}
+              setSelectedDeleteIndexGlass={setSelectedDeleteIndexGlass}
+              setIsDeleteGlassOpen={setIsDeleteGlassOpen}
               className="mb-6"
             />
           </>
@@ -65,6 +79,11 @@ function App() {
           closeModal={() => setIsModal(false)}
           isAddGlassOpen={isAddGlassOpen}
           setMyConsumption={setMyConsumption}
+        />
+        <DeleteGlassModal
+          closeModal={() => setIsModal(false)}
+          isDeleteGlassOpen={isDeleteGlassOpen}
+          onButtonClick={() => deleteGlass()}
         />
       </div>
       <div className="hidden min-h-screen flex-col items-center justify-center px-16 md:flex">
