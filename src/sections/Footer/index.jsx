@@ -1,6 +1,6 @@
 import { OpenNewWindow as OpenNewWindowIcon } from 'iconoir-react';
 
-function Footer({ onProfileClick, className }) {
+function Footer({ onProfileClick, onResetClick, className }) {
   return (
     <div className={className}>
       <button
@@ -8,6 +8,12 @@ function Footer({ onProfileClick, className }) {
         className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2"
       >
         Mon profil
+      </button>
+      <button
+        onClick={onResetClick}
+        className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2"
+      >
+        Réinitialiser l'application
       </button>
       <a
         href="https://lucasboucher.fr"

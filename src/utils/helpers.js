@@ -50,6 +50,13 @@ export const setData = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
+export const resetData = () => {
+  localStorage.removeItem('consumption');
+  localStorage.removeItem('weight');
+  localStorage.removeItem('gender');
+  localStorage.removeItem('temporaryLicence');
+};
+
 export const getAlcoholRatio = (centilitersVolume, alcoholContent) => {
   if (centilitersVolume < 10) {
     if (alcoholContent < 35) {

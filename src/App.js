@@ -12,8 +12,9 @@ import ModalLayout from './components/Modal';
 import AddGlassModal from './components/Modal/AddGlassModal';
 import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
+import ResetModal from './components/Modal/ResetModal';
 
-import { getData, setData } from './utils/helpers';
+import { getData, setData, resetData } from './utils/helpers';
 
 function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
@@ -23,6 +24,7 @@ function App() {
   const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
   const [isDeleteGlassOpen, setIsDeleteGlassOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isResetOpen, setIsResetOpen] = useState(false);
   const [selectedDeleteIndexGlass, setSelectedDeleteIndexGlass] = useState(null);
 
   useEffect(() => {
@@ -30,14 +32,15 @@ function App() {
       setIsAddGlassOpen(false);
       setIsDeleteGlassOpen(false);
       setIsProfileOpen(false);
+      setIsResetOpen(false);
     }
   }, [isModal]);
 
   useEffect(() => {
-    if (isAddGlassOpen || isDeleteGlassOpen || isProfileOpen) {
+    if (isAddGlassOpen || isDeleteGlassOpen || isProfileOpen || isResetOpen) {
       setIsModal(true);
     }
-  }, [isAddGlassOpen, isDeleteGlassOpen, isProfileOpen]);
+  }, [isAddGlassOpen, isDeleteGlassOpen, isProfileOpen, isResetOpen]);
 
   useEffect(() => {
     if (!getData('weight')) {
@@ -68,6 +71,13 @@ function App() {
     }
   };
 
+  const handleReset = () => {
+    resetData();
+    setConsumption([]);
+    setIsResetOpen(false);
+    setIsProfileOpen(true);
+  };
+
   return (
     <main className="min-h-screen px-4 pt-8 text-white">
       <div className="md:hidden">
@@ -89,7 +99,11 @@ function App() {
         ) : (
           <LearnMore className="mb-8" />
         )}
-        <Footer onProfileClick={() => setIsProfileOpen(true)} className="pb-24" />
+        <Footer
+          onProfileClick={() => setIsProfileOpen(true)}
+          onResetClick={() => setIsResetOpen(true)}
+          className="pb-24"
+        />
         <AddGlass onClick={() => setIsAddGlassOpen(true)} />
         <ModalLayout onClick={onModalLayoutClick} isModal={isModal} />
         <AddGlassModal
@@ -104,6 +118,11 @@ function App() {
           selectedGlassTime={isDeleteGlassOpen && consumption[selectedDeleteIndexGlass].time}
         />
         <ProfileModal closeModal={() => setIsModal(false)} isProfileOpen={isProfileOpen} />
+        <ResetModal
+          closeModal={() => setIsModal(false)}
+          isResetOpen={isResetOpen}
+          onButtonClick={() => handleReset()}
+        />
       </div>
       <ScreenTooWide />
     </main>

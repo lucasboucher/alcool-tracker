@@ -1,14 +1,14 @@
 # Tâches
 
-- Bouton reset avec confirmation
 - Inverser système heure dans localStorage
 - Utiliser la formule pour calculer le taux d'alcoolémie
-- Dans les détails ajouter lien vers limite du taux d'alcoolémie et ressources
 - Afficher la vraie heure où on peut conduire
 - Refaire les citations
+- Dans les détails ajouter lien vers limite du taux d'alcoolémie et ressources
 - README
 - [V1] Corriger le bug de layout avec les modales
 - Graphique
+- Corriger le problème du localStorage constaté sur Safari desktop
 - Ajouter des animations pour les modales et autres
 - Éditer un verre au lieu de juste le supprimer
 - Faire des propositions de volume/teneur

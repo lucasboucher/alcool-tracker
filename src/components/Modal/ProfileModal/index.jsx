@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Xmark as XmarkIcon } from 'iconoir-react';
 import { Female as FemaleIcon } from 'iconoir-react';
@@ -8,10 +8,17 @@ import { Check as CheckIcon } from 'iconoir-react';
 import { getData, setData } from '../../../utils/helpers';
 
 function ProfileModal({ closeModal, isProfileOpen }) {
-  const [weight, setWeight] = useState(getData('weight') || '');
-  const [gender, setGender] = useState(getData('gender') || 'female');
-  const [temporaryLicense, setTemporaryLicense] = useState(getData('temporaryLicense') || false);
-  const [error, setError] = useState('');
+  const [weight, setWeight] = useState(undefined);
+  const [gender, setGender] = useState(undefined);
+  const [temporaryLicense, setTemporaryLicense] = useState(undefined);
+  const [error, setError] = useState(undefined);
+
+  useEffect(() => {
+    setWeight(getData('weight') || '');
+    setGender(getData('gender') || '');
+    setTemporaryLicense(getData('temporaryLicense') || false);
+    setError('');
+  }, [isProfileOpen]);
 
   const handleWeightChange = (e) => {
     setWeight(e.target.value);
