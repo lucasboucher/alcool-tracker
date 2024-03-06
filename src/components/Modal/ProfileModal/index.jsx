@@ -8,16 +8,18 @@ import { Check as CheckIcon } from 'iconoir-react';
 import { getData, setData } from '../../../utils/helpers';
 
 function ProfileModal({ closeModal, isProfileOpen }) {
-  const [weight, setWeight] = useState(undefined);
-  const [gender, setGender] = useState(undefined);
-  const [temporaryLicense, setTemporaryLicense] = useState(undefined);
-  const [error, setError] = useState(undefined);
+  const [weight, setWeight] = useState('');
+  const [gender, setGender] = useState('');
+  const [temporaryLicense, setTemporaryLicense] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    setWeight(getData('weight') || '');
-    setGender(getData('gender') || '');
-    setTemporaryLicense(getData('temporaryLicense') || false);
-    setError('');
+    if (isProfileOpen) {
+      setWeight(getData('weight') || '');
+      setGender(getData('gender') || '');
+      setTemporaryLicense(getData('temporaryLicense') || false);
+      setError('');
+    }
   }, [isProfileOpen]);
 
   const handleWeightChange = (e) => {
@@ -133,7 +135,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
             onChange={handleTemporaryLicenseChange}
             className="peer hidden"
           />
-          <div className="peer-checked:bg-blue flex h-6 w-6 items-center justify-center rounded border peer-checked:border-none">
+          <div className="flex h-6 w-6 items-center justify-center rounded border peer-checked:border-none peer-checked:bg-blue">
             <CheckIcon width={20} height={20} className="text-white" />
           </div>
           <span className="ml-2">Je suis permis probatoire</span>
