@@ -88,7 +88,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
               Heure
             </label>
             <input
-              className="h-12 w-24 rounded border pl-2"
+              className="flex h-12 w-24 cursor-pointer justify-center rounded border outline-none"
               type="time"
               id="time"
               value={time}

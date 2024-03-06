@@ -9,14 +9,14 @@ import { getData, setData } from '../../../utils/helpers';
 
 function ProfileModal({ closeModal, isProfileOpen }) {
   const [weight, setWeight] = useState('');
-  const [gender, setGender] = useState('');
+  const [gender, setGender] = useState('female');
   const [temporaryLicense, setTemporaryLicense] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
     if (isProfileOpen) {
       setWeight(getData('weight') || '');
-      setGender(getData('gender') || '');
+      setGender(getData('gender') || 'female');
       setTemporaryLicense(getData('temporaryLicense') || false);
       setError('');
     }

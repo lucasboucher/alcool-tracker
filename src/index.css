@@ -61,6 +61,15 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+input[type='time']::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+input[type='time']::-webkit-datetime-edit-hour-field:focus,
+input[type='time']::-webkit-datetime-edit-minute-field:focus {
+  @apply rounded-sm bg-blue text-white;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* pour Webkit */
 }

@@ -54,7 +54,7 @@ export const resetData = () => {
   localStorage.removeItem('consumption');
   localStorage.removeItem('weight');
   localStorage.removeItem('gender');
-  localStorage.removeItem('temporaryLicence');
+  localStorage.removeItem('temporaryLicense');
 };
 
 export const getAlcoholRatio = (centilitersVolume, alcoholContent) => {
