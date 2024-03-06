@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 
 import { Xmark as XmarkIcon } from 'iconoir-react';
+import { Female as FemaleIcon } from 'iconoir-react';
+import { Male as MaleIcon } from 'iconoir-react';
+
 import { getData, setData } from '../../../utils/helpers';
 
 function ProfileModal({ closeModal, isProfileOpen }) {
   const [weight, setWeight] = useState(getData('weight') || '');
+  const [gender, setGender] = useState(getData('gender') || 'female');
   const [temporaryLicense, setTemporaryLicense] = useState(getData('temporaryLicense') || false);
   const [error, setError] = useState('');
 
   const handleWeightChange = (e) => {
     setWeight(e.target.value);
+  };
+
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
   };
 
   const handleTemporaryLicenseChange = (e) => {
@@ -20,6 +28,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
     if (weight && weight >= 0) {
       setError('');
       setData('weight', weight);
+      setData('gender', gender);
       setData('temporaryLicense', temporaryLicense);
       closeModal();
     } else {
@@ -43,6 +52,47 @@ function ProfileModal({ closeModal, isProfileOpen }) {
         calculer le taux et si vous êtes un permis probatoire pour évaluer votre capacité à
         conduire.
       </p>
+      <div className="mb-3">
+        <p className="mb-1 text-sm font-semibold uppercase">Mon sexe</p>
+        <ul className="flex gap-2">
+          <li className="w-full">
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              className="peer hidden"
+              onChange={handleGenderChange}
+              checked={gender === 'female'}
+            />
+            <label
+              htmlFor="female"
+              className="flex h-12 items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
+            >
+              <span className="mr-1 font-medium">Femme</span>
+              <FemaleIcon />
+            </label>
+          </li>
+          <li className="w-full">
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              className="peer hidden"
+              onChange={handleGenderChange}
+              checked={gender === 'male'}
+            />
+            <label
+              htmlFor="male"
+              className="flex h-12 items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
+            >
+              <span className="mr-1 font-medium">Homme</span>
+              <MaleIcon />
+            </label>
+          </li>
+        </ul>
+      </div>
       <div className="mb-3">
         <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
           Mon poids
