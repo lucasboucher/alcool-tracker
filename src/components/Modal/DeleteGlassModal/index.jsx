@@ -6,7 +6,7 @@ function DeleteGlassModal({ closeModal, isDeleteGlassOpen, onButtonClick, select
       className={`${!isDeleteGlassOpen && 'hidden'} fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1`}
     >
       <XmarkIcon
-        className="absolute right-4 top-4 text-red opacity-50 transition-opacity active:opacity-100"
+        className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity active:opacity-100"
         onClick={closeModal}
       />
       <h2 className="mb-3 font-crucial text-xl">Supprimer un verre</h2>

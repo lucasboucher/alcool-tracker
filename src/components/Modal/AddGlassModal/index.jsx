@@ -58,7 +58,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
       className={`${!isAddGlassOpen && 'hidden'} fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1`}
     >
       <XmarkIcon
-        className="absolute right-4 top-4 text-red opacity-50 transition-opacity active:opacity-100"
+        className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity active:opacity-100"
         onClick={closeModal}
       />
       <h2 className="mb-3 font-crucial text-xl">Ajouter un verre</h2>
@@ -70,7 +70,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
             </label>
             <div className="relative flex items-center">
               <input
-                className="h-12 w-full border pl-2"
+                className="h-12 w-full rounded border pl-2 outline-none"
                 type="number"
                 id="volume"
                 inputMode="numeric"
@@ -78,7 +78,9 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
                 value={volume}
                 onChange={handleVolumeChange}
               />
-              <span className="absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">cl</span>
+              <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
+                cl
+              </span>
             </div>
           </div>
           <div className="flex flex-col">
@@ -86,7 +88,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
               Heure
             </label>
             <input
-              className="h-12 w-24 border pl-2"
+              className="h-12 w-24 rounded border pl-2"
               type="time"
               id="time"
               value={time}
@@ -102,7 +104,7 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
         </label>
         <div className="relative flex items-center">
           <input
-            className="h-12 w-full border pl-2"
+            className="h-12 w-full rounded border pl-2  outline-none"
             type="number"
             id="alcoholContent"
             inputMode="decimal"
@@ -110,7 +112,9 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
             value={alcoholContent}
             onChange={handleAlcoholContentChange}
           />
-          <span className="absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">°</span>
+          <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
+            °
+          </span>
         </div>
         {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
       </div>

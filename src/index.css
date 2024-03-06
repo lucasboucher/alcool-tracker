@@ -55,6 +55,12 @@ body {
   @apply bg-dark-1;
 }
 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  @apply appearance-none;
+  margin: 0;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* pour Webkit */
 }

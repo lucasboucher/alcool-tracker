@@ -1,6 +1,7 @@
 # Tâches
 
-- Personnaliser checkbox
+- Bouton reset avec confirmation
+- Inverser système heure dans localStorage
 - Utiliser la formule pour calculer le taux d'alcoolémie
 - Dans les détails ajouter lien vers limite du taux d'alcoolémie et ressources
 - Afficher la vraie heure où on peut conduire
@@ -13,7 +14,7 @@
 - Faire des propositions de volume/teneur
 - [V2] Pouvoir changer l'heure du résultat dans la section "Mon taux"
 - Enregistrer mon "score"
-- Gestion de profils
+- Gestion des profils : ajouter/supprimer
 - Appeler un taxi
 - Donner plus d'informations comme les calories
 - [V3] Classement

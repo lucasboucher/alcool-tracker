@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Xmark as XmarkIcon } from 'iconoir-react';
 import { Female as FemaleIcon } from 'iconoir-react';
 import { Male as MaleIcon } from 'iconoir-react';
+import { Check as CheckIcon } from 'iconoir-react';
 
 import { getData, setData } from '../../../utils/helpers';
 
@@ -32,7 +33,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
       setData('temporaryLicense', temporaryLicense);
       closeModal();
     } else {
-      setError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
+      setError('Ce champ doit être un nombre non vide et non nulle.');
     }
   };
 
@@ -42,7 +43,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
     >
       {getData('weight') && (
         <XmarkIcon
-          className="absolute right-4 top-4 text-red opacity-50 transition-opacity active:opacity-100"
+          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity active:opacity-100"
           onClick={closeModal}
         />
       )}
@@ -67,7 +68,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
             />
             <label
               htmlFor="female"
-              className="flex h-12 items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
+              className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
             >
               <span className="mr-1 font-medium">Femme</span>
               <FemaleIcon />
@@ -85,7 +86,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
             />
             <label
               htmlFor="male"
-              className="flex h-12 items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
+              className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
             >
               <span className="mr-1 font-medium">Homme</span>
               <MaleIcon />
@@ -99,7 +100,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
         </label>
         <div className="relative flex items-center">
           <input
-            className="h-12 w-full border pl-2"
+            className="h-12 w-full rounded border pl-2 outline-none"
             type="number"
             id="alcoholContent"
             inputMode="decimal"
@@ -107,25 +108,29 @@ function ProfileModal({ closeModal, isProfileOpen }) {
             value={weight}
             onChange={handleWeightChange}
           />
-          <span className="absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">kg</span>
+          <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">
+            kg
+          </span>
         </div>
         {error && <p className="mt-1 text-red">{error}</p>}
       </div>
-      <div className="mb-4 flex flex-col">
-        <label className="mb-1 text-sm font-semibold uppercase" htmlFor="temporaryLicense">
+      <div className="mb-4">
+        <p className="mb-1 text-sm font-semibold uppercase" htmlFor="temporaryLicense">
           Mon permis
-        </label>
-        <div>
+        </p>
+        <label htmlFor="temporaryLicense" className="inline-flex cursor-pointer">
           <input
             type="checkbox"
             id="temporaryLicense"
             checked={temporaryLicense}
             onChange={handleTemporaryLicenseChange}
+            className="peer hidden"
           />
-          <label className="ml-1" htmlFor="temporaryLicense">
-            Je suis permis probatoire
-          </label>
-        </div>
+          <div className="peer-checked:bg-blue flex h-6 w-6 items-center justify-center rounded border peer-checked:border-none">
+            <CheckIcon width={20} height={20} className="text-white" />
+          </div>
+          <span className="ml-2">Je suis permis probatoire</span>
+        </label>
       </div>
       <button
         onClick={handleSubmit}
