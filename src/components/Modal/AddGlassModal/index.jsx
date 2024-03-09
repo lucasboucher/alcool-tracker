@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Xmark as XmarkIcon } from 'iconoir-react';
 
-import { getNow } from '../../../utils/helpers';
+import { getDate, getNow } from '../../../utils/helpers';
 
 function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
   const [volumeError, setVolumeError] = useState('');
@@ -39,17 +39,17 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
       setAlcoholContentError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
     }
     if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
-      closeModal();
       setVolume('');
       setAlcoholContent('');
       setConsumption((prevState) => [
         ...prevState,
         {
-          time: time,
+          date: getDate(time),
           centilitersVolume: volume,
           alcoholContent: alcoholContent,
         },
       ]);
+      closeModal();
     }
   };
 

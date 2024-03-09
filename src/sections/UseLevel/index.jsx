@@ -14,7 +14,7 @@ function UseLevel({ bloodAlcoholLevel, className }) {
       </div>
       <div className="mb-2 flex gap-2">
         <Figure number={bloodAlcoholLevel} text="g/L de sang" />
-        <Figure number={bloodAlcoholLevel / 2} text="mg/L d’air expriré" />
+        <Figure number={bloodAlcoholLevel / 2.1} text="mg/L d’air expiré" />
       </div>
       <Result bloodAlcoholLevel={bloodAlcoholLevel} />
     </div>

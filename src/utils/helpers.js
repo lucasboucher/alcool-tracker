@@ -42,6 +42,23 @@ export const getNow = () => {
   return `${hours}:${minutes}`;
 };
 
+export const getDate = (time) => {
+  const parts = time.split(':');
+  const hours = parseInt(parts[0], 10);
+  const minutes = parseInt(parts[1], 10);
+  const date = new Date();
+  date.setHours(hours);
+  date.setMinutes(minutes);
+  return date;
+};
+
+export const getTime = (date) => {
+  const _date = new Date(date);
+  const hours = _date.getHours();
+  const minutes = _date.getMinutes();
+  return `${hours}:${minutes}`;
+};
+
 export const getData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };

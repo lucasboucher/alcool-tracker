@@ -1,6 +1,5 @@
 # Tâches
 
-- Inverser système heure dans localStorage
 - Utiliser la formule pour calculer le taux d'alcoolémie
 - Afficher la vraie heure où on peut conduire
 - Refaire les citations
@@ -12,6 +11,7 @@
 - Ajouter des animations pour les modales et autres
 - Éditer un verre au lieu de juste le supprimer
 - Faire des propositions de volume/teneur
+- Remonter en haut de la page quand on est en mode "En savoir plus"
 - [V2] Pouvoir changer l'heure du résultat dans la section "Mon taux"
 - Enregistrer mon "score"
 - Gestion des profils : ajouter/supprimer
