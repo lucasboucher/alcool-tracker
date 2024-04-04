@@ -54,8 +54,8 @@ export const getDate = (time) => {
 
 export const getTime = (date) => {
   const _date = new Date(date);
-  const hours = _date.getHours();
-  const minutes = _date.getMinutes();
+  const hours = _date.getHours().toString().padStart(2, '0');
+  const minutes = _date.getMinutes().toString().padStart(2, '0');
   return `${hours}:${minutes}`;
 };
 

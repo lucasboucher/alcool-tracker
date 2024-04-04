@@ -12,6 +12,7 @@
 - Éditer un verre au lieu de juste le supprimer
 - Faire des propositions de volume/teneur
 - Remonter en haut de la page quand on est en mode "En savoir plus"
+  - Revoir le design -> Mettre tout dans le même bloc : stats + en savoir plus
 - [V2] Pouvoir changer l'heure du résultat dans la section "Mon taux"
 - Enregistrer mon "score"
 - Gestion des profils : ajouter/supprimer
