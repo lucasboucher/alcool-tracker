@@ -3,35 +3,43 @@ import {
   ALCOHOL_DENSITY,
   ELIMINATION_RATE,
   ALCOHOL_DISTRIBUTION_RATIO,
+  BAC_LIMIT_BY_LICENSE_TYPE,
 } from './consts';
 
-export const canIDrive = (bloodAlcoholLevel) => {
-  if (bloodAlcoholLevel >= 0.5) {
+export const canIDrive = (bloodAlcoholLevel, temporaryLicense) => {
+  if (bloodAlcoholLevel >= BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense]) {
     return 'no';
-  } else if (bloodAlcoholLevel < 0.5 && bloodAlcoholLevel >= 0.4) {
+  } else if (
+    bloodAlcoholLevel < BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense] &&
+    bloodAlcoholLevel >= BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense] - 0.1
+  ) {
     return 'almost';
   } else {
     return 'yes';
   }
 };
 
-export const canIDriveTextColor = (bloodAlcoholLevel) => {
-  if (bloodAlcoholLevel >= 0.5) {
+export const canIDriveTextColor = (canIDriveResult) => {
+  if (canIDriveResult === 'no') {
     return 'text-red';
-  } else if (bloodAlcoholLevel < 0.5 && bloodAlcoholLevel >= 0.4) {
+  } else if (canIDriveResult === 'almost') {
     return 'text-main';
-  } else {
+  } else if (canIDriveResult === 'yes') {
     return 'text-green';
+  } else {
+    return 'text-white';
   }
 };
 
-export const canIDriveBackgroundColor = (bloodAlcoholLevel) => {
-  if (bloodAlcoholLevel >= 0.5) {
+export const canIDriveBackgroundColor = (canIDriveResult) => {
+  if (canIDriveResult === 'no') {
     return 'bg-red';
-  } else if (bloodAlcoholLevel < 0.5 && bloodAlcoholLevel >= 0.4) {
+  } else if (canIDriveResult === 'almost') {
     return 'bg-main';
+  } else if (canIDriveResult === 'green') {
+    return 'bg-gren';
   } else {
-    return 'bg-green';
+    return 'bg-dark-3';
   }
 };
 
@@ -115,8 +123,7 @@ export const getAlcoholRatio = (centilitersVolume, alcoholContent) => {
   }
 };
 
-export function getBac(consumptions, gender, weight) {
-  console.log(typeof weight);
+export const getBac = (consumptions, gender, weight) => {
   // Vérification des entrées
   if (!Array.isArray(consumptions)) {
     throw new Error('Les consommations doivent être un tableau');
@@ -158,4 +165,23 @@ export function getBac(consumptions, gender, weight) {
   totalBac = Math.max(totalBac - elapsedTimeInHours * ELIMINATION_RATE, 0);
 
   return totalBac;
-}
+};
+
+export const getDateToDrive = (currentBac, temporaryLicense) => {
+  let predictiveBac = currentBac;
+  let timeInMinutes = 1;
+
+  console.log(BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense]);
+
+  while (predictiveBac >= BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense]) {
+    predictiveBac = predictiveBac - (1 / 60) * ELIMINATION_RATE;
+    timeInMinutes++;
+  }
+
+  const currentDate = new Date();
+  currentDate.setMinutes(currentDate.getMinutes() + timeInMinutes);
+  const pretictiveHours = currentDate.getHours().toString().padStart(2, '0');
+  const pretictiveMinutes = currentDate.getMinutes().toString().padStart(2, '0');
+
+  return `${pretictiveHours}:${pretictiveMinutes}`;
+};

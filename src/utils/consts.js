@@ -18,3 +18,7 @@ export const ALCOHOL_DISTRIBUTION_RATIO = {
   female: 0.55,
   male: 0.68,
 };
+export const BAC_LIMIT_BY_LICENSE_TYPE = {
+  true: 0.2,
+  false: 0.5,
+};

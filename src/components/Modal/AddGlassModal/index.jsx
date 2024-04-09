@@ -31,11 +31,9 @@ function AddGlassModal({ closeModal, isAddGlassOpen, setConsumption }) {
     setVolumeError('');
     setAlcoholContentError('');
     if (!volume || volume <= 0) {
-      console.log('volume', volume);
       setVolumeError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
     }
     if (!alcoholContent || alcoholContent <= 0) {
-      console.log('alcoholContent', alcoholContent);
       setAlcoholContentError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
     }
     if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
