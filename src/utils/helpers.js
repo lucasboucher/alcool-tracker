@@ -37,7 +37,7 @@ export const canIDriveBackgroundColor = (canIDriveResult) => {
   } else if (canIDriveResult === 'almost') {
     return 'bg-main';
   } else if (canIDriveResult === 'yes') {
-    return 'bg-gren';
+    return 'bg-green';
   } else {
     return 'bg-dark-3';
   }
