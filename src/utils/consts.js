@@ -10,3 +10,11 @@ export const alcoholIdioms = [
   "Pourquoi est-ce que je bois ? Parce que les adultes ont besoin d'un petit pot d'or au bout de leur arc-en-ciel aussi.",
   'Si le vin est une passion, alors considérez-moi un artiste en plein travail !',
 ];
+
+export const ALCOHOL_DENSITY = 0.0789; // Densité de l'alcool en g/cL
+export const ELIMINATION_RATE = 0.15; // Vitesse d'élimination de l'alcool en g/L/h
+export const ALCOHOL_DISTRIBUTION_RATIO = {
+  // Coefficient de distribution de l'alcool dans le sang
+  female: 0.55,
+  male: 0.68,
+};

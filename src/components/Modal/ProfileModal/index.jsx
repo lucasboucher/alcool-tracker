@@ -23,7 +23,7 @@ function ProfileModal({ closeModal, isProfileOpen }) {
   }, [isProfileOpen]);
 
   const handleWeightChange = (e) => {
-    setWeight(e.target.value);
+    setWeight(Number(e.target.value));
   };
 
   const handleGenderChange = (e) => {

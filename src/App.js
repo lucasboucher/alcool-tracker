@@ -14,7 +14,7 @@ import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
 import ResetModal from './components/Modal/ResetModal';
 
-import { getData, setData, resetData } from './utils/helpers';
+import { getData, setData, resetData, getBac } from './utils/helpers';
 
 function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
@@ -52,9 +52,10 @@ function App() {
     setData('consumption', consumption);
   }, [consumption]);
 
-  // test for blood alcohol level state
   useEffect(() => {
-    setMyBloodAlcoholLevel(consumption.length * 0.15);
+    getData('gender') &&
+      getData('weight') &&
+      setMyBloodAlcoholLevel(getBac(consumption, getData('gender'), getData('weight')));
   }, [consumption]);
 
   const deleteGlass = () => {
