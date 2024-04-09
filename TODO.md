@@ -1,6 +1,5 @@
 # Tâches
 
-- Afficher la vraie heure où on peut conduire
 - Refaire les citations
 - Dans les détails ajouter lien vers limite du taux d'alcoolémie et ressources
 - README
@@ -18,6 +17,7 @@
 - Appeler un taxi
 - Donner plus d'informations comme les calories
 - Possibilité de changer la durée de consommation quand on ajoute un verre
+- Trophés
 - [V3] Classement
 
 # Disclaimer

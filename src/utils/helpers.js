@@ -171,8 +171,6 @@ export const getDateToDrive = (currentBac, temporaryLicense) => {
   let predictiveBac = currentBac;
   let timeInMinutes = 1;
 
-  console.log(BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense]);
-
   while (predictiveBac >= BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense]) {
     predictiveBac = predictiveBac - (1 / 60) * ELIMINATION_RATE;
     timeInMinutes++;

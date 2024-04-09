@@ -104,14 +104,14 @@ function ProfileModal({ closeModal, isProfileOpen }) {
         </ul>
       </div>
       <div className="mb-3">
-        <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
+        <label className="mb-1 text-sm font-semibold uppercase" htmlFor="weight">
           Mon poids
         </label>
         <div className="relative flex items-center">
           <input
             className="h-12 w-full rounded border pl-2 outline-none"
             type="number"
-            id="alcoholContent"
+            id="weight"
             inputMode="decimal"
             placeholder="0"
             value={weight}

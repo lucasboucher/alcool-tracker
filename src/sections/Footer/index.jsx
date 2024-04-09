@@ -16,7 +16,7 @@ function Footer({ onProfileClick, onResetClick, className }) {
         Réinitialiser l'application
       </button>
       <a
-        href="https://lucasboucher.fr"
+        href="http://lucasboucher.fr"
         className="mb-6 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
       >
         Lucas Boucher
