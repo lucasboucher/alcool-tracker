@@ -1,10 +1,14 @@
 # Alcool Tracker
 
-L'un de mes plus intéressants side-project qui a pour but de calculer son taux d'alcoolémie en direct selon sa consommation d'alcool.
+_Repo GitHub protégé par la licence CC-BY-NC-SA-4.0 (Attribution-NonCommercial-ShareAlike 4.0 International)._
 
-**Déployé sur Netlify ici : https://lb-alcool-tracker.netlify.app**
+Side-project qui a pour but de calculer son taux d'alcoolémie en direct selon sa consommation d'alcool.
 
 > Application bloqué en version desktop, il suffit juste de réduire sa fenêtre à 768px de large.
+
+Utilisation de Tailwind, React et la librairie d'icon [Iconoir](https://iconoir.com) pour créer une application simple et une interface travaillée.
+
+**Déployé sur Netlify ici : https://lb-alcool-tracker.netlify.app**
 
 ## Développement
 
@@ -16,9 +20,9 @@ Et pour le build : `npm run build`.
 
 ### Calcul
 
-- Utilisation de la formule de Widmark pour calculer l'élimination de l'alcool par le corps humain. [Plus d'informations sur sa page Wikipédia](https://fr.wikipedia.org/wiki/Erik_Widmark).
-
 > Une partie du calcul prend en compte la modification d'Eicker pour la différenciation de la métabolisation de l'alcool entre les hommes et le femmes.
+
+Utilisation de la formule de Widmark pour calculer l'élimination de l'alcool par le corps humain. [Plus d'informations sur sa page Wikipédia](https://fr.wikipedia.org/wiki/Erik_Widmark).
 
 Retrouvez encore plus d'informations sur ces études universitaires, projets GitHub et autres :
 
