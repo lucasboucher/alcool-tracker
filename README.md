@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Alcool Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+L'un de mes plus intéressants side-project qui a pour but de calculer son taux d'alcoolémie en direct selon sa consommation d'alcool.
 
-## Available Scripts
+**Déployé sur Netlify ici : https://lb-alcool-tracker.netlify.app**
 
-In the project directory, you can run:
+> Application bloqué en version desktop, il suffit juste de réduire sa fenêtre à 768px de large.
 
-### `npm start`
+## Développement
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+J'ai utilisé [CRA](https://github.com/facebook/create-react-app) pour créer mon projet, la commande pour lancer le projet reste `npm start`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Et pour le build : `npm run build`.
 
-### `npm test`
+## Ressources
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Calcul
 
-### `npm run build`
+- Utilisation de la formule de Widmark pour calculer l'élimination de l'alcool par le corps humain. [Plus d'informations sur sa page Wikipédia](https://fr.wikipedia.org/wiki/Erik_Widmark).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Une partie du calcul prend en compte la modification d'Eicker pour la différenciation de la métabolisation de l'alcool entre les hommes et le femmes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Retrouvez encore plus d'informations sur ces études universitaires, projets GitHub et autres :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- https://github.com/tonibois/Cogorza/tree/main
+- https://boozelib.readthedocs.io/en/latest/index.html
+- https://en.wikipedia.org/wiki/Blood_alcohol_content
+- https://www.biorxiv.org/content/10.1101/2021.07.25.452934v1.full
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4361698/
 
-### `npm run eject`
+### Sources pour les conseils et faits divers
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Conseils trouvés sur l'article [Comment réduire les risques de la consommation d’alcool ?](https://www.santepubliquefrance.fr/determinants-de-sante/alcool/articles/comment-reduire-les-risques-de-la-consommation-d-alcool#:~:text=Ces%20mêmes%20experts%20recommandent%20d,et%20les%20activités%20à%20risque) de _Santé publique France_
+- Informations trouvés sur l'article [Alcool : comment consommer ?](https://www.studyrama.com/vie-etudiante/sante-se-proteger/drogues-et-dependances/alcool-comment-consommer-74087#:~:text=D'autre%20part%2C%20il%20est,avec%20des%20boissons%20non%20alcoolisées.) de _Studyrama_
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Alternatives
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Il existe de nombreux autres calculateurs de taux d'alcool dans le sang, je trouve celui proposé par [Éduc'alcool](https://www.educalcool.qc.ca), un organisme canadien indépendant, très intéressant.
+[Vous pouvez retrouver **_Calcoolateur_** ici](https://www.educalcool.qc.ca/outils/calcoolateur/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Je vous recommande aussi [celui-ci](https://dasinternetz.com/alccalc.html) qui donne beaucoup de données selon les différentes formules.
+Ils proposent par ailleurs des résultats différents aux calculs de mon application.

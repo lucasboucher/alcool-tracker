@@ -1,14 +1,16 @@
-export const alcoholIdioms = [
-  "L'alcool ne résout peut-être pas tous les problèmes, mais l'eau et le lait non plus, alors pourquoi pas ?",
-  "Boire modérément, c'est comme être un peu enceinte. Ça ne fonctionne pas.",
-  "L'alcool est comme un logiciel antivirus pour la vie. Ça ne résout pas tous les problèmes, mais ça vous donne un faux sentiment de sécurité.",
-  "Je ne suis pas alcoolique, je suis un explorateur d'univers liquides.",
-  "L'alcool n'est pas la réponse, mais il vous fait oublier la question !",
-  'La vie est courte, buvez le bon vin en premier. Le reste, laissez-le pour les autres.',
-  'Je ne suis pas ivre, je suis juste infiniment convivial.',
-  "L'alcool, c'est comme une clé à molette. Il résout tous les problèmes, mais parfois vous vous retrouvez avec des vis en trop.",
-  "Pourquoi est-ce que je bois ? Parce que les adultes ont besoin d'un petit pot d'or au bout de leur arc-en-ciel aussi.",
-  'Si le vin est une passion, alors considérez-moi un artiste en plein travail !',
+export const alcoholAdvices = [
+  "Bienvenue sur l'application qui donne votre taux d'alcoolémie selon votre consommation !",
+  'Cette application est un outil de prévention et ne remplace pas un test d’alcoolémie.',
+  "De nouvelles fonctionnalités arriveronts dans les prochaines semaines, n'hésitez pas à revenir !",
+  'Il est recommandé de ne pas prendre plus de 10 verres standard par semaine et pas plus de 2 verres standard par jour.',
+  'L’outil Alcoomètre proposé par Alcool-info-service.fr permet de s’auto-évaluer sur votre consommation sur le long terme : alcoometre.fr.',
+  'Il est recommandé de boire lentement, en mangeant et en alternant avec de l’eau.',
+  'L’alcool est obtenu par fermentation de végétaux riches en sucre, ou par distillation, et intervient dans la composition des boissons alcoolisées',
+  'Le vin constitue les deux tiers de la conso totale d’alcool pur en France.',
+  'La France se classe parmi les premiers pays européens ayant une importante consommation d’alcool',
+  '"L\'alcool enivre les sens, mais éveille les passions." - Alexandre Dumas',
+  '"L\'alcool est comme l\'amour : il te rend fou ou te rend heureux." - Georges Brassens',
+  '"L\'alcool est une drogue sournoise qui te fait croire que tu es plus intelligent, plus fort, plus drôle. En réalité, tu es juste plus saoul." - Bill Wilson',
 ];
 
 export const ALCOHOL_DENSITY = 0.0789; // Densité de l'alcool en g/cL

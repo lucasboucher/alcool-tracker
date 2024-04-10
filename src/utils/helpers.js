@@ -1,5 +1,5 @@
 import {
-  alcoholIdioms,
+  alcoholAdvices,
   ALCOHOL_DENSITY,
   ELIMINATION_RATE,
   ALCOHOL_DISTRIBUTION_RATIO,
@@ -43,9 +43,9 @@ export const canIDriveBackgroundColor = (canIDriveResult) => {
   }
 };
 
-export const getRandomIdioms = () => {
-  let randomIndex = Math.floor(Math.random() * alcoholIdioms.length);
-  return alcoholIdioms[randomIndex];
+export const getRandomAdvices = () => {
+  let randomIndex = Math.floor(Math.random() * alcoholAdvices.length);
+  return alcoholAdvices[randomIndex];
 };
 
 export const getNow = () => {

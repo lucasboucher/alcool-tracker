@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Quote from '../../components/Quote';
 import LearnMoreButton from '../../components/LearnMoreButton';
 
-import { getRandomIdioms } from '../../utils/helpers';
+import { getRandomAdvices } from '../../utils/helpers';
 
 function Header({ isLearnMoreOpen, setIsLearnMoreOpen, className }) {
-  const [idiom, setIdiom] = useState('');
+  const [advice, setAdvice] = useState('');
 
   useEffect(() => {
-    setIdiom(getRandomIdioms());
+    setAdvice(getRandomAdvices());
   }, []);
 
   const learnMoreHandler = () => {
@@ -19,7 +19,7 @@ function Header({ isLearnMoreOpen, setIsLearnMoreOpen, className }) {
   return (
     <div className={className}>
       <h1 className="mb-2 font-crucial text-3xl">Mon alcool tracker</h1>
-      <Quote content={idiom} className="relative z-10" />
+      <Quote content={advice} className="relative z-10" />
       <LearnMoreButton onClick={learnMoreHandler} isLearnMoreOpen={isLearnMoreOpen} />
     </div>
   );
