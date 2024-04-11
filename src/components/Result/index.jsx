@@ -1,4 +1,4 @@
-import { Car as CarIcon } from 'iconoir-react';
+import { Clock as ClockIcon } from 'iconoir-react';
 
 import {
   canIDrive,
@@ -9,16 +9,16 @@ import {
   getTimeDifference,
 } from '../../utils/helpers';
 
-function Result({ bloodAlcoholLevel }) {
+function Result({ bloodAlcoholLevel, className }) {
   const result = canIDrive(bloodAlcoholLevel, getData('temporaryLicense'));
   const date = getDateToDrive(bloodAlcoholLevel, getData('temporaryLicense'));
   const stringDate = getStringDateToDrive(date);
   const difference = getTimeDifference(date);
 
   return (
-    <div className={`mb-2 rounded bg-dark-3 p-2 ${canIDriveTextColor(result)}`}>
-      <div className="mb-1 flex">
-        <CarIcon className="mr-2 mt-0.5" />
+    <div className={`rounded bg-dark-3 p-2 ${canIDriveTextColor(result)} ${className}`}>
+      <div className="mb-1 flex items-center">
+        <ClockIcon className="mr-2" />
         <span className="font-crucial text-2xl">{stringDate}</span>
       </div>
       <p className="text-sm">

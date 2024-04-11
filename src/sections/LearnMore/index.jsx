@@ -4,8 +4,8 @@ import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
 
 function LearnMore({ className }) {
   return (
-    <div className={className}>
-      <h2 className="mb-2 font-crucial text-xl">Comment utiliser ?</h2>
+    <div className={`px-2 pb-4 ${className}`}>
+      <h2 className="mb-2 font-crucial text-xl">Guide de fonctionnement</h2>
       <p className="mb-2">
         Il est important de mettre <span className="font-bold">l'heure de fin</span> de consommation
         de votre verre pour que cela fonctionne. Et il suffit de{' '}
@@ -20,15 +20,15 @@ function LearnMore({ className }) {
         dans la liste.
       </p>
       <div className="mb-6 flex justify-between gap-3">
-        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-6">
+        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
           <GlassEmptyIcon height={32} width={32} />
           <p className="text-center text-green">Peu</p>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-6">
+        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
           <GlassHalfAltIcon height={32} width={32} />
           <p className="text-center text-main">Normal</p>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-6">
+        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
           <GlassHalfIcon height={32} width={32} />
           <p className="text-center text-red">Beaucoup</p>
         </div>

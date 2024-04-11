@@ -5,7 +5,6 @@ import Glasses from './sections/Glasses';
 import Header from './sections/Header';
 import Footer from './sections/Footer';
 import ScreenTooWide from './sections/ScreenTooWide';
-import LearnMore from './sections/LearnMore';
 
 import AddGlass from './components/AddGlass';
 import ModalLayout from './components/Modal';
@@ -19,7 +18,6 @@ import { getData, setData, resetData, getBac } from './utils/helpers';
 function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
   const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(0);
-  const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
   const [isDeleteGlassOpen, setIsDeleteGlassOpen] = useState(false);
@@ -82,24 +80,14 @@ function App() {
   return (
     <main className="min-h-screen px-4 pt-8 text-white">
       <div className="md:hidden">
-        <Header
+        <Header className="mb-6" />
+        <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6" />
+        <Glasses
+          consumption={consumption}
+          setSelectedDeleteIndexGlass={setSelectedDeleteIndexGlass}
+          setIsDeleteGlassOpen={setIsDeleteGlassOpen}
           className="mb-6"
-          isLearnMoreOpen={isLearnMoreOpen}
-          setIsLearnMoreOpen={setIsLearnMoreOpen}
         />
-        {!isLearnMoreOpen ? (
-          <>
-            <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6" />
-            <Glasses
-              consumption={consumption}
-              setSelectedDeleteIndexGlass={setSelectedDeleteIndexGlass}
-              setIsDeleteGlassOpen={setIsDeleteGlassOpen}
-              className="mb-6"
-            />
-          </>
-        ) : (
-          <LearnMore className="mb-8" />
-        )}
         <Footer
           onProfileClick={() => setIsProfileOpen(true)}
           onResetClick={() => setIsResetOpen(true)}
