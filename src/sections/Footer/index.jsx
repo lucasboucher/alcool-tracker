@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { OpenNewWindow as OpenNewWindowIcon } from 'iconoir-react';
 
 function Footer({ onProfileClick, onResetClick, className }) {
@@ -15,6 +17,12 @@ function Footer({ onProfileClick, onResetClick, className }) {
       >
         Réinitialiser l'application
       </button>
+      <Link
+        to="/changelog"
+        className="mb-2 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
+      >
+        Mises à jour
+      </Link>
       <a
         href="http://lucasboucher.fr"
         className="mb-6 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
