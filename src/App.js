@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ScrollRestoration } from 'react-router-dom';
 
 import UseLevel from './sections/UseLevel';
 import Glasses from './sections/Glasses';
@@ -114,6 +115,7 @@ function App() {
         />
       </div>
       <ScreenTooWide />
+      <ScrollRestoration />
     </main>
   );
 }

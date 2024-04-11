@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, ScrollRestoration } from 'react-router-dom';
 
 import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
 
@@ -15,7 +15,7 @@ function Changelog() {
           <div className="ml-1 h-2 w-2 rounded-sm bg-main"></div>
         </div>
         <ul className="mb-4 list-disc pl-5">
-          <li>Changelog 👋</li>
+          <li>Page "Mises à jour" 👋</li>
           <li className="opacity-50">Animations (modales et autres)</li>
           <li className="opacity-50">Édition de ses verres</li>
           <li className="opacity-50">Suppression automatique de ses verres</li>
@@ -47,6 +47,7 @@ function Changelog() {
         <ArrowLeftCircleIcon className="mr-1" />
         Revenir à l'accueil
       </Link>
+      <ScrollRestoration />
     </>
   );
 }
