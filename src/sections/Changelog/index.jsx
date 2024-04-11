@@ -10,9 +10,9 @@ function Changelog() {
           <h1 className="mr-2 font-crucial text-3xl">Mon alcool tracker</h1>
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>
         </div>
-        <div class="mb-4 rounded-lg bg-dark-2 p-4">
+        <div className="mb-4 rounded-lg bg-dark-2 p-4">
           <h2 className="text-sm font-bold uppercase">Légende</h2>
-          <hr class="mt-2 border-dark-3 pb-2" />
+          <hr className="mt-2 border-dark-3 pb-2" />
           <div className="flex items-center">
             <div className="mr-2 h-2 w-2 rounded-sm bg-green"></div>
             <p>Version actuelle</p>
