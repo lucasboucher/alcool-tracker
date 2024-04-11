@@ -10,6 +10,22 @@ function Changelog() {
           <h1 className="mr-2 font-crucial text-3xl">Mon alcool tracker</h1>
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>
         </div>
+        <div class="mb-4 rounded-lg bg-dark-2 p-4">
+          <h2 className="text-sm font-bold uppercase">Légende</h2>
+          <hr class="mt-2 border-dark-3 pb-2" />
+          <div className="flex items-center">
+            <div className="mr-2 h-2 w-2 rounded-sm bg-green"></div>
+            <p>Version actuelle</p>
+          </div>
+          <div className="flex items-center">
+            <div className="mr-2 h-2 w-2 rounded-sm bg-main"></div>
+            <p>Version en développement</p>
+          </div>
+          <div className="flex items-center">
+            <div className="mr-2 h-2 w-2 rounded-sm bg-red"></div>
+            <p>Version abandonnée</p>
+          </div>
+        </div>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.2</h2>
           <div className="ml-1 h-2 w-2 rounded-sm bg-main"></div>
@@ -21,14 +37,20 @@ function Changelog() {
           <li className="opacity-50">Édition de ses verres</li>
           <li className="opacity-50">Suppression automatique de ses verres</li>
         </ul>
-        <h2 className="font-crucial text-xl">v1.1</h2>
+        <div className="mb-2 flex items-center">
+          <h2 className="font-crucial text-xl">v1.1</h2>
+          <div className="ml-1 h-2 w-2 rounded-sm bg-green"></div>
+        </div>
         <ul className="mb-4 list-disc pl-5">
           <li>Nouveau design pour l'heure de conduite</li>
           <li>Nombre d'heures et de minutes avant l'heure de conduite</li>
           <li>Nouveau design pour le bloc "En savoir plus"</li>
           <li>Version à côté du titre</li>
         </ul>
-        <h2 className="font-crucial text-xl">v1.0</h2>
+        <div className="mb-2 flex items-center">
+          <h2 className="font-crucial text-xl">v1.0</h2>
+          <div className="ml-1 h-2 w-2 rounded-sm bg-red"></div>
+        </div>
         <ul className="list-disc pl-5">
           <li>Initialisation de l'application</li>
           <li>Bloc de citations, actualités, faits divers et conseils sur l'alcool</li>
