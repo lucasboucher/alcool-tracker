@@ -5,21 +5,21 @@ import {
   canIDriveTextColor,
   getData,
   getDateToDrive,
-  getStringDateToDrive,
+  formatTime,
   getTimeDifference,
 } from '../../utils/helpers';
 
 function Result({ bloodAlcoholLevel, className }) {
   const result = canIDrive(bloodAlcoholLevel, getData('temporaryLicense'));
   const date = getDateToDrive(bloodAlcoholLevel, getData('temporaryLicense'));
-  const stringDate = getStringDateToDrive(date);
+  const driveTime = formatTime(date);
   const difference = getTimeDifference(date);
 
   return (
     <div className={`rounded bg-dark-3 p-2 ${canIDriveTextColor(result)} ${className}`}>
       <div className="mb-1 flex items-center">
         <ClockIcon className="mr-2" />
-        <span className="font-crucial text-2xl">{stringDate}</span>
+        <span className="font-crucial text-2xl">{driveTime}</span>
       </div>
       <p className="text-sm">
         {result === 'no' && (

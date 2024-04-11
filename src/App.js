@@ -105,7 +105,7 @@ function App() {
           closeModal={() => setIsModal(false)}
           isDeleteGlassOpen={isDeleteGlassOpen}
           onButtonClick={() => deleteGlass()}
-          selectedGlassTime={isDeleteGlassOpen && consumption[selectedDeleteIndexGlass].time}
+          selectedGlassDate={isDeleteGlassOpen && consumption[selectedDeleteIndexGlass].date}
         />
         <ProfileModal closeModal={() => setIsModal(false)} isProfileOpen={isProfileOpen} />
         <ResetModal

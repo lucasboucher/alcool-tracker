@@ -19,11 +19,11 @@ function Changelog() {
           </div>
           <div className="flex items-center">
             <div className="mr-2 h-2 w-2 rounded-sm bg-main"></div>
-            <p>Version en développement</p>
+            <p>En cours de développement</p>
           </div>
           <div className="flex items-center">
             <div className="mr-2 h-2 w-2 rounded-sm bg-red"></div>
-            <p>Version abandonnée</p>
+            <p>Ancienne version</p>
           </div>
         </div>
         <div className="mb-2 flex items-center">
@@ -33,9 +33,11 @@ function Changelog() {
         <ul className="mb-4 list-disc pl-5">
           <li>Page "Mises à jour" 👋</li>
           <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
+          <li>Correction d'un bug où l'on ne voyait plus l'heure du verre à supprimer</li>
           <li className="opacity-50">Animations (modales et autres)</li>
           <li className="opacity-50">Édition de ses verres</li>
           <li className="opacity-50">Suppression automatique de ses verres</li>
+          <li className="opacity-50">Afficher ses verres dans l'ordre chronologique</li>
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.1</h2>

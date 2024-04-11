@@ -3,7 +3,7 @@ import Card from '../../components/Card';
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
 import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
-import { getAlcoholRatio, getTime } from '../../utils/helpers';
+import { getAlcoholRatio, formatTime } from '../../utils/helpers';
 
 function Glasses({ consumption, setSelectedDeleteIndexGlass, setIsDeleteGlassOpen, className }) {
   const onGlassClick = (index) => {
@@ -25,7 +25,7 @@ function Glasses({ consumption, setSelectedDeleteIndexGlass, setIsDeleteGlassOpe
         <div className="hide-scrollbar mx-[-1rem] flex gap-2 overflow-scroll px-4">
           {consumption.map((glass, index) => (
             <Card
-              time={getTime(glass.date)}
+              time={formatTime(glass.date)}
               centilitersVolume={glass.centilitersVolume}
               alcoholContent={glass.alcoholContent}
               key={index}

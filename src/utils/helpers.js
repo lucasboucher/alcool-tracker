@@ -65,7 +65,7 @@ export const getDate = (time) => {
   return date;
 };
 
-export const getTime = (date) => {
+export const formatTime = (date) => {
   const _date = new Date(date);
   const hours = _date.getHours().toString().padStart(2, '0');
   const minutes = _date.getMinutes().toString().padStart(2, '0');
@@ -179,12 +179,6 @@ export const getDateToDrive = (currentBac, temporaryLicense) => {
   const currentDate = new Date();
   currentDate.setMinutes(currentDate.getMinutes() + timeInMinutes);
   return currentDate;
-};
-
-export const getStringDateToDrive = (date) => {
-  const pretictiveHours = date.getHours().toString().padStart(2, '0');
-  const pretictiveMinutes = date.getMinutes().toString().padStart(2, '0');
-  return `${pretictiveHours}:${pretictiveMinutes}`;
 };
 
 export const getTimeDifference = (driveDate) => {
