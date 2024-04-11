@@ -169,7 +169,7 @@ export const getBac = (consumptions, gender, weight) => {
 
 export const getDateToDrive = (currentBac, temporaryLicense) => {
   let predictiveBac = currentBac;
-  let timeInMinutes = 1;
+  let timeInMinutes = 0;
 
   while (predictiveBac >= BAC_LIMIT_BY_LICENSE_TYPE[temporaryLicense]) {
     predictiveBac = predictiveBac - (1 / 60) * ELIMINATION_RATE;
@@ -178,8 +178,23 @@ export const getDateToDrive = (currentBac, temporaryLicense) => {
 
   const currentDate = new Date();
   currentDate.setMinutes(currentDate.getMinutes() + timeInMinutes);
-  const pretictiveHours = currentDate.getHours().toString().padStart(2, '0');
-  const pretictiveMinutes = currentDate.getMinutes().toString().padStart(2, '0');
+  return currentDate;
+};
 
+export const getStringDateToDrive = (date) => {
+  const pretictiveHours = date.getHours().toString().padStart(2, '0');
+  const pretictiveMinutes = date.getMinutes().toString().padStart(2, '0');
   return `${pretictiveHours}:${pretictiveMinutes}`;
+};
+
+export const getTimeDifference = (driveDate) => {
+  const currentDate = new Date();
+
+  let differenceInMinutes = (driveDate - currentDate) / 60000;
+  const differenceInHours = Math.floor(differenceInMinutes / 60);
+  differenceInMinutes = differenceInMinutes % 60;
+
+  return differenceInHours !== 0
+    ? `${differenceInHours} heure(s) et ${differenceInMinutes} minute(s)`
+    : `${differenceInMinutes} minute(s)`;
 };
