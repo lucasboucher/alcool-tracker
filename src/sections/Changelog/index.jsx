@@ -16,6 +16,7 @@ function Changelog() {
         </div>
         <ul className="mb-4 list-disc pl-5">
           <li>Page "Mises à jour" 👋</li>
+          <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
           <li className="opacity-50">Animations (modales et autres)</li>
           <li className="opacity-50">Édition de ses verres</li>
           <li className="opacity-50">Suppression automatique de ses verres</li>

@@ -3,15 +3,19 @@ import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
 import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
 
 function LearnMore({ className }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className={`px-2 pb-4 ${className}`}>
+    <div className={`px-2 pb-4 ${className}`} id="learn_more">
       <h2 className="mb-2 font-crucial text-xl">Guide de fonctionnement</h2>
       <p className="mb-2">
         Il est important de mettre <span className="font-bold">l'heure de fin</span> de consommation
         de votre verre pour que cela fonctionne. Et il suffit de{' '}
         <span className="font-bold">rafraîchir</span> la page pour avoir son taux en temps réel.
       </p>
-      <p className="mb-3">
+      <p className="mb-2">
         L'application est très pratique puisqu’elle vous dira immédiatement si vous pouvez prendre
         la route ou jusqu’à quelle heure vous devrez attendre.
       </p>
@@ -46,12 +50,18 @@ function LearnMore({ className }) {
         qui n'est pas pris en compte joue un rôle, tout comme votre proportion de tissus adipeux et
         musculaires.
       </p>
-      <p>
+      <p className="mb-3">
         Cette application a été conçue à des fins d'études, de pédagogie et de compréhension de son
         corps. Pour rappel, le taux limite autorisé en France est de{' '}
         <span className="font-bold">0,5 g/L</span> de sang et{' '}
         <span className="font-bold">0,2 g/L</span> quand on est permis probatoire.
       </p>
+      <button
+        onClick={scrollToTop}
+        className="w-full rounded-lg bg-dark-3 py-3 font-medium transition-colors active:bg-dark-2"
+      >
+        Revenir en haut
+      </button>
     </div>
   );
 }
