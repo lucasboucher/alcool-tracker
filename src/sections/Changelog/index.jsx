@@ -28,7 +28,10 @@ function Changelog() {
         </div>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.2</h2>
-          <div className="ml-1 h-2 w-2 rounded-sm bg-main"></div>
+          <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
+            <span className="absolute h-full w-full animate-ping rounded-full bg-main opacity-75"></span>
+            <span className="h-2 w-2 rounded-full bg-main"></span>
+          </div>
         </div>
         <ul className="mb-4 list-disc pl-5">
           <li>Page "Mises à jour" 👋</li>
@@ -46,7 +49,10 @@ function Changelog() {
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.1</h2>
-          <div className="ml-1 h-2 w-2 rounded-sm bg-green"></div>
+          <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
+            <span className="absolute h-full w-full animate-ping rounded-full bg-green opacity-75"></span>
+            <span className="h-2 w-2 rounded-full bg-green"></span>
+          </div>
         </div>
         <ul className="mb-4 list-disc pl-5">
           <li>Nouveau design pour l'heure de conduite</li>
@@ -56,7 +62,10 @@ function Changelog() {
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.0</h2>
-          <div className="ml-1 h-2 w-2 rounded-sm bg-red"></div>
+          <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
+            <span className="absolute h-full w-full animate-ping rounded-full bg-red opacity-75"></span>
+            <span className="h-2 w-2 rounded-full bg-red"></span>
+          </div>
         </div>
         <ul className="list-disc pl-5">
           <li>Initialisation de l'application</li>
