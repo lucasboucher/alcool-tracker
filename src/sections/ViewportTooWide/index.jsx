@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 
-function ScreenTooWide() {
+function ViewportTooWide() {
   return (
     <div className="hidden min-h-screen flex-col items-center justify-center px-16 text-center md:flex">
       <GlassEmptyIcon height={48} width={48} className="mx-auto mb-4 animate-bounce" />
@@ -24,4 +24,4 @@ function ScreenTooWide() {
   );
 }
 
-export default ScreenTooWide;
+export default ViewportTooWide;

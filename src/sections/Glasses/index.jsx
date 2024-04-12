@@ -5,10 +5,15 @@ import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
 import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
 import { getAlcoholRatio, formatTime } from '../../utils/helpers';
 
-function Glasses({ consumption, setSelectedDeleteIndexGlass, setIsDeleteGlassOpen, className }) {
+function Glasses({
+  consumption,
+  setSelectedDeleteIndexGlass,
+  setIsDeleteGlassModalOpen,
+  className,
+}) {
   const onGlassClick = (index) => {
     setSelectedDeleteIndexGlass(index);
-    setIsDeleteGlassOpen(true);
+    setIsDeleteGlassModalOpen(true);
   };
 
   const glassIcon = (centilitersVolume, alcoholContent) => {

@@ -5,10 +5,9 @@ import UseLevel from './sections/UseLevel';
 import Glasses from './sections/Glasses';
 import Header from './sections/Header';
 import Footer from './sections/Footer';
-import ScreenTooWide from './sections/ScreenTooWide';
+import ViewportTooWide from './sections/ViewportTooWide';
 
-import AddGlass from './components/AddGlass';
-import ModalLayout from './components/Modal';
+import AddGlassButton from './components/AddGlassButton';
 import AddGlassModal from './components/Modal/AddGlassModal';
 import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
@@ -19,41 +18,19 @@ import { getData, setData, resetData, getBac } from './utils/helpers';
 function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
   const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(0);
-  const [isModal, setIsModal] = useState(false);
-  const [isAddGlassOpen, setIsAddGlassOpen] = useState(false);
-  const [isDeleteGlassOpen, setIsDeleteGlassOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [isResetOpen, setIsResetOpen] = useState(false);
   const [selectedDeleteIndexGlass, setSelectedDeleteIndexGlass] = useState(null);
+  const [isAddGlassModalOpen, setIsAddGlassModalOpen] = useState(false);
+  const [isDeleteGlassModalOpen, setIsDeleteGlassModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
 
   useEffect(() => {
-    if (!isModal) {
-      setIsAddGlassOpen(false);
-      setIsDeleteGlassOpen(false);
-      setIsProfileOpen(false);
-      setIsResetOpen(false);
-    }
-  }, [isModal]);
-
-  useEffect(() => {
-    if (isAddGlassOpen || isDeleteGlassOpen || isProfileOpen || isResetOpen) {
-      setIsModal(true);
-    }
-  }, [isAddGlassOpen, isDeleteGlassOpen, isProfileOpen, isResetOpen]);
-
-  useEffect(() => {
-    if (!getData('weight')) {
-      setIsProfileOpen(true);
-    }
+    isProfileDefined() || setIsProfileModalOpen(true);
   }, []);
 
   useEffect(() => {
     setData('consumption', consumption);
-  }, [consumption]);
-
-  useEffect(() => {
-    getData('gender') &&
-      getData('weight') &&
+    isProfileDefined() &&
       setMyBloodAlcoholLevel(getBac(consumption, getData('gender'), getData('weight')));
   }, [consumption]);
 
@@ -61,21 +38,22 @@ function App() {
     const newConsumption = [...consumption];
     newConsumption.splice(selectedDeleteIndexGlass, 1);
     setConsumption(newConsumption);
-    setIsDeleteGlassOpen(false);
-    setIsModal(false);
-  };
-
-  const onModalLayoutClick = () => {
-    if (getData('weight')) {
-      setIsModal(false);
-    }
+    setIsDeleteGlassModalOpen(false);
   };
 
   const handleReset = () => {
     resetData();
     setConsumption([]);
-    setIsResetOpen(false);
-    setIsProfileOpen(true);
+    setIsResetModalOpen(false);
+    setIsProfileModalOpen(true);
+  };
+
+  const isProfileDefined = () => {
+    if (getData('weight') && getData('gender')) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -86,35 +64,39 @@ function App() {
         <Glasses
           consumption={consumption}
           setSelectedDeleteIndexGlass={setSelectedDeleteIndexGlass}
-          setIsDeleteGlassOpen={setIsDeleteGlassOpen}
+          setIsDeleteGlassModalOpen={setIsDeleteGlassModalOpen}
           className="mb-6"
         />
         <Footer
-          onProfileClick={() => setIsProfileOpen(true)}
-          onResetClick={() => setIsResetOpen(true)}
+          onProfileButtonClick={() => setIsProfileModalOpen(true)}
+          onResetButtonClick={() => setIsResetModalOpen(true)}
           className="pb-24"
         />
-        <AddGlass onClick={() => setIsAddGlassOpen(true)} />
-        <ModalLayout onClick={onModalLayoutClick} isModal={isModal} />
-        <AddGlassModal
-          closeModal={() => setIsModal(false)}
-          isAddGlassOpen={isAddGlassOpen}
-          setConsumption={setConsumption}
-        />
-        <DeleteGlassModal
-          closeModal={() => setIsModal(false)}
-          isDeleteGlassOpen={isDeleteGlassOpen}
-          onButtonClick={() => deleteGlass()}
-          selectedGlassDate={isDeleteGlassOpen && consumption[selectedDeleteIndexGlass].date}
-        />
-        <ProfileModal closeModal={() => setIsModal(false)} isProfileOpen={isProfileOpen} />
-        <ResetModal
-          closeModal={() => setIsModal(false)}
-          isResetOpen={isResetOpen}
-          onButtonClick={() => handleReset()}
-        />
+        <AddGlassButton onClick={() => setIsAddGlassModalOpen(true)} />
+        {isAddGlassModalOpen && (
+          <AddGlassModal
+            closeModal={() => setIsAddGlassModalOpen(false)}
+            setConsumption={setConsumption}
+          />
+        )}
+        {isDeleteGlassModalOpen && (
+          <DeleteGlassModal
+            closeModal={() => setIsDeleteGlassModalOpen(false)}
+            onSubmit={() => deleteGlass()}
+            selectedGlassDate={consumption[selectedDeleteIndexGlass].date}
+          />
+        )}
+        {isProfileModalOpen && (
+          <ProfileModal closeModal={() => isProfileDefined() && setIsProfileModalOpen(false)} />
+        )}
+        {isResetModalOpen && (
+          <ResetModal
+            closeModal={() => setIsResetModalOpen(false)}
+            onSubmit={() => handleReset()}
+          />
+        )}
       </div>
-      <ScreenTooWide />
+      <ViewportTooWide />
       <ScrollRestoration />
     </main>
   );

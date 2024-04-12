@@ -34,7 +34,12 @@ function Changelog() {
           <li>Page "Mises à jour" 👋</li>
           <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
           <li>Correction d'un bug où l'on ne voyait plus l'heure du verre à supprimer</li>
-          <li className="opacity-50">Animations (modales et autres)</li>
+          <li>
+            Nouveau système de modales plus performantes réglant un problème de positionnement au
+            scroll
+          </li>
+          <li>Implémentation de micro-animations</li>
+          <li className="opacity-50">Animation des modales</li>
           <li className="opacity-50">Édition de ses verres</li>
           <li className="opacity-50">Suppression automatique de ses verres</li>
           <li className="opacity-50">Afficher ses verres dans l'ordre chronologique</li>

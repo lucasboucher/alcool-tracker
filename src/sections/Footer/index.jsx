@@ -2,17 +2,17 @@ import { Link } from 'react-router-dom';
 
 import { OpenNewWindow as OpenNewWindowIcon } from 'iconoir-react';
 
-function Footer({ onProfileClick, onResetClick, className }) {
+function Footer({ onProfileButtonClick, onResetButtonClick, className }) {
   return (
     <div className={className}>
       <button
-        onClick={onProfileClick}
+        onClick={onProfileButtonClick}
         className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2"
       >
         Mon profil
       </button>
       <button
-        onClick={onResetClick}
+        onClick={onResetButtonClick}
         className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2"
       >
         Réinitialiser l'application

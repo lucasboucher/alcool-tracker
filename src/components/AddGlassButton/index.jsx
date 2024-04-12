@@ -1,6 +1,6 @@
 import { PlusCircle as PlusCircleIcon } from 'iconoir-react';
 
-function AddGlass({ onClick }) {
+function AddGlassButton({ onClick }) {
   return (
     <>
       <button
@@ -14,4 +14,4 @@ function AddGlass({ onClick }) {
   );
 }
 
-export default AddGlass;
+export default AddGlassButton;
