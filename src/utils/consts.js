@@ -25,3 +25,25 @@ export const BAC_LIMIT_BY_LICENSE_TYPE = {
   true: 0.2,
   false: 0.5,
 };
+
+export const dropIn = {
+  hidden: {
+    y: '100vh',
+  },
+  visible: {
+    y: '0',
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      bounce: 0,
+    },
+  },
+  exit: {
+    y: '100vh',
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      bounce: 0,
+    },
+  },
+};

@@ -1,12 +1,20 @@
-import { Xmark as XmarkIcon } from 'iconoir-react';
+import { motion } from 'framer-motion';
+
+import { dropIn } from '../../../utils/consts';
+
 import Backdrop from '../../Backdrop';
+import { Xmark as XmarkIcon } from 'iconoir-react';
 
 function ResetModal({ closeModal, onSubmit }) {
   return (
     <Backdrop onClick={closeModal}>
-      <div
+      <motion.div
         className="fixed bottom-0 left-0 right-0 z-10 cursor-auto rounded-t-2xl bg-white px-4 py-8 text-dark-1"
         onClick={(e) => e.stopPropagation()}
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         <XmarkIcon
           className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
@@ -22,7 +30,7 @@ function ResetModal({ closeModal, onSubmit }) {
         >
           Valider
         </button>
-      </div>
+      </motion.div>
     </Backdrop>
   );
 }

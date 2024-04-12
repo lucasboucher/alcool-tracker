@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ScrollRestoration } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import UseLevel from './sections/UseLevel';
 import Glasses from './sections/Glasses';
@@ -73,28 +74,36 @@ function App() {
           className="pb-24"
         />
         <AddGlassButton onClick={() => setIsAddGlassModalOpen(true)} />
-        {isAddGlassModalOpen && (
-          <AddGlassModal
-            closeModal={() => setIsAddGlassModalOpen(false)}
-            setConsumption={setConsumption}
-          />
-        )}
-        {isDeleteGlassModalOpen && (
-          <DeleteGlassModal
-            closeModal={() => setIsDeleteGlassModalOpen(false)}
-            onSubmit={() => deleteGlass()}
-            selectedGlassDate={consumption[selectedDeleteIndexGlass].date}
-          />
-        )}
-        {isProfileModalOpen && (
-          <ProfileModal closeModal={() => isProfileDefined() && setIsProfileModalOpen(false)} />
-        )}
-        {isResetModalOpen && (
-          <ResetModal
-            closeModal={() => setIsResetModalOpen(false)}
-            onSubmit={() => handleReset()}
-          />
-        )}
+        <AnimatePresence>
+          {isAddGlassModalOpen && (
+            <AddGlassModal
+              closeModal={() => setIsAddGlassModalOpen(false)}
+              setConsumption={setConsumption}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {isDeleteGlassModalOpen && (
+            <DeleteGlassModal
+              closeModal={() => setIsDeleteGlassModalOpen(false)}
+              onSubmit={() => deleteGlass()}
+              selectedGlassDate={consumption[selectedDeleteIndexGlass].date}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {isProfileModalOpen && (
+            <ProfileModal closeModal={() => isProfileDefined() && setIsProfileModalOpen(false)} />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {isResetModalOpen && (
+            <ResetModal
+              closeModal={() => setIsResetModalOpen(false)}
+              onSubmit={() => handleReset()}
+            />
+          )}
+        </AnimatePresence>
       </div>
       <ViewportTooWide />
       <ScrollRestoration />

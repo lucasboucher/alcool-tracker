@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Link, ScrollRestoration } from 'react-router-dom';
 
 import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
@@ -42,6 +43,7 @@ function Changelog() {
             scroll
           </li>
           <li>Harmonisation des transitions, implémentation de micro-animations, ...</li>
+          <li className="opacity-50">Focus du fond du verre qu'on sélectionne</li>
           <li className="opacity-50">Animation des modales</li>
           <li className="opacity-50">Suppression automatique de ses verres après 24h</li>
           <li className="opacity-50">Affichage de ses verres dans l'ordre chronologique</li>
@@ -75,12 +77,20 @@ function Changelog() {
           <li>Gestion de son profil (Genre, poids et permis probatoire)</li>
         </ul>
       </div>
-      <Link
-        to="/"
-        className="fixed bottom-4 left-4 right-4 mx-auto flex max-w-screen-md justify-center rounded-lg bg-main py-4 font-semibold uppercase text-dark-1 active:bg-main-2"
-      >
-        <ArrowLeftCircleIcon className="mr-1" />
-        Revenir à l'accueil
+      <Link to="/">
+        <motion.div
+          className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
+          transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
+          whileTap={{
+            scale: 0.95,
+            transition: { duration: 0.2 },
+          }}
+        >
+          <ArrowLeftCircleIcon className="mr-1" />
+          Revenir à l'accueil
+        </motion.div>
       </Link>
       <ScrollRestoration />
     </>
