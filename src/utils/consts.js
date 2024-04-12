@@ -11,6 +11,7 @@ export const alcoholAdvices = [
   '"L\'alcool enivre les sens, mais éveille les passions." - Alexandre Dumas',
   '"L\'alcool est comme l\'amour : il te rend fou ou te rend heureux." - Georges Brassens',
   '"L\'alcool est une drogue sournoise qui te fait croire que tu es plus intelligent, plus fort, plus drôle. En réalité, tu es juste plus saoul." - Bill Wilson',
+  "L'abus d'alcool est dangeureux pour la santé, à consommer avec modération.",
 ];
 
 export const ALCOHOL_DENSITY = 0.0789; // Densité de l'alcool en g/cL

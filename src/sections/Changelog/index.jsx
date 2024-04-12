@@ -14,15 +14,15 @@ function Changelog() {
           <h2 className="text-sm font-bold uppercase">Légende</h2>
           <hr className="mt-2 border-dark-3 pb-2" />
           <div className="flex items-center">
-            <div className="mr-2 h-2 w-2 rounded-sm bg-green"></div>
+            <span className="mr-2 h-2 w-2 rounded-full bg-green"></span>
             <p>Version actuelle</p>
           </div>
           <div className="flex items-center">
-            <div className="mr-2 h-2 w-2 rounded-sm bg-main"></div>
+            <span className="mr-2 h-2 w-2 rounded-full bg-main"></span>
             <p>En cours de développement</p>
           </div>
           <div className="flex items-center">
-            <div className="mr-2 h-2 w-2 rounded-sm bg-red"></div>
+            <span className="mr-2 h-2 w-2 rounded-full bg-red"></span>
             <p>Ancienne version</p>
           </div>
         </div>
@@ -34,14 +34,14 @@ function Changelog() {
           </div>
         </div>
         <ul className="mb-4 list-disc pl-5">
-          <li>Page "Mises à jour" 👋</li>
+          <li>Page "Mises à jour" (vous y êtes 👋)</li>
           <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
           <li>Correction d'un bug où l'on ne voyait plus l'heure du verre à supprimer</li>
           <li>
             Nouveau système de modales plus performantes réglant un problème de positionnement au
             scroll
           </li>
-          <li>Implémentation de micro-animations</li>
+          <li>Harmonisation des transitions, implémentation de micro-animations, ...</li>
           <li className="opacity-50">Animation des modales</li>
           <li className="opacity-50">Suppression automatique de ses verres après 24h</li>
           <li className="opacity-50">Affichage de ses verres dans l'ordre chronologique</li>
@@ -61,10 +61,7 @@ function Changelog() {
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.0</h2>
-          <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
-            <span className="absolute h-full w-full animate-ping rounded-full bg-red opacity-75"></span>
-            <span className="h-2 w-2 rounded-full bg-red"></span>
-          </div>
+          <span className="ml-2 h-2 w-2 rounded-full bg-red"></span>
         </div>
         <ul className="list-disc pl-5">
           <li>Initialisation de l'application</li>
