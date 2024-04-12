@@ -43,8 +43,8 @@ function Changelog() {
             scroll
           </li>
           <li>Harmonisation des transitions et implémentation d'animations</li>
+          <li>Suppression automatique de ses verres après 24h</li>
           <li className="opacity-50">Focus du fond du verre qu'on sélectionne</li>
-          <li className="opacity-50">Suppression automatique de ses verres après 24h</li>
           <li className="opacity-50">Affichage de ses verres dans l'ordre chronologique</li>
         </ul>
         <div className="mb-2 flex items-center">

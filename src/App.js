@@ -57,6 +57,19 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const currentConsumption = getData('consumption');
+    const yesterdayDate = new Date();
+    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+    currentConsumption.forEach((glass, index) => {
+      const glassDate = new Date(glass.date);
+      if (glassDate <= yesterdayDate) {
+        currentConsumption.splice(index, 1);
+        setConsumption(currentConsumption);
+      }
+    });
+  }, []);
+
   return (
     <main className="min-h-screen px-4 pt-8 text-white">
       <div className="md:hidden">
