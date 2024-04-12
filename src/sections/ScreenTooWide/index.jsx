@@ -5,7 +5,7 @@ import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 function ScreenTooWide() {
   return (
     <div className="hidden min-h-screen flex-col items-center justify-center px-16 text-center md:flex">
-      <GlassEmptyIcon height={48} width={48} className="mx-auto mb-4" />
+      <GlassEmptyIcon height={48} width={48} className="mx-auto mb-4 animate-bounce" />
       <p className="text-lg">
         L'application <span className="font-bold">Mon alcool tracker</span> n'est pas optimisée pour
         cette taille d'écran

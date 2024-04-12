@@ -9,7 +9,12 @@ function UseLevel({ bloodAlcoholLevel, className }) {
   return (
     <div className={className}>
       <div className="mb-2 flex items-center">
-        <div className={`mr-1 h-2 w-2 rounded-full ${canIDriveBackgroundColor(result)}`}></div>
+        <div className="relative mr-2 flex h-3 w-3 items-center justify-center">
+          <span
+            className={`absolute h-full w-full animate-ping rounded-full ${canIDriveBackgroundColor(result)} opacity-75`}
+          ></span>
+          <span className={`h-2 w-2 rounded-full ${canIDriveBackgroundColor(result)}`}></span>
+        </div>
         <h2 className="font-crucial text-xl">Mon taux</h2>
       </div>
       <Result bloodAlcoholLevel={bloodAlcoholLevel} className="mb-2" />
