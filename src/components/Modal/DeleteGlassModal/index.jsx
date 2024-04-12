@@ -13,7 +13,7 @@ function DeleteGlassModal({ closeModal, onSubmit, selectedGlassDate }) {
         onClick={(e) => e.stopPropagation()}
       >
         <XmarkIcon
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity active:opacity-100"
+          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
           onClick={closeModal}
         />
         <h2 className="mb-3 font-crucial text-xl">Supprimer un verre</h2>

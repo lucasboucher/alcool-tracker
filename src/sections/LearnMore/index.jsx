@@ -58,7 +58,7 @@ function LearnMore({ className }) {
       </p>
       <button
         onClick={scrollToTop}
-        className="w-full rounded-lg bg-dark-3 py-3 font-medium transition-colors active:bg-dark-2"
+        className="w-full rounded-lg bg-dark-3 py-3 font-medium transition-colors duration-200 ease-out active:bg-dark-2"
       >
         Revenir en haut
       </button>

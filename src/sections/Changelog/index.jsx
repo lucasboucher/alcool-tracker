@@ -43,9 +43,8 @@ function Changelog() {
           </li>
           <li>Implémentation de micro-animations</li>
           <li className="opacity-50">Animation des modales</li>
-          <li className="opacity-50">Édition de ses verres</li>
-          <li className="opacity-50">Suppression automatique de ses verres</li>
-          <li className="opacity-50">Afficher ses verres dans l'ordre chronologique</li>
+          <li className="opacity-50">Suppression automatique de ses verres après 24h</li>
+          <li className="opacity-50">Affichage de ses verres dans l'ordre chronologique</li>
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.1</h2>

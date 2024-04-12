@@ -7,25 +7,25 @@ function Footer({ onProfileButtonClick, onResetButtonClick, className }) {
     <div className={className}>
       <button
         onClick={onProfileButtonClick}
-        className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2"
+        className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
       >
         Mon profil
       </button>
       <button
         onClick={onResetButtonClick}
-        className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors active:bg-dark-2"
+        className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
       >
         Réinitialiser l'application
       </button>
       <Link
         to="/changelog"
-        className="mb-2 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
+        className="mb-2 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
       >
         Mises à jour
       </Link>
       <a
         href="http://lucasboucher.fr"
-        className="mb-6 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors active:bg-dark-2"
+        className="mb-6 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
       >
         Lucas Boucher
         <OpenNewWindowIcon width={16} height={16} className="ml-2" />

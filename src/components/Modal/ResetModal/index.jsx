@@ -9,7 +9,7 @@ function ResetModal({ closeModal, onSubmit }) {
         onClick={(e) => e.stopPropagation()}
       >
         <XmarkIcon
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity active:opacity-100"
+          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
           onClick={closeModal}
         />
         <h2 className="mb-3 font-crucial text-xl">Réinitialiser l'application</h2>

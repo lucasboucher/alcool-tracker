@@ -53,7 +53,7 @@ function ProfileModal({ closeModal }) {
       >
         {getData('weight') && (
           <XmarkIcon
-            className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity active:opacity-100"
+            className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
             onClick={closeModal}
           />
         )}
@@ -78,7 +78,7 @@ function ProfileModal({ closeModal }) {
               />
               <label
                 htmlFor="female"
-                className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
+                className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity duration-200 ease-out peer-checked:opacity-100"
               >
                 <span className="mr-1 font-medium">Femme</span>
                 <FemaleIcon />
@@ -96,7 +96,7 @@ function ProfileModal({ closeModal }) {
               />
               <label
                 htmlFor="male"
-                className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity peer-checked:opacity-100"
+                className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity duration-200 ease-out peer-checked:opacity-100"
               >
                 <span className="mr-1 font-medium">Homme</span>
                 <MaleIcon />
@@ -136,7 +136,7 @@ function ProfileModal({ closeModal }) {
               onChange={handleTemporaryLicenseChange}
               className="peer hidden"
             />
-            <div className="flex h-6 w-6 items-center justify-center rounded border peer-checked:border-none peer-checked:bg-blue">
+            <div className="flex h-6 w-6 items-center justify-center rounded border transition-colors duration-200 ease-out peer-checked:border-none peer-checked:bg-blue">
               <CheckIcon width={20} height={20} className="text-white" />
             </div>
             <span className="ml-2">Je suis permis probatoire</span>

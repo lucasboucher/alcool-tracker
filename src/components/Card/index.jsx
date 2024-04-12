@@ -7,7 +7,7 @@ function Card({ time, centilitersVolume, alcoholContent, onClick, icon }) {
 
   return (
     <div
-      className="card transition-color flex min-h-32 min-w-32 cursor-pointer flex-col rounded bg-dark-3 p-2 active:bg-dark-2"
+      className="card flex min-h-32 min-w-32 cursor-pointer flex-col rounded bg-dark-3 p-2 transition-colors duration-200 ease-out active:bg-dark-2"
       onClick={onClick}
     >
       <div className="flex justify-between text-sm font-medium">
@@ -15,7 +15,7 @@ function Card({ time, centilitersVolume, alcoholContent, onClick, icon }) {
         <XmarkIcon
           height={24}
           width={24}
-          className="card__delete text-red opacity-50 transition-opacity"
+          className="card__delete text-red opacity-50 transition-opacity duration-200 ease-out"
         />
       </div>
       <div className="flex grow flex-col items-center justify-center">
