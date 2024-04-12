@@ -42,9 +42,8 @@ function Changelog() {
             Nouveau système de modales plus performantes réglant un problème de positionnement au
             scroll
           </li>
-          <li>Harmonisation des transitions, implémentation de micro-animations, ...</li>
+          <li>Harmonisation des transitions et implémentation d'animations</li>
           <li className="opacity-50">Focus du fond du verre qu'on sélectionne</li>
-          <li className="opacity-50">Animation des modales</li>
           <li className="opacity-50">Suppression automatique de ses verres après 24h</li>
           <li className="opacity-50">Affichage de ses verres dans l'ordre chronologique</li>
         </ul>
@@ -82,7 +81,7 @@ function Changelog() {
           className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
+          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
           whileTap={{
             scale: 0.95,
             transition: { duration: 0.2 },

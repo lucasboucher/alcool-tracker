@@ -28,7 +28,7 @@ export const BAC_LIMIT_BY_LICENSE_TYPE = {
 
 export const dropIn = {
   hidden: {
-    y: '100vh',
+    y: '100%',
   },
   visible: {
     y: '0',
@@ -39,7 +39,7 @@ export const dropIn = {
     },
   },
   exit: {
-    y: '100vh',
+    y: '100%',
     transition: {
       duration: 0.4,
       type: 'spring',

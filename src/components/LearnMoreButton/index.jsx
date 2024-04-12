@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-import { NavArrowDown as NavArrowDownIcon } from 'iconoir-react';
-import { NavArrowUp as NavArrowUpIcon } from 'iconoir-react';
 import LearnMore from '../../sections/LearnMore';
+import { NavArrowDown as NavArrowDownIcon } from 'iconoir-react';
 
 function LearnMoreButton() {
   const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
@@ -19,7 +19,16 @@ function LearnMoreButton() {
       >
         <div className="flex justify-between">
           En savoir plus
-          {isLearnMoreOpen ? <NavArrowUpIcon /> : <NavArrowDownIcon />}
+          <motion.div
+            animate={isLearnMoreOpen ? 'open' : 'closed'}
+            variants={{
+              open: { rotate: 180 },
+              closed: { rotate: 0 },
+            }}
+            transition={{ duration: 0.2 }}
+          >
+            <NavArrowDownIcon />
+          </motion.div>
         </div>
       </button>
       {isLearnMoreOpen && <LearnMore className="mt-4" />}
