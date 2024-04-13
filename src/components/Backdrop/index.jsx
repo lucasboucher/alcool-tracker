@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 function Backdrop({ onClick, children }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <motion.div
       onClick={onClick}
