@@ -44,8 +44,8 @@ function Changelog() {
           </li>
           <li>Harmonisation des transitions et implémentation d'animations</li>
           <li>Suppression automatique de ses verres après 24h</li>
+          <li>Affichage de ses verres dans l'ordre chronologique</li>
           <li className="opacity-50">Focus du fond du verre qu'on sélectionne</li>
-          <li className="opacity-50">Affichage de ses verres dans l'ordre chronologique</li>
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.1</h2>
@@ -78,7 +78,7 @@ function Changelog() {
       </div>
       <Link to="/">
         <motion.div
-          className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
+          className="fixed bottom-4 left-4 right-4 mx-auto flex max-w-screen-md justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
