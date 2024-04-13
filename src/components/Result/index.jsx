@@ -29,7 +29,7 @@ function Result({ bloodAlcoholLevel, className }) {
           </>
         )}
         {result === 'almost' && (
-          <>Vous pouvez prendre la route mais vous devriez encore attendre un petit peu.</>
+          <>Vous devriez pouvoir prendre la route mais il est conseillé d'attendre encore un peu.</>
         )}
         {result === 'yes' && <>Vous pouvez prendre la route.</>}
       </p>

@@ -45,6 +45,7 @@ function App() {
 
   const handleReset = () => {
     resetData();
+    setMyBloodAlcoholLevel(0);
     setConsumption([]);
     setIsResetModalOpen(false);
     setIsProfileModalOpen(true);
