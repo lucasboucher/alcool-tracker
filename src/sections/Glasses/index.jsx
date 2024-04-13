@@ -7,13 +7,14 @@ import { getAlcoholRatio, formatTime } from '../../utils/helpers';
 
 function Glasses({
   consumption,
-  setSelectedDeleteIndexGlass,
-  setIsDeleteGlassModalOpen,
+  setSelectedGlassIndex,
+  selectedGlassIndex,
+  openDeleteGlassModal,
   className,
 }) {
   const onGlassClick = (index) => {
-    setSelectedDeleteIndexGlass(index);
-    setIsDeleteGlassModalOpen(true);
+    setSelectedGlassIndex(index);
+    openDeleteGlassModal();
   };
 
   const glassIcon = (centilitersVolume, alcoholContent) => {
@@ -23,17 +24,12 @@ function Glasses({
     if (ratio === 'strong') return <GlassHalfIcon />;
   };
 
-  const sortedConsumption = [...consumption];
-  sortedConsumption.sort(function (a, b) {
-    return new Date(b.date) - new Date(a.date);
-  });
-
   return (
     <div className={className}>
       <h2 className="mb-2 font-crucial text-xl">Mes verres</h2>
       {consumption.length !== 0 ? (
         <div className="hide-scrollbar mx-[-1rem] flex gap-2 overflow-scroll px-4">
-          {sortedConsumption.map((glass, index) => (
+          {consumption.map((glass, index) => (
             <Card
               time={formatTime(glass.date)}
               centilitersVolume={glass.centilitersVolume}
@@ -41,6 +37,7 @@ function Glasses({
               key={index}
               onClick={() => onGlassClick(index)}
               icon={glassIcon(glass.centilitersVolume, glass.alcoholContent)}
+              isSelected={selectedGlassIndex === index ? true : false}
             />
           ))}
         </div>

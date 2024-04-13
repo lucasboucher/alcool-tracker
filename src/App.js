@@ -19,7 +19,7 @@ import { getData, setData, resetData, getBac } from './utils/helpers';
 function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
   const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(0);
-  const [selectedDeleteIndexGlass, setSelectedDeleteIndexGlass] = useState(null);
+  const [selectedGlassIndex, setSelectedGlassIndex] = useState(null);
   const [isAddGlassModalOpen, setIsAddGlassModalOpen] = useState(false);
   const [isDeleteGlassModalOpen, setIsDeleteGlassModalOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
@@ -37,8 +37,9 @@ function App() {
 
   const deleteGlass = () => {
     const newConsumption = [...consumption];
-    newConsumption.splice(selectedDeleteIndexGlass, 1);
+    newConsumption.splice(selectedGlassIndex, 1);
     setConsumption(newConsumption);
+    setSelectedGlassIndex(null);
     setIsDeleteGlassModalOpen(false);
   };
 
@@ -58,14 +59,14 @@ function App() {
   };
 
   useEffect(() => {
-    const currentConsumption = getData('consumption');
+    const refreshedConsumption = getData('consumption');
     const yesterdayDate = new Date();
     yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-    currentConsumption.forEach((glass, index) => {
+    refreshedConsumption.forEach((glass, index) => {
       const glassDate = new Date(glass.date);
       if (glassDate <= yesterdayDate) {
-        currentConsumption.splice(index, 1);
-        setConsumption(currentConsumption);
+        refreshedConsumption.splice(index, 1);
+        setConsumption(refreshedConsumption);
       }
     });
   }, []);
@@ -77,8 +78,9 @@ function App() {
         <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6" />
         <Glasses
           consumption={consumption}
-          setSelectedDeleteIndexGlass={setSelectedDeleteIndexGlass}
-          setIsDeleteGlassModalOpen={setIsDeleteGlassModalOpen}
+          selectedGlassIndex={selectedGlassIndex}
+          setSelectedGlassIndex={setSelectedGlassIndex}
+          openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
           className="mb-6"
         />
         <Footer
@@ -98,9 +100,12 @@ function App() {
         <AnimatePresence>
           {isDeleteGlassModalOpen && (
             <DeleteGlassModal
-              closeModal={() => setIsDeleteGlassModalOpen(false)}
+              closeModal={() => {
+                setIsDeleteGlassModalOpen(false);
+                setSelectedGlassIndex(null);
+              }}
               onSubmit={() => deleteGlass()}
-              selectedGlassDate={consumption[selectedDeleteIndexGlass].date}
+              selectedGlassDate={consumption[selectedGlassIndex].date}
             />
           )}
         </AnimatePresence>

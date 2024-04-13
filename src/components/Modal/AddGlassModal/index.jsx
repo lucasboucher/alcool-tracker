@@ -42,14 +42,18 @@ function AddGlassModal({ closeModal, setConsumption }) {
     if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
       setVolume('');
       setAlcoholContent('');
-      setConsumption((prevState) => [
-        ...prevState,
-        {
-          date: getDate(time),
-          centilitersVolume: volume,
-          alcoholContent: alcoholContent,
-        },
-      ]);
+      setConsumption((prevState) => {
+        const consumption = [
+          ...prevState,
+          {
+            date: getDate(time),
+            centilitersVolume: volume,
+            alcoholContent: alcoholContent,
+          },
+        ];
+        consumption.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return consumption;
+      });
       closeModal();
     }
   };

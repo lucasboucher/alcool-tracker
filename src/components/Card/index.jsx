@@ -2,12 +2,12 @@ import { cloneElement } from 'react';
 
 import { Xmark as XmarkIcon } from 'iconoir-react';
 
-function Card({ time, centilitersVolume, alcoholContent, onClick, icon }) {
+function Card({ time, centilitersVolume, alcoholContent, onClick, icon, isSelected }) {
   const iconWithProps = cloneElement(icon, { className: 'mb-1', height: 32, width: 32 });
 
   return (
     <div
-      className="card flex min-h-32 min-w-32 cursor-pointer flex-col rounded bg-dark-3 p-2 transition-colors duration-200 ease-out active:bg-dark-2"
+      className={`card flex min-h-32 min-w-32 cursor-pointer flex-col rounded p-2 transition-colors duration-200 ease-out active:bg-dark-2 ${isSelected ? 'bg-dark-2' : 'bg-dark-3'}`}
       onClick={onClick}
     >
       <div className="flex justify-between text-sm font-medium">

@@ -46,7 +46,7 @@ function Changelog() {
           <li>Suppression automatique de ses verres après 24h</li>
           <li>Affichage de ses verres dans l'ordre chronologique</li>
           <li>Scroll bloqué quand on est sur une modale</li>
-          <li className="opacity-50">Focus du fond du verre qu'on sélectionne</li>
+          <li>Focus du fond du verre qu'on sélectionne</li>
         </ul>
         <div className="mb-2 flex items-center">
           <h2 className="font-crucial text-xl">v1.1</h2>
