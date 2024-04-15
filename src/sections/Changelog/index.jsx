@@ -3,6 +3,8 @@ import { Link, ScrollRestoration } from 'react-router-dom';
 
 import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
 import Copyright from '../../components/Footer';
+import VersionTitle from '../../components/VersionTitle';
+import ChangelogCaption from '../../components/ChangelogCaption';
 
 function Changelog() {
   return (
@@ -12,29 +14,8 @@ function Changelog() {
           <h1 className="mr-2 font-crucial text-3xl">Mon alcool tracker</h1>
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>
         </div>
-        <div className="mb-4 rounded-lg bg-dark-2 p-4">
-          <h2 className="text-sm font-bold uppercase">Légende</h2>
-          <hr className="mt-2 border-dark-3 pb-2" />
-          <div className="flex items-center">
-            <span className="mr-2 h-2 w-2 rounded-full bg-green"></span>
-            <p>Version actuelle</p>
-          </div>
-          <div className="flex items-center">
-            <span className="mr-2 h-2 w-2 rounded-full bg-main"></span>
-            <p>En cours de développement</p>
-          </div>
-          <div className="flex items-center">
-            <span className="mr-2 h-2 w-2 rounded-full bg-red"></span>
-            <p>Ancienne version</p>
-          </div>
-        </div>
-        <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.3 \Verres</h2>
-          <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
-            <span className="absolute h-full w-full animate-ping rounded-full bg-main opacity-75"></span>
-            <span className="h-2 w-2 rounded-full bg-main"></span>
-          </div>
-        </div>
+        <ChangelogCaption className="mb-4" />
+        <VersionTitle version="1.3" name="Verres" state="wip" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
           <li>Raccourci pour ajouter un nouveau verre dans le carousel des consommations</li>
           <li>
@@ -53,13 +34,7 @@ function Changelog() {
             Possibilité d'éditer ses verres au lieu de simplement supprimer
           </li>
         </ul>
-        <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.2 \Animations</h2>
-          <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
-            <span className="absolute h-full w-full animate-ping rounded-full bg-green opacity-75"></span>
-            <span className="h-2 w-2 rounded-full bg-green"></span>
-          </div>
-        </div>
+        <VersionTitle version="1.2" name="Animations" state="current" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
           <li>Page "Mises à jour" (vous y êtes 👋)</li>
           <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
@@ -74,20 +49,14 @@ function Changelog() {
           <li>Scroll bloqué quand on est sur une modale</li>
           <li>Focus du fond du verre qu'on sélectionne</li>
         </ul>
-        <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.1 \Conduite</h2>
-          <span className="ml-2 h-2 w-2 rounded-full bg-red"></span>
-        </div>
+        <VersionTitle version="1.1" name="Conduite" state="old" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
           <li>Nouveau design pour l'heure de conduite</li>
           <li>Nombre d'heures et de minutes avant l'heure de conduite</li>
           <li>Nouveau design pour le bloc "En savoir plus"</li>
           <li>Version à côté du titre</li>
         </ul>
-        <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.0 \Initialisation</h2>
-          <span className="ml-2 h-2 w-2 rounded-full bg-red"></span>
-        </div>
+        <VersionTitle version="1.0" name="Initialisation" state="old" className="mb-2" />
         <ul className="list-disc pl-5">
           <li>Bloc de citations, actualités, faits divers et conseils sur l'alcool</li>
           <li>Bloc "En savoir plus" avec guide et clause de non-responsabilité</li>
