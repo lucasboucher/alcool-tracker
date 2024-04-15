@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import UseLevel from './sections/UseLevel';
 import Glasses from './sections/Glasses';
 import Header from './sections/Header';
-import Footer from './sections/Footer';
+import Navigation from './sections/Navigation';
 import ViewportTooWide from './sections/ViewportTooWide';
 
 import AddGlassButton from './components/AddGlassButton';
@@ -82,9 +82,11 @@ function App() {
           selectedGlassIndex={selectedGlassIndex}
           setSelectedGlassIndex={setSelectedGlassIndex}
           openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
+          openAddGlassModal={() => setIsAddGlassModalOpen(true)}
+          isAddGlassModalOpen={isAddGlassModalOpen}
           className="mb-6"
         />
-        <Footer
+        <Navigation
           onProfileButtonClick={() => setIsProfileModalOpen(true)}
           onResetButtonClick={() => setIsResetModalOpen(true)}
           className="pb-24"

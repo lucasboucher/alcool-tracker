@@ -3,6 +3,7 @@ import Card from '../../components/Card';
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
 import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
+import { PlusSquare as PlusSquareIcon } from 'iconoir-react';
 import { getAlcoholRatio, formatTime } from '../../utils/helpers';
 
 function Glasses({
@@ -10,11 +11,17 @@ function Glasses({
   setSelectedGlassIndex,
   selectedGlassIndex,
   openDeleteGlassModal,
+  openAddGlassModal,
+  isAddGlassModalOpen,
   className,
 }) {
   const onGlassClick = (index) => {
     setSelectedGlassIndex(index);
     openDeleteGlassModal();
+  };
+
+  const onAddGlassClick = () => {
+    openAddGlassModal();
   };
 
   const glassIcon = (centilitersVolume, alcoholContent) => {
@@ -40,6 +47,17 @@ function Glasses({
               isSelected={selectedGlassIndex === index ? true : false}
             />
           ))}
+          <button
+            onClick={onAddGlassClick}
+            className={`group min-h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isAddGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+          >
+            <div
+              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-80'}`}
+            >
+              <PlusSquareIcon height={32} width={32} className="mb-1" />
+              <p className="text-sm font-medium uppercase">Ajouter</p>
+            </div>
+          </button>
         </div>
       ) : (
         <p>Vous n'avez pas encore enregistré de verres.</p>

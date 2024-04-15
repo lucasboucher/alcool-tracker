@@ -6,11 +6,11 @@ function Card({ time, centilitersVolume, alcoholContent, onClick, icon, isSelect
   const iconWithProps = cloneElement(icon, { className: 'mb-1', height: 32, width: 32 });
 
   return (
-    <div
+    <button
       className={`card flex min-h-32 min-w-32 cursor-pointer flex-col rounded p-2 transition-colors duration-200 ease-out active:bg-dark-2 ${isSelected ? 'bg-dark-2' : 'bg-dark-3'}`}
       onClick={onClick}
     >
-      <div className="flex justify-between text-sm font-medium">
+      <div className="flex w-full justify-between text-sm font-medium">
         {time}
         <XmarkIcon
           height={24}
@@ -18,14 +18,14 @@ function Card({ time, centilitersVolume, alcoholContent, onClick, icon, isSelect
           className="card__delete text-red opacity-50 transition-opacity duration-200 ease-out"
         />
       </div>
-      <div className="flex grow flex-col items-center justify-center">
+      <div className="flex w-full grow flex-col items-center justify-center">
         {iconWithProps}
         <p>
           <span className="font-bold">{centilitersVolume}</span>cl à{' '}
           <span className="font-bold">{alcoholContent}</span>°
         </p>
       </div>
-    </div>
+    </button>
   );
 }
 

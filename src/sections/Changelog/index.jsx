@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link, ScrollRestoration } from 'react-router-dom';
 
 import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
+import Copyright from '../../components/Footer';
 
 function Changelog() {
   return (
@@ -28,23 +29,38 @@ function Changelog() {
           </div>
         </div>
         <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.3</h2>
+          <h2 className="font-crucial text-xl">v1.3 \Verres</h2>
           <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
             <span className="absolute h-full w-full animate-ping rounded-full bg-main opacity-75"></span>
             <span className="h-2 w-2 rounded-full bg-main"></span>
           </div>
         </div>
-        <ul className="mb-4 list-disc pl-5">
-          <li className="opacity-50">Bientôt...</li>
+        <ul className="mb-6 list-disc pl-5">
+          <li>Raccourci pour ajouter un nouveau verre dans le carousel des consommations</li>
+          <li>
+            Améliorations dans les mises à jour : copyright, espacements et titres par version
+          </li>
+          <li className="opacity-50">Nouvelle animation pour les verres</li>
+          <li className="opacity-50">Amélioration de l'animation d'apparition des modales</li>
+          <li className="opacity-50">
+            Informations sur son état d'ivresse avec les symptômes et risques sous la forme d'une
+            infobulle dans la partie statistiques
+          </li>
+          <li className="opacity-50">
+            Informations sur les calories de chacun de ses verres sous la forme d'une infobulle
+          </li>
+          <li className="opacity-50">
+            Possibilité d'éditer ses verres au lieu de simplement supprimer
+          </li>
         </ul>
         <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.2</h2>
+          <h2 className="font-crucial text-xl">v1.2 \Animations</h2>
           <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
             <span className="absolute h-full w-full animate-ping rounded-full bg-green opacity-75"></span>
             <span className="h-2 w-2 rounded-full bg-green"></span>
           </div>
         </div>
-        <ul className="mb-4 list-disc pl-5">
+        <ul className="mb-6 list-disc pl-5">
           <li>Page "Mises à jour" (vous y êtes 👋)</li>
           <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
           <li>Correction d'un bug où l'on ne voyait plus l'heure du verre à supprimer</li>
@@ -59,21 +75,20 @@ function Changelog() {
           <li>Focus du fond du verre qu'on sélectionne</li>
         </ul>
         <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.1</h2>
+          <h2 className="font-crucial text-xl">v1.1 \Conduite</h2>
           <span className="ml-2 h-2 w-2 rounded-full bg-red"></span>
         </div>
-        <ul className="mb-4 list-disc pl-5">
+        <ul className="mb-6 list-disc pl-5">
           <li>Nouveau design pour l'heure de conduite</li>
           <li>Nombre d'heures et de minutes avant l'heure de conduite</li>
           <li>Nouveau design pour le bloc "En savoir plus"</li>
           <li>Version à côté du titre</li>
         </ul>
         <div className="mb-2 flex items-center">
-          <h2 className="font-crucial text-xl">v1.0</h2>
+          <h2 className="font-crucial text-xl">v1.0 \Initialisation</h2>
           <span className="ml-2 h-2 w-2 rounded-full bg-red"></span>
         </div>
         <ul className="list-disc pl-5">
-          <li>Initialisation de l'application</li>
           <li>Bloc de citations, actualités, faits divers et conseils sur l'alcool</li>
           <li>Bloc "En savoir plus" avec guide et clause de non-responsabilité</li>
           <li>Ajout, affichage et suppression de ses verres (Volume, heure et teneur)</li>
@@ -83,6 +98,7 @@ function Changelog() {
           </li>
           <li>Gestion de son profil (Genre, poids et permis probatoire)</li>
         </ul>
+        <Copyright className="mt-6" />
       </div>
       <Link to="/">
         <motion.div
