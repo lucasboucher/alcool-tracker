@@ -23,8 +23,13 @@ function Changelog() {
           </li>
           <li>Nouvelle animation pour les verres</li>
           <li>Amélioration de l'animation d'apparition des modales</li>
-          <li>Le scroll en devrait plus être possible sur Safari mobile</li>
+          <li>
+            Le scroll ne devrait plus être possible sur Safari mobile quand on est dans une modale
+          </li>
           <li>Pluriel/singulier dynamique pour le résultat de conduite</li>
+          <li>
+            Arrondissement des minutes quand il reste moins d'une heure avant de pouvoir conduire
+          </li>
           <li className="opacity-50">
             Informations sur son état d'ivresse avec les symptômes et risques sous la forme d'une
             infobulle dans la partie statistiques

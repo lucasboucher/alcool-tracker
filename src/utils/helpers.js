@@ -186,7 +186,7 @@ export const getTimeDifference = (driveDate) => {
 
   let differenceInMinutes = (driveDate - currentDate) / 60000;
   const differenceInHours = Math.floor(differenceInMinutes / 60);
-  differenceInMinutes = differenceInMinutes % 60;
+  differenceInMinutes = Math.floor(differenceInMinutes % 60);
 
   return differenceInHours !== 0
     ? `${differenceInHours} ${differenceInHours === 1 ? 'heure' : 'heures'} et ${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : 'minutes'}`

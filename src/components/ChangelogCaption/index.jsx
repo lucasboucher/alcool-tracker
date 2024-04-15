@@ -15,6 +15,11 @@ function ChangelogCaption({ className }) {
         <span className="mr-2 h-2 w-2 rounded-full bg-red"></span>
         <p>Ancienne version</p>
       </div>
+      <hr className="mt-2 border-dark-3 pb-2" />
+      <p>
+        Chaque version travaille plus ou moins sur un aspect précis de l'application, d'où le titre
+        attribué à chacun.
+      </p>
     </div>
   );
 }
