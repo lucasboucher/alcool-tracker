@@ -84,7 +84,7 @@ function App() {
           openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
           openAddGlassModal={() => setIsAddGlassModalOpen(true)}
           isAddGlassModalOpen={isAddGlassModalOpen}
-          className="mb-6"
+          className="mb-12"
         />
         <Navigation
           onProfileButtonClick={() => setIsProfileModalOpen(true)}

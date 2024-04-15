@@ -52,7 +52,7 @@ function Glasses({
             className={`group min-h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isAddGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
           >
             <div
-              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-80'}`}
+              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
               <PlusSquareIcon height={32} width={32} className="mb-1" />
               <p className="text-sm font-medium uppercase">Ajouter</p>
@@ -60,7 +60,20 @@ function Glasses({
           </button>
         </div>
       ) : (
-        <p>Vous n'avez pas encore enregistré de verres.</p>
+        <>
+          <p className="mb-2">Vous n'avez pas encore enregistré de verres.</p>
+          <button
+            onClick={onAddGlassClick}
+            className={`group h-32 w-full rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isAddGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+          >
+            <div
+              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
+            >
+              <PlusSquareIcon height={32} width={32} className="mb-1" />
+              <p className="text-sm font-medium uppercase">Ajouter un verre</p>
+            </div>
+          </button>
+        </>
       )}
     </div>
   );
