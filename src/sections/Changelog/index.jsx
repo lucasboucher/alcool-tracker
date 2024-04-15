@@ -21,8 +21,8 @@ function Changelog() {
           <li>
             Améliorations dans les mises à jour : copyright, espacements et titres par version
           </li>
-          <li className="opacity-50">Nouvelle animation pour les verres</li>
-          <li className="opacity-50">Amélioration de l'animation d'apparition des modales</li>
+          <li>Nouvelle animation pour les verres</li>
+          <li>Amélioration de l'animation d'apparition des modales</li>
           <li className="opacity-50">
             Informations sur son état d'ivresse avec les symptômes et risques sous la forme d'une
             infobulle dans la partie statistiques

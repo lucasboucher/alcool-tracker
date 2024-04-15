@@ -50,7 +50,7 @@ function ProfileModal({ closeModal }) {
   return (
     <Backdrop onClick={closeModal}>
       <motion.div
-        className="fixed bottom-0 left-0 right-0 z-10 cursor-auto rounded-t-2xl bg-white px-4 py-8 text-dark-1"
+        className="fixed bottom-0 left-0 right-0 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
         onClick={(e) => e.stopPropagation()}
         variants={dropIn}
         initial="hidden"
