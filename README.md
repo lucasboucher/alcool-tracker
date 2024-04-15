@@ -10,6 +10,8 @@ Utilisation de Tailwind, React et la librairie d'icon [Iconoir](https://iconoir.
 
 **Déployé sur Netlify ici : https://lb-alcool-tracker.netlify.app**
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5deb4854-2804-493a-9e5f-86110887be52/deploy-status)](https://app.netlify.com/sites/lb-alcool-tracker/deploys)
+
 ## Développement
 
 J'ai utilisé [CRA](https://github.com/facebook/create-react-app) pour créer mon projet, la commande pour lancer le projet reste `npm start`.

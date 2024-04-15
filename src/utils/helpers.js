@@ -189,6 +189,6 @@ export const getTimeDifference = (driveDate) => {
   differenceInMinutes = differenceInMinutes % 60;
 
   return differenceInHours !== 0
-    ? `${differenceInHours} heure(s) et ${differenceInMinutes} minute(s)`
-    : `${differenceInMinutes} minute(s)`;
+    ? `${differenceInHours} ${differenceInHours === 1 ? 'heure' : 'heures'} et ${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : 'minutes'}`
+    : `${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : 'minutes'}`;
 };
