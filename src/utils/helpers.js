@@ -188,7 +188,13 @@ export const getTimeDifference = (driveDate) => {
   const differenceInHours = Math.floor(differenceInMinutes / 60);
   differenceInMinutes = Math.floor(differenceInMinutes % 60);
 
-  return differenceInHours !== 0
-    ? `${differenceInHours} ${differenceInHours === 1 ? 'heure' : 'heures'} et ${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : 'minutes'}`
-    : `${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : 'minutes'}`;
+  if (differenceInHours !== 0) {
+    return `${differenceInHours} ${differenceInHours === 1 ? 'heure' : 'heures'} et ${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : differenceInMinutes === 0 ? 'minute' : 'minutes'}`;
+  } else {
+    return `${differenceInMinutes} ${differenceInMinutes === 1 ? 'minute' : 'minutes'}`;
+  }
+};
+
+export const getCalories = (volume, content) => {
+  return Math.round(content * volume * 0.789);
 };

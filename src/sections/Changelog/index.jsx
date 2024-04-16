@@ -34,11 +34,9 @@ function Changelog() {
             Informations sur son état d'ivresse avec les symptômes et risques dans la partie
             statistiques
           </li>
-          <li className="opacity-50">
+          <li>Possibilité d'éditer ses verres au lieu de simplement supprimer</li>
+          <li>
             Informations sur les calories de chacun de ses verres sous la forme d'une infobulle
-          </li>
-          <li className="opacity-50">
-            Possibilité d'éditer ses verres au lieu de simplement supprimer
           </li>
         </ul>
         <VersionTitle version="1.2" name="Animations" state="current" className="mb-2" />

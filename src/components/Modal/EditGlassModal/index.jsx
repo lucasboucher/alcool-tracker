@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { getData, getDate, getNow, formatTime } from '../../../utils/helpers';
+import { getData, getDate, getNow, formatTime, getCalories } from '../../../utils/helpers';
 import { dropIn } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
+import Tooltip from '../../Tooltip';
 import { Xmark as XmarkIcon } from 'iconoir-react';
-import { Bin as BinIcon } from 'iconoir-react';
+import { BinMinusIn as BinMinusInIcon } from 'iconoir-react';
 
 function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDeleteClick }) {
   const consumption = getData('consumption');
   const selectedGlass = consumption[selectedGlassIndex];
+  const calories =
+    selectedGlassIndex !== null
+      ? getCalories(selectedGlass.centilitersVolume, selectedGlass.alcoholContent)
+      : 0;
 
   const [volumeError, setVolumeError] = useState('');
   const [alcoholContentError, setAlcoholContentError] = useState('');
@@ -78,9 +83,18 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
           onClick={closeModal}
         />
-        <h2 className="mb-3 font-crucial text-xl">
-          {selectedGlassIndex !== null ? 'Modifier' : 'Ajouter'} un verre
-        </h2>
+        <div className="mb-3 flex items-center">
+          <h2 className="font-crucial text-xl">
+            {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
+          </h2>
+          {selectedGlassIndex !== null && (
+            <Tooltip
+              trigger="kcal"
+              content={`Ce verre équivaut environ à ${calories} kcal.`}
+              className="ml-2"
+            />
+          )}
+        </div>
         <div className="mb-2">
           <div className="flex">
             <div className="mr-2 w-full">
@@ -149,7 +163,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               onClick={onDeleteClick}
               className="active:bg-red-2 ml-2 rounded-lg bg-red px-4 transition duration-200 ease-out"
             >
-              <BinIcon className="text-white" />
+              <BinMinusInIcon className="text-white" />
             </button>
           )}
         </div>

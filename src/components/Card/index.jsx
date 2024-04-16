@@ -1,7 +1,7 @@
 import { cloneElement } from 'react';
 import { motion } from 'framer-motion';
 
-import { Xmark as XmarkIcon } from 'iconoir-react';
+import { XmarkCircle as XMarkCircleIcon } from 'iconoir-react';
 
 function Card({
   time,
@@ -25,13 +25,13 @@ function Card({
       }}
     >
       <div className="flex items-center justify-between text-sm font-medium">
-        <div className="p-0.5">{time}</div>
+        <div className="p-1">{time}</div>
         <button
-          className={`rounded p-0.5 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
+          className={`rounded p-1 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
           onClick={onDeleteClick}
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
-          <XmarkIcon height={24} width={24} className="text-red" />
+          <XMarkCircleIcon height={20} width={20} className="text-red" />
         </button>
       </div>
       <div className="flex grow flex-col items-center justify-center">
