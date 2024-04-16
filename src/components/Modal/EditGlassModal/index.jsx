@@ -5,7 +5,7 @@ import { getData, getDate, getNow, formatTime, getCalories } from '../../../util
 import { dropIn } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
-import Tooltip from '../../Tooltip';
+import CaloriesTooltip from '../../CaloriesTooltip';
 import { Xmark as XmarkIcon } from 'iconoir-react';
 import { BinMinusIn as BinMinusInIcon } from 'iconoir-react';
 
@@ -87,11 +87,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           <h2 className="font-crucial text-xl">
             {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
           </h2>
-          {selectedGlassIndex !== null && (
-            <Tooltip trigger="kcal" className="ml-2">
-              Ce verre équivaut environ à <span className="font-bold">{calories}</span> kcal.
-            </Tooltip>
-          )}
+          {selectedGlassIndex !== null && <CaloriesTooltip value={calories} className="ml-2" />}
         </div>
         <div className="mb-2">
           <div className="flex">
@@ -159,7 +155,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           {selectedGlassIndex !== null && (
             <button
               onClick={onDeleteClick}
-              className="active:bg-red-2 ml-2 rounded-lg bg-red px-4 transition duration-200 ease-out"
+              className="ml-2 rounded-lg bg-red px-4 transition duration-200 ease-out active:bg-red-2"
             >
               <BinMinusInIcon className="text-white" />
             </button>

@@ -14,6 +14,7 @@ module.exports = {
       green: '#009F00',
       grey: '#E6E6E8',
       blue: '#007AFF',
+      transparent: 'transparent',
     },
     listStyleType: {
       disc: 'disc',
