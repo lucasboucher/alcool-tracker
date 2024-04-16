@@ -35,35 +35,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex }) {
     setAlcoholContent(e.target.value);
   };
 
-  const handleCreationSubmit = () => {
-    setVolumeError('');
-    setAlcoholContentError('');
-    if (!volume || volume <= 0) {
-      setVolumeError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
-    }
-    if (!alcoholContent || alcoholContent <= 0) {
-      setAlcoholContentError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
-    }
-    if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
-      setConsumption((prevState) => {
-        const consumption = [
-          ...prevState,
-          {
-            date: getDate(time),
-            centilitersVolume: volume,
-            alcoholContent: alcoholContent,
-          },
-        ];
-        consumption.sort((a, b) => new Date(b.date) - new Date(a.date));
-        return consumption;
-      });
-      closeModal();
-    }
-  };
-
-  const handleEditionSubmit = () => {
-    setVolumeError('');
-    setAlcoholContentError('');
+  const handleSubmit = () => {
     if (!volume || volume <= 0) {
       setVolumeError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
     }
@@ -73,11 +45,17 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex }) {
     if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
       setConsumption((prevState) => {
         const consumption = [...prevState];
-        consumption[selectedGlassIndex] = {
-          date: getDate(time),
-          centilitersVolume: volume,
-          alcoholContent: alcoholContent,
-        };
+        selectedGlassIndex !== null
+          ? (consumption[selectedGlassIndex] = {
+              date: getDate(time),
+              centilitersVolume: volume,
+              alcoholContent: alcoholContent,
+            })
+          : consumption.push({
+              date: getDate(time),
+              centilitersVolume: volume,
+              alcoholContent: alcoholContent,
+            });
         consumption.sort((a, b) => new Date(b.date) - new Date(a.date));
         return consumption;
       });
@@ -159,7 +137,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex }) {
           {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
         </div>
         <button
-          onClick={selectedGlassIndex !== null ? handleEditionSubmit : handleCreationSubmit}
+          onClick={handleSubmit}
           className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3"
         >
           Valider
