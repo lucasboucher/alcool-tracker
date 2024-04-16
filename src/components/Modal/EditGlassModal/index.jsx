@@ -88,11 +88,9 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
             {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
           </h2>
           {selectedGlassIndex !== null && (
-            <Tooltip
-              trigger="kcal"
-              content={`Ce verre équivaut environ à ${calories} kcal.`}
-              className="ml-2"
-            />
+            <Tooltip trigger="kcal" className="ml-2">
+              Ce verre équivaut environ à <span className="font-bold">{calories}</span> kcal.
+            </Tooltip>
           )}
         </div>
         <div className="mb-2">
