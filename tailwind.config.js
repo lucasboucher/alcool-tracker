@@ -14,6 +14,10 @@ module.exports = {
       grey: '#E6E6E8',
       blue: '#007AFF',
     },
+    listStyleType: {
+      disc: 'disc',
+      square: 'square',
+    },
     extend: {
       fontFamily: {
         sans: ['Barlow', 'sans-serif'],

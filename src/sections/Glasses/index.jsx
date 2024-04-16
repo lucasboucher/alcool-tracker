@@ -54,7 +54,7 @@ function Glasses({
             <div
               className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
-              <PlusSquareIcon height={32} width={32} className="mb-1" />
+              <PlusSquareIcon className="mb-1" />
               <p className="text-sm font-medium uppercase">Ajouter</p>
             </div>
           </button>

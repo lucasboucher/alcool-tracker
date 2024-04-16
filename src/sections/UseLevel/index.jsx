@@ -3,7 +3,7 @@ import Result from '../../components/Result';
 
 import { canIDriveBackgroundColor, canIDrive, getData } from '../../utils/helpers';
 
-function UseLevel({ bloodAlcoholLevel, className }) {
+function UseLevel({ bloodAlcoholLevel, openHealthModal, isHealthModalOpen, className }) {
   const result = canIDrive(bloodAlcoholLevel, getData('temporaryLicense'));
 
   return (
@@ -19,8 +19,14 @@ function UseLevel({ bloodAlcoholLevel, className }) {
       </div>
       <Result bloodAlcoholLevel={bloodAlcoholLevel} className="mb-2" />
       <div className="flex gap-2">
-        <Figure number={bloodAlcoholLevel} text="g/L de sang" />
         <Figure number={bloodAlcoholLevel / 2.1} text="mg/L d’air expiré" />
+        <Figure
+          number={bloodAlcoholLevel}
+          openHealthModal={openHealthModal}
+          isHealthModalOpen={isHealthModalOpen}
+          bloodAlcoholLevel={bloodAlcoholLevel}
+          text="g/L de sang"
+        />
       </div>
     </div>
   );

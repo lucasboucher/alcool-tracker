@@ -67,7 +67,7 @@ function LearnMore({ className }) {
         qui n'est pas pris en compte joue un rôle, tout comme votre proportion de tissus adipeux et
         musculaires.
       </motion.p>
-      <motion.p className="mb-3" variants={item} whileInView="visible">
+      <motion.p className="mb-3" variants={item}>
         Cette application a été conçue à des fins d'études, de pédagogie et de compréhension de son
         corps. Pour rappel, le taux limite autorisé en France est de{' '}
         <span className="font-bold">0,5 g/L</span> de sang et{' '}

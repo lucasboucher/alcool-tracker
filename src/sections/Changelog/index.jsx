@@ -30,9 +30,9 @@ function Changelog() {
           <li>
             Arrondissement des minutes quand il reste moins d'une heure avant de pouvoir conduire
           </li>
-          <li className="opacity-50">
-            Informations sur son état d'ivresse avec les symptômes et risques sous la forme d'une
-            infobulle dans la partie statistiques
+          <li>
+            Informations sur son état d'ivresse avec les symptômes et risques dans la partie
+            statistiques
           </li>
           <li className="opacity-50">
             Informations sur les calories de chacun de ses verres sous la forme d'une infobulle

@@ -13,6 +13,7 @@ import AddGlassModal from './components/Modal/AddGlassModal';
 import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
 import ResetModal from './components/Modal/ResetModal';
+import HealthModal from './components/Modal/HealthModal';
 
 import { getData, setData, resetData, getBac } from './utils/helpers';
 
@@ -24,6 +25,7 @@ function App() {
   const [isDeleteGlassModalOpen, setIsDeleteGlassModalOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+  const [isHealthModalOpen, setIsHealthModalOpen] = useState(false);
 
   useEffect(() => {
     isProfileDefined() || setIsProfileModalOpen(true);
@@ -76,7 +78,12 @@ function App() {
     <main className="min-h-screen px-4 pt-8 text-white">
       <div className="md:hidden">
         <Header className="mb-6" />
-        <UseLevel bloodAlcoholLevel={myBloodAlcoholLevel} className="mb-6" />
+        <UseLevel
+          bloodAlcoholLevel={myBloodAlcoholLevel}
+          openHealthModal={() => setIsHealthModalOpen(true)}
+          isHealthModalOpen={isHealthModalOpen}
+          className="mb-6"
+        />
         <Glasses
           consumption={consumption}
           selectedGlassIndex={selectedGlassIndex}
@@ -122,6 +129,14 @@ function App() {
             <ResetModal
               closeModal={() => setIsResetModalOpen(false)}
               onSubmit={() => handleReset()}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {isHealthModalOpen && (
+            <HealthModal
+              closeModal={() => setIsHealthModalOpen(false)}
+              bloodAlcoholLevel={myBloodAlcoholLevel}
             />
           )}
         </AnimatePresence>
