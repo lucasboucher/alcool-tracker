@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { getDate, getNow } from '../../../utils/helpers';
+import { getData, getDate, getNow, formatTime } from '../../../utils/helpers';
 import { dropIn } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
 import { Xmark as XmarkIcon } from 'iconoir-react';
 
-function AddGlassModal({ closeModal, setConsumption }) {
+function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex }) {
+  const consumption = getData('consumption');
+  const selectedGlass = consumption[selectedGlassIndex];
+
   const [volumeError, setVolumeError] = useState('');
   const [alcoholContentError, setAlcoholContentError] = useState('');
-  const [volume, setVolume] = useState('');
-  const [time, setTime] = useState(getNow());
-  const [alcoholContent, setAlcoholContent] = useState('');
-
-  useEffect(() => {
-    setTime(getNow());
-  }, []);
+  const [volume, setVolume] = useState(
+    selectedGlassIndex !== null ? selectedGlass.centilitersVolume : '',
+  );
+  const [time, setTime] = useState(
+    selectedGlassIndex !== null ? formatTime(new Date(selectedGlass.date)) : getNow(),
+  );
+  const [alcoholContent, setAlcoholContent] = useState(
+    selectedGlassIndex !== null ? selectedGlass.alcoholContent : '',
+  );
 
   const handleVolumeChange = (e) => {
     setVolume(e.target.value);
@@ -30,7 +35,7 @@ function AddGlassModal({ closeModal, setConsumption }) {
     setAlcoholContent(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleCreationSubmit = () => {
     setVolumeError('');
     setAlcoholContentError('');
     if (!volume || volume <= 0) {
@@ -40,8 +45,6 @@ function AddGlassModal({ closeModal, setConsumption }) {
       setAlcoholContentError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
     }
     if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
-      setVolume('');
-      setAlcoholContent('');
       setConsumption((prevState) => {
         const consumption = [
           ...prevState,
@@ -51,6 +54,30 @@ function AddGlassModal({ closeModal, setConsumption }) {
             alcoholContent: alcoholContent,
           },
         ];
+        consumption.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return consumption;
+      });
+      closeModal();
+    }
+  };
+
+  const handleEditionSubmit = () => {
+    setVolumeError('');
+    setAlcoholContentError('');
+    if (!volume || volume <= 0) {
+      setVolumeError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
+    }
+    if (!alcoholContent || alcoholContent <= 0) {
+      setAlcoholContentError('Vous ne pouvez pas laisser ce champ vide ou nulle.');
+    }
+    if (volume && volume > 0 && alcoholContent && alcoholContent > 0) {
+      setConsumption((prevState) => {
+        const consumption = [...prevState];
+        consumption[selectedGlassIndex] = {
+          date: getDate(time),
+          centilitersVolume: volume,
+          alcoholContent: alcoholContent,
+        };
         consumption.sort((a, b) => new Date(b.date) - new Date(a.date));
         return consumption;
       });
@@ -72,7 +99,9 @@ function AddGlassModal({ closeModal, setConsumption }) {
           className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
           onClick={closeModal}
         />
-        <h2 className="mb-3 font-crucial text-xl">Ajouter un verre</h2>
+        <h2 className="mb-3 font-crucial text-xl">
+          {selectedGlassIndex !== null ? 'Modifier' : 'Ajouter'} un verre
+        </h2>
         <div className="mb-2">
           <div className="flex">
             <div className="mr-2 w-full">
@@ -130,7 +159,7 @@ function AddGlassModal({ closeModal, setConsumption }) {
           {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
         </div>
         <button
-          onClick={handleSubmit}
+          onClick={selectedGlassIndex !== null ? handleEditionSubmit : handleCreationSubmit}
           className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3"
         >
           Valider
@@ -140,4 +169,4 @@ function AddGlassModal({ closeModal, setConsumption }) {
   );
 }
 
-export default AddGlassModal;
+export default EditGlassModal;

@@ -10,18 +10,25 @@ function Glasses({
   consumption,
   setSelectedGlassIndex,
   selectedGlassIndex,
+  openEditGlassModal,
   openDeleteGlassModal,
-  openAddGlassModal,
-  isAddGlassModalOpen,
+  isEditGlassModalOpen,
+  isDeleteGlassModalOpen,
   className,
 }) {
-  const onGlassClick = (index) => {
+  const onCardClick = (index) => {
+    setSelectedGlassIndex(index);
+    openEditGlassModal();
+  };
+
+  const onDeleteClick = (e, index) => {
+    e.stopPropagation();
     setSelectedGlassIndex(index);
     openDeleteGlassModal();
   };
 
   const onAddGlassClick = () => {
-    openAddGlassModal();
+    openEditGlassModal();
   };
 
   const glassIcon = (centilitersVolume, alcoholContent) => {
@@ -38,21 +45,25 @@ function Glasses({
         <div className="hide-scrollbar mx-[-1rem] flex gap-2 overflow-scroll px-4">
           {consumption.map((glass, index) => (
             <Card
+              key={index}
               time={formatTime(glass.date)}
               centilitersVolume={glass.centilitersVolume}
               alcoholContent={glass.alcoholContent}
-              key={index}
-              onDeleteClick={() => onGlassClick(index)}
               icon={glassIcon(glass.centilitersVolume, glass.alcoholContent)}
+              onCardClick={() => onCardClick(index)}
+              onDeleteClick={(e) => onDeleteClick(e, index)}
               isSelected={selectedGlassIndex === index ? true : false}
+              isDeleteSelected={
+                isDeleteGlassModalOpen && selectedGlassIndex === index ? true : false
+              }
             />
           ))}
           <button
             onClick={onAddGlassClick}
-            className={`group min-h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isAddGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+            className={`group min-h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
           >
             <div
-              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
+              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
               <PlusSquareIcon className="mb-1" />
               <p className="text-sm font-medium uppercase">Ajouter</p>
@@ -64,10 +75,10 @@ function Glasses({
           <p className="mb-4">Vous n'avez pas encore enregistré de verres.</p>
           <button
             onClick={onAddGlassClick}
-            className={`group h-32 w-full rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isAddGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+            className={`group h-32 w-full rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
           >
             <div
-              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isAddGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
+              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
               <PlusSquareIcon className="mb-1" />
               <p className="text-sm font-medium uppercase">Ajouter un verre</p>

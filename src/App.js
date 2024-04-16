@@ -9,7 +9,7 @@ import Navigation from './sections/Navigation';
 import ViewportTooWide from './sections/ViewportTooWide';
 
 import AddGlassButton from './components/AddGlassButton';
-import AddGlassModal from './components/Modal/AddGlassModal';
+import EditGlassModal from './components/Modal/EditGlassModal';
 import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
 import ResetModal from './components/Modal/ResetModal';
@@ -21,7 +21,7 @@ function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
   const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(0);
   const [selectedGlassIndex, setSelectedGlassIndex] = useState(null);
-  const [isAddGlassModalOpen, setIsAddGlassModalOpen] = useState(false);
+  const [isEditGlassModalOpen, setIsEditGlassModalOpen] = useState(false);
   const [isDeleteGlassModalOpen, setIsDeleteGlassModalOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
@@ -88,9 +88,10 @@ function App() {
           consumption={consumption}
           selectedGlassIndex={selectedGlassIndex}
           setSelectedGlassIndex={setSelectedGlassIndex}
+          openEditGlassModal={() => setIsEditGlassModalOpen(true)}
           openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
-          openAddGlassModal={() => setIsAddGlassModalOpen(true)}
-          isAddGlassModalOpen={isAddGlassModalOpen}
+          isEditGlassModalOpen={isEditGlassModalOpen}
+          isDeleteGlassModalOpen={isDeleteGlassModalOpen}
           className="mb-12"
         />
         <Navigation
@@ -98,12 +99,16 @@ function App() {
           onResetButtonClick={() => setIsResetModalOpen(true)}
           className="pb-24"
         />
-        <AddGlassButton onClick={() => setIsAddGlassModalOpen(true)} />
+        <AddGlassButton onClick={() => setIsEditGlassModalOpen(true)} />
         <AnimatePresence>
-          {isAddGlassModalOpen && (
-            <AddGlassModal
-              closeModal={() => setIsAddGlassModalOpen(false)}
+          {isEditGlassModalOpen && (
+            <EditGlassModal
+              closeModal={() => {
+                setIsEditGlassModalOpen(false);
+                setSelectedGlassIndex(null);
+              }}
               setConsumption={setConsumption}
+              selectedGlassIndex={selectedGlassIndex}
             />
           )}
         </AnimatePresence>
