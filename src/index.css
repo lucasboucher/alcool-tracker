@@ -89,7 +89,3 @@ input[type='time']::-webkit-datetime-edit-minute-field:focus {
 input[type='time'] {
   background-color: white;
 }
-
-.card:active .card__delete {
-  opacity: 1;
-}

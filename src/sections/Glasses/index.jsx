@@ -42,7 +42,7 @@ function Glasses({
               centilitersVolume={glass.centilitersVolume}
               alcoholContent={glass.alcoholContent}
               key={index}
-              onClick={() => onGlassClick(index)}
+              onDeleteClick={() => onGlassClick(index)}
               icon={glassIcon(glass.centilitersVolume, glass.alcoholContent)}
               isSelected={selectedGlassIndex === index ? true : false}
             />
