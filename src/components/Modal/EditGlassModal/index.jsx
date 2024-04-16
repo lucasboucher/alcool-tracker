@@ -6,8 +6,9 @@ import { dropIn } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
 import { Xmark as XmarkIcon } from 'iconoir-react';
+import { Bin as BinIcon } from 'iconoir-react';
 
-function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex }) {
+function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDeleteClick }) {
   const consumption = getData('consumption');
   const selectedGlass = consumption[selectedGlassIndex];
 
@@ -136,12 +137,22 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex }) {
           </div>
           {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
         </div>
-        <button
-          onClick={handleSubmit}
-          className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3"
-        >
-          Valider
-        </button>
+        <div className="flex">
+          <button
+            onClick={handleSubmit}
+            className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3"
+          >
+            Valider
+          </button>
+          {selectedGlassIndex !== null && (
+            <button
+              onClick={onDeleteClick}
+              className="active:bg-red-2 ml-2 rounded-lg bg-red px-4 transition duration-200 ease-out"
+            >
+              <BinIcon className="text-white" />
+            </button>
+          )}
+        </div>
       </motion.div>
     </Backdrop>
   );

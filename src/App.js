@@ -109,6 +109,10 @@ function App() {
               }}
               setConsumption={setConsumption}
               selectedGlassIndex={selectedGlassIndex}
+              onDeleteClick={() => {
+                setIsEditGlassModalOpen(false);
+                setIsDeleteGlassModalOpen(true);
+              }}
             />
           )}
         </AnimatePresence>
