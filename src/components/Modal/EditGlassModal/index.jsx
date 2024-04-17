@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { getData, getDate, getNow, formatTime, getCalories } from '../../../utils/helpers';
-import { dropIn } from '../../../utils/consts';
+import { modalVariantsAnimation } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
 import CaloriesTooltip from '../../CaloriesTooltip';
-import { Xmark as XmarkIcon } from 'iconoir-react';
-import { BinMinusIn as BinMinusInIcon } from 'iconoir-react';
+import { Xmark as XmarkIcon, BinMinusIn as BinMinusInIcon } from 'iconoir-react';
 
 function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDeleteClick }) {
   const consumption = getData('consumption');
@@ -74,7 +73,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
         onClick={(e) => e.stopPropagation()}
-        variants={dropIn}
+        variants={modalVariantsAnimation}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -87,7 +86,13 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           <h2 className="font-crucial text-xl">
             {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
           </h2>
-          {selectedGlassIndex !== null && <CaloriesTooltip value={calories} className="ml-2" />}
+          {selectedGlassIndex !== null && (
+            <CaloriesTooltip
+              value={calories}
+              className="ml-2"
+              selectedGlassIndex={selectedGlassIndex}
+            />
+          )}
         </div>
         <div className="mb-2">
           <div className="flex">

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
-import { alchoholHealth, dropIn } from '../../../utils/consts';
+import { alchoholHealth, modalVariantsAnimation } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
 import { Xmark as XmarkIcon } from 'iconoir-react';
@@ -46,7 +46,7 @@ function HealthModal({ closeModal, bloodAlcoholLevel }) {
     <Backdrop onClick={closeModal}>
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
-        variants={dropIn}
+        variants={modalVariantsAnimation}
         initial="hidden"
         animate="visible"
         exit="exit"

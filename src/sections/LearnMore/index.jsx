@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 
-import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
-import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
-import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
+import {
+  GlassEmpty as GlassEmptyIcon,
+  GlassHalf as GlassHalfIcon,
+  GlassHalfAlt as GlassHalfAltIcon,
+} from 'iconoir-react';
 
 const item = {
   visible: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0 } },

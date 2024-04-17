@@ -1,7 +1,7 @@
+import { canIDriveBackgroundColor, canIDrive, getData } from '../../utils/helpers';
+
 import Figure from '../../components/Figure';
 import Result from '../../components/Result';
-
-import { canIDriveBackgroundColor, canIDrive, getData } from '../../utils/helpers';
 
 function UseLevel({ bloodAlcoholLevel, openHealthModal, isHealthModalOpen, className }) {
   const result = canIDrive(bloodAlcoholLevel, getData('temporaryLicense'));

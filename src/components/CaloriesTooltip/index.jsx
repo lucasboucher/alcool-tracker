@@ -12,10 +12,10 @@ function CaloriesTooltip({ value, className }) {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <AppleIcon
         onClick={() => setTooltipVisible((prevState) => !prevState)}
-        className={`cursor-pointer transition duration-200 ease-out active:text-dark-1/50 ${className} ${isTooltipVisible && 'text-green active:text-green/50'}`}
+        className={`cursor-pointer transition duration-200 ease-out active:text-dark-1/50 ${isTooltipVisible && 'text-green active:text-green/50'}`}
         height={20}
         width={20}
       />

@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { getData, setData } from '../../../utils/helpers';
-import { dropIn } from '../../../utils/consts';
+import { modalVariantsAnimation } from '../../../utils/consts';
 
 import Backdrop from '../../Backdrop';
-import { Xmark as XmarkIcon } from 'iconoir-react';
-import { Female as FemaleIcon } from 'iconoir-react';
-import { Male as MaleIcon } from 'iconoir-react';
-import { Check as CheckIcon } from 'iconoir-react';
+import {
+  Xmark as XmarkIcon,
+  Female as FemaleIcon,
+  Male as MaleIcon,
+  Check as CheckIcon,
+} from 'iconoir-react';
 
 function ProfileModal({ closeModal }) {
   const [weight, setWeight] = useState('');
@@ -52,7 +54,7 @@ function ProfileModal({ closeModal }) {
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
         onClick={(e) => e.stopPropagation()}
-        variants={dropIn}
+        variants={modalVariantsAnimation}
         initial="hidden"
         animate="visible"
         exit="exit"

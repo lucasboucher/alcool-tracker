@@ -1,5 +1,3 @@
-import { Car as CarIcon } from 'iconoir-react';
-
 import {
   canIDrive,
   canIDriveTextColor,
@@ -8,6 +6,8 @@ import {
   formatTime,
   getTimeDifference,
 } from '../../utils/helpers';
+
+import { Car as CarIcon } from 'iconoir-react';
 
 function Result({ bloodAlcoholLevel, className }) {
   const result = canIDrive(bloodAlcoholLevel, getData('temporaryLicense'));

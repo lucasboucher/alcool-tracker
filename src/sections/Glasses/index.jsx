@@ -1,10 +1,12 @@
-import Card from '../../components/Card';
-
-import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
-import { GlassHalf as GlassHalfIcon } from 'iconoir-react';
-import { GlassHalfAlt as GlassHalfAltIcon } from 'iconoir-react';
-import { PlusSquare as PlusSquareIcon } from 'iconoir-react';
 import { getAlcoholRatio, formatTime } from '../../utils/helpers';
+
+import Card from '../../components/Card';
+import {
+  GlassEmpty as GlassEmptyIcon,
+  GlassHalf as GlassHalfIcon,
+  GlassHalfAlt as GlassHalfAltIcon,
+  PlusSquare as PlusSquareIcon,
+} from 'iconoir-react';
 
 function Glasses({
   consumption,

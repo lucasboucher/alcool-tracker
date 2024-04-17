@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
 import { Link, ScrollRestoration } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
-import Copyright from '../../components/Footer';
+import Footer from '../../components/Footer';
 import VersionTitle from '../../components/VersionTitle';
 import ChangelogCaption from '../../components/ChangelogCaption';
+import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
 
 function Changelog() {
   return (
@@ -15,7 +15,11 @@ function Changelog() {
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>
         </div>
         <ChangelogCaption className="mb-4" />
-        <VersionTitle version="1.3" name="Verres" state="wip" className="mb-2" />
+        <VersionTitle version="1.4" name="Graphique" state="wip" className="mb-2" />
+        <ul className="mb-6 list-disc pl-5">
+          <li className="opacity-50">Bientôt...</li>
+        </ul>
+        <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
           <li>Raccourci pour ajouter un nouveau verre dans le carousel des consommations</li>
           <li>
@@ -39,7 +43,7 @@ function Changelog() {
             Informations sur les calories de chacun de ses verres sous la forme d'une infobulle
           </li>
         </ul>
-        <VersionTitle version="1.2" name="Animations" state="current" className="mb-2" />
+        <VersionTitle version="1.2" name="Animations" state="old" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
           <li>Page "Mises à jour" (vous y êtes 👋)</li>
           <li>Bouton pour remonter en haut de la page quand on est sur "En savoir plus"</li>
@@ -72,7 +76,7 @@ function Changelog() {
           </li>
           <li>Gestion de son profil (Genre, poids et permis probatoire)</li>
         </ul>
-        <Copyright className="mt-6" />
+        <Footer className="mt-6" />
       </div>
       <Link to="/">
         <motion.div

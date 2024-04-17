@@ -1,4 +1,4 @@
-function Copyright({ className }) {
+function Footer({ className }) {
   return (
     <div className={`flex items-center justify-between italic ${className}`}>
       <p>
@@ -9,4 +9,4 @@ function Copyright({ className }) {
   );
 }
 
-export default Copyright;
+export default Footer;

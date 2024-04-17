@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Copyright from '../../components/Footer';
+import Footer from '../../components/Footer';
 import { OpenNewWindow as OpenNewWindowIcon } from 'iconoir-react';
 
 function Navigation({ onProfileButtonClick, onResetButtonClick, className }) {
@@ -31,7 +31,7 @@ function Navigation({ onProfileButtonClick, onResetButtonClick, className }) {
         Lucas Boucher
         <OpenNewWindowIcon width={16} height={16} className="ml-2" />
       </a>
-      <Copyright className="mt-6" />
+      <Footer className="mt-6" />
     </div>
   );
 }

@@ -83,7 +83,7 @@ export const BAC_LIMIT_BY_LICENSE_TYPE = {
   false: 0.5,
 };
 
-export const dropIn = {
+export const modalVariantsAnimation = {
   hidden: {
     y: '100%',
   },
