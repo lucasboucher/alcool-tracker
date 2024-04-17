@@ -3,11 +3,6 @@ import { motion } from 'framer-motion';
 
 import { Apple as AppleIcon } from 'iconoir-react';
 
-const animation = {
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0 } },
-  hidden: { opacity: 0, y: 25, transition: { type: 'spring', bounce: 0 } },
-};
-
 function CaloriesTooltip({ value, className }) {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
@@ -24,7 +19,10 @@ function CaloriesTooltip({ value, className }) {
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={animation}
+            variants={{
+              visible: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0 } },
+              hidden: { opacity: 0, y: 25, transition: { type: 'spring', bounce: 0 } },
+            }}
             className="relative w-48 rounded bg-dark-1 bg-opacity-80 px-4 py-2 text-center text-sm text-white"
           >
             Ce verre équivaut environ à <span className="font-bold">{value}</span> kcal.
