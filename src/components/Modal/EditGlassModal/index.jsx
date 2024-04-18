@@ -78,10 +78,13 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
         animate="visible"
         exit="exit"
       >
-        <XmarkIcon
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+        <button
           onClick={closeModal}
-        />
+          aria-label="Fermer la modale"
+          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+        >
+          <XmarkIcon />
+        </button>
         <div className="mb-3 flex items-center">
           <h2 className="font-crucial text-xl">
             {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
@@ -160,6 +163,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           {selectedGlassIndex !== null && (
             <button
               onClick={onDeleteClick}
+              aria-label="Supprimer ce verre"
               className="ml-2 rounded-lg bg-red px-4 transition duration-200 ease-out active:bg-red-2"
             >
               <BinMinusInIcon className="text-white" />

@@ -7,13 +7,14 @@ function CaloriesTooltip({ value, className }) {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   return (
-    <div className={`relative ${className}`}>
-      <AppleIcon
+    <div className={`relative flex ${className}`}>
+      <button
         onClick={() => setTooltipVisible((prevState) => !prevState)}
+        aria-label="Voir les calories"
         className={`cursor-pointer transition duration-200 ease-out active:text-dark-1/50 ${isTooltipVisible && 'text-green active:text-green/50'}`}
-        height={20}
-        width={20}
-      />
+      >
+        <AppleIcon height={20} width={20} />
+      </button>
       {isTooltipVisible && (
         <div className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 transform">
           <motion.div
@@ -25,8 +26,10 @@ function CaloriesTooltip({ value, className }) {
             }}
             className="relative w-48 rounded bg-dark-1 bg-opacity-80 px-4 py-2 text-center text-sm text-white"
           >
-            Ce verre équivaut environ à <span className="font-bold">{value}</span> kcal.
-            <span className="absolute bottom-[-8px] left-[50%] ml-[-4px] border-4 border-transparent border-t-dark-3/90"></span>
+            <div className="absolute bottom-[-8px] left-[50%] ml-[-4px] border-4 border-transparent border-t-dark-3/90"></div>
+            <p>
+              Ce verre équivaut environ à <span className="font-bold">{value}</span> kcal.
+            </p>
           </motion.div>
         </div>
       )}

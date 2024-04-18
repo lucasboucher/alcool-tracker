@@ -15,10 +15,13 @@ function ResetModal({ closeModal, onSubmit }) {
         animate="visible"
         exit="exit"
       >
-        <XmarkIcon
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+        <button
           onClick={closeModal}
-        />
+          aria-label="Fermer la modale"
+          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+        >
+          <XmarkIcon />
+        </button>
         <h2 className="mb-3 font-crucial text-xl">Réinitialiser l'application</h2>
         <p className="mb-4">
           Voulez-vous <span className="text-red">supprimer</span> toutes les données ?

@@ -59,7 +59,7 @@
 }
 
 body {
-  @apply bg-dark-1;
+  @apply bg-dark-1 text-white;
 }
 
 input[type='number']::-webkit-inner-spin-button,

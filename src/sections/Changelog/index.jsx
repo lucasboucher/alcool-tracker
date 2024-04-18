@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, ScrollRestoration } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -7,6 +8,15 @@ import ChangelogCaption from '../../components/ChangelogCaption';
 import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
 
 function Changelog() {
+  useEffect(() => {
+    const defaultTitle = document.title;
+    document.title = 'Changelog - Mon alcool tracker';
+
+    return () => {
+      document.title = defaultTitle;
+    };
+  }, []);
+
   return (
     <>
       <div className="mx-auto max-w-screen-md px-4 pb-24 pt-8 text-white">

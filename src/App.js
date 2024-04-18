@@ -75,7 +75,7 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen px-4 pt-8 text-white">
+    <main className="min-h-screen px-4 pt-8">
       <div className="md:hidden">
         <Header className="mb-6" />
         <UseLevel

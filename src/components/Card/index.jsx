@@ -18,6 +18,7 @@ function Card({
   return (
     <motion.div
       onClick={onCardClick}
+      role="button"
       className={`flex min-h-32 min-w-32 cursor-pointer flex-col rounded p-2 transition-colors duration-200 ease-out active:bg-dark-2 ${isSelected ? 'bg-dark-2' : 'bg-dark-3'}`}
       whileTap={{
         scale: 0.95,
