@@ -38,6 +38,11 @@ function Changelog() {
           <li className="opacity-50">Possibilité de changer l'heure du résultat</li>
         </ul>
         <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
+        <h3 className="text-lg">v1.3.1</h3>
+        <ul className="mb-2 list-disc pl-5">
+          <li>Limitations au niveau de la teneur et du volume quand on ajoute un verre</li>
+        </ul>
+        <h3 className="text-lg">v1.3.0</h3>
         <ul className="mb-6 list-disc pl-5">
           <li>Raccourci pour ajouter un nouveau verre dans le carousel des consommations</li>
           <li>

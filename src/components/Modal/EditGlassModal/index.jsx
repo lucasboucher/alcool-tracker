@@ -29,7 +29,11 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
   );
 
   const handleVolumeChange = (e) => {
-    setVolume(e.target.value);
+    if (e.target.value > 999) {
+      setVolume(999);
+    } else {
+      setVolume(e.target.value);
+    }
   };
 
   const handleTimeChange = (e) => {
@@ -37,7 +41,11 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
   };
 
   const handleAlcoholContentChange = (e) => {
-    setAlcoholContent(e.target.value);
+    if (e.target.value > 100) {
+      setAlcoholContent(100);
+    } else {
+      setAlcoholContent(e.target.value);
+    }
   };
 
   const handleSubmit = () => {
