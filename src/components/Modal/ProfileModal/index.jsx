@@ -133,9 +133,7 @@ function ProfileModal({ closeModal }) {
           {error && <p className="mt-1 text-red">{error}</p>}
         </div>
         <div className="mb-4">
-          <p className="mb-1 text-sm font-semibold uppercase" htmlFor="temporaryLicense">
-            Mon permis
-          </p>
+          <p className="mb-1 text-sm font-semibold uppercase">Mon permis</p>
           <label htmlFor="temporaryLicense" className="inline-flex cursor-pointer">
             <input
               type="checkbox"
@@ -144,9 +142,9 @@ function ProfileModal({ closeModal }) {
               onChange={handleTemporaryLicenseChange}
               className="peer hidden"
             />
-            <div className="flex h-6 w-6 items-center justify-center rounded border transition-colors duration-200 ease-out peer-checked:border-none peer-checked:bg-blue">
+            <span className="flex h-6 w-6 items-center justify-center rounded border transition duration-200 ease-out peer-checked:border-none peer-checked:bg-blue peer-checked:shadow-[0_4px_12px_-4px] peer-checked:shadow-blue">
               <CheckIcon width={20} height={20} className="text-white" />
-            </div>
+            </span>
             <span className="ml-2">Je suis permis probatoire</span>
           </label>
         </div>

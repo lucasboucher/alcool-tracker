@@ -62,14 +62,14 @@ function Glasses({
           ))}
           <button
             onClick={onAddGlassClick}
-            className={`group min-h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+            className={`group h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
           >
-            <div
-              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
+            <span
+              className={`flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-opacity duration-200 ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
               <PlusSquareIcon className="mb-1" />
-              <p className="text-sm font-medium uppercase">Ajouter</p>
-            </div>
+              Ajouter
+            </span>
           </button>
         </div>
       ) : (
@@ -79,12 +79,12 @@ function Glasses({
             onClick={onAddGlassClick}
             className={`group h-32 w-full rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
           >
-            <div
-              className={`duration-400 flex h-full w-full flex-col items-center justify-center transition-opacity ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
+            <span
+              className={`flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-opacity duration-200 ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
               <PlusSquareIcon className="mb-1" />
-              <p className="text-sm font-medium uppercase">Ajouter un verre</p>
-            </div>
+              Ajouter un verre
+            </span>
           </button>
         </>
       )}

@@ -27,8 +27,9 @@ function Card({
       <div className="flex items-center justify-between text-sm font-medium">
         <div className="p-1">{time}</div>
         <button
-          className={`rounded p-1 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
           onClick={onDeleteClick}
+          aria-label="Supprimer ce verre"
+          className={`rounded p-1 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
           <XMarkCircleIcon height={20} width={20} className="text-red" />

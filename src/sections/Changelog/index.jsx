@@ -15,9 +15,17 @@ function Changelog() {
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>
         </div>
         <ChangelogCaption className="mb-4" />
-        <VersionTitle version="1.4" name="Graphique" state="wip" className="mb-2" />
+        <VersionTitle version="1.4" name="Réglages" state="wip" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
-          <li className="opacity-50">Bientôt...</li>
+          <li className="opacity-50">Conformité d'accessibilité niveau AA</li>
+          <li className="opacity-50">Rafraichissement automatique du taux d'alcool dans le sang</li>
+          <li className="opacity-50">Nouvelles icônes dynamiques pour les verres</li>
+          <li className="opacity-50">
+            Nouveau bloc graphique, avec évolution de son alcoolémie dans le temps
+          </li>
+          <li className="opacity-50">Possibilité de sauvegarder rapidement son état actuel</li>
+          <li className="opacity-50">Possibilité de slider pour voir les autres états de santé</li>
+          <li className="opacity-50">Possibilité de changer l'heure du résultat</li>
         </ul>
         <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
@@ -78,21 +86,24 @@ function Changelog() {
         </ul>
         <Footer className="mt-6" />
       </div>
-      <Link to="/">
-        <motion.div
-          className="fixed bottom-4 left-4 right-4 mx-auto flex max-w-screen-md justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-          whileTap={{
-            scale: 0.95,
-            transition: { duration: 0.2 },
-          }}
+      <motion.div
+        className="fixed bottom-4 left-4 right-4 mx-auto max-w-screen-md rounded-lg bg-gradient-to-r from-main to-main-2 shadow-2xl"
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+        whileTap={{
+          scale: 0.95,
+          transition: { duration: 0.2 },
+        }}
+      >
+        <Link
+          to="/"
+          className="flex h-full w-full justify-center py-4 font-semibold uppercase text-dark-1"
         >
           <ArrowLeftCircleIcon className="mr-1" />
           Revenir à l'accueil
-        </motion.div>
-      </Link>
+        </Link>
+      </motion.div>
       <ScrollRestoration />
     </>
   );

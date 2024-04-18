@@ -18,6 +18,7 @@ function Figure({ number, text, openHealthModal, isHealthModalOpen, bloodAlcohol
       {openHealthModal && (
         <button
           onClick={openHealthModal}
+          aria-label="Mon état de santé"
           className={`absolute right-1 top-1 rounded p-1 text-white transition duration-200 ease-out active:animate-none active:bg-dark-3 active:opacity-100 ${isHealthModalOpen && 'animate-none bg-dark-3 opacity-100'} ${bloodAlcoholLevel > 0.2 ? 'animate-pulse' : 'opacity-50'}`}
         >
           <InfoCircleIcon height={20} width={20} />
