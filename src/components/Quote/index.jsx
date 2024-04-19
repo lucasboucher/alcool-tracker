@@ -6,7 +6,7 @@ function Quote({ className, content }) {
       className={`z-10 flex gap-2 rounded-lg border border-dark-3 bg-dark-2 px-2 py-4 ${className} `}
     >
       <QuoteIcon className="shrink-0" />
-      <p>{content}</p>
+      <blockquote>{content}</blockquote>
     </div>
   );
 }

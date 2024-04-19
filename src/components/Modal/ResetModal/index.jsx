@@ -28,7 +28,7 @@ function ResetModal({ closeModal, onSubmit }) {
         </p>
         <button
           onClick={onSubmit}
-          className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white active:bg-dark-3"
+          className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white transition-colors duration-200 ease-out active:bg-dark-3"
         >
           Valider
         </button>
