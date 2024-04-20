@@ -7,7 +7,7 @@ function UseLevel({ bloodAlcoholLevel, openHealthModal, isHealthModalOpen, class
   const result = canIDrive(bloodAlcoholLevel, getData('temporaryLicense'));
 
   return (
-    <div className={className}>
+    <section className={className} aria-labelledby="taux-label">
       <div className="mb-2 flex items-center">
         <div className="relative mr-2 flex h-3 w-3 items-center justify-center">
           <span
@@ -15,7 +15,9 @@ function UseLevel({ bloodAlcoholLevel, openHealthModal, isHealthModalOpen, class
           ></span>
           <span className={`h-2 w-2 rounded-full ${canIDriveBackgroundColor(result)}`}></span>
         </div>
-        <h2 className="font-crucial text-xl">Mon taux</h2>
+        <h2 className="font-crucial text-xl" id="taux-label">
+          Mon taux
+        </h2>
       </div>
       <Result bloodAlcoholLevel={bloodAlcoholLevel} className="mb-2" />
       <div className="flex gap-2">
@@ -28,7 +30,7 @@ function UseLevel({ bloodAlcoholLevel, openHealthModal, isHealthModalOpen, class
           text="g/L de sang"
         />
       </div>
-    </div>
+    </section>
   );
 }
 

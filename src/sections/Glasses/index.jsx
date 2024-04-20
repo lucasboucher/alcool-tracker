@@ -35,14 +35,16 @@ function Glasses({
 
   const glassIcon = (centilitersVolume, alcoholContent) => {
     const ratio = getAlcoholRatio(centilitersVolume, alcoholContent);
-    if (ratio === 'weak') return <GlassEmptyIcon />;
-    if (ratio === 'average') return <GlassHalfAltIcon />;
-    if (ratio === 'strong') return <GlassHalfIcon />;
+    if (ratio === 'weak') return <GlassEmptyIcon aria-label="Verre faible en alcool" />;
+    if (ratio === 'average') return <GlassHalfAltIcon aria-label="Verre équilibré en alcool" />;
+    if (ratio === 'strong') return <GlassHalfIcon aria-label="Verre fort en alcool" />;
   };
 
   return (
-    <div className={className}>
-      <h2 className="mb-2 font-crucial text-xl">Mes verres</h2>
+    <section className={className} aria-labelledby="verres-label">
+      <h2 className="mb-2 font-crucial text-xl" id="verres-label">
+        Mes verres
+      </h2>
       {consumption.length !== 0 ? (
         <div className="hide-scrollbar mx-[-1rem] flex gap-2 overflow-scroll px-4">
           {consumption.map((glass, index) => (
@@ -62,12 +64,13 @@ function Glasses({
           ))}
           <button
             onClick={onAddGlassClick}
-            className={`group h-32 min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+            aria-label="Ajouter un verre"
+            className={`group min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
           >
             <span
               className={`flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-opacity duration-200 ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
-              <PlusSquareIcon className="mb-1" />
+              <PlusSquareIcon className="mb-1" role="presentation" />
               Ajouter
             </span>
           </button>
@@ -82,13 +85,13 @@ function Glasses({
             <span
               className={`flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-opacity duration-200 ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
             >
-              <PlusSquareIcon className="mb-1" />
+              <PlusSquareIcon className="mb-1" aria-hidden="true" role="presentation" />
               Ajouter un verre
             </span>
           </button>
         </>
       )}
-    </div>
+    </section>
   );
 }
 

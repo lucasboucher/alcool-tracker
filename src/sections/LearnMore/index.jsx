@@ -42,15 +42,15 @@ function LearnMore({ className }) {
       </motion.p>
       <motion.div className="mb-6 flex justify-between gap-3" variants={variantsAnimation}>
         <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
-          <GlassEmptyIcon height={32} width={32} />
+          <GlassEmptyIcon height={32} width={32} aria-label="Verre faible en alcool" />
           <p className="text-center text-green">Peu</p>
         </div>
         <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
-          <GlassHalfAltIcon height={32} width={32} />
+          <GlassHalfAltIcon height={32} width={32} aria-label="Verre équilibré en alcool" />
           <p className="text-center text-main">Normal</p>
         </div>
         <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
-          <GlassHalfIcon height={32} width={32} />
+          <GlassHalfIcon height={32} width={32} aria-label="Verre fort en alcool" />
           <p className="text-center text-red">Beaucoup</p>
         </div>
       </motion.div>

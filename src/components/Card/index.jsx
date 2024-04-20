@@ -13,35 +13,42 @@ function Card({
   isSelected,
   isDeleteSelected,
 }) {
-  const iconWithProps = cloneElement(icon, { className: 'mb-1', height: 32, width: 32 });
+  const iconWithProps = cloneElement(icon, {
+    className: 'mb-1',
+    height: 32,
+    width: 32,
+    role: 'img',
+  });
 
   return (
     <motion.div
-      onClick={onCardClick}
-      role="button"
-      className={`flex min-h-32 min-w-32 cursor-pointer flex-col rounded p-2 transition-colors duration-200 ease-out active:bg-dark-2 ${isSelected ? 'bg-dark-2' : 'bg-dark-3'}`}
+      className={`relative cursor-pointer rounded transition-colors duration-200 ease-out active:bg-dark-2 ${isSelected ? 'bg-dark-2' : 'bg-dark-3'}`}
       whileTap={{
         scale: 0.95,
         transition: { duration: 0.2 },
       }}
+      tabIndex={-1}
     >
-      <div className="flex items-center justify-between text-sm font-medium">
-        <div className="p-1">{time}</div>
+      <button
+        onClick={onCardClick}
+        className="flex h-32 min-w-32 flex-col items-center justify-end pb-4"
+      >
+        {iconWithProps}
+        <span>
+          <span className="font-bold">{centilitersVolume}</span>cl à{' '}
+          <span className="font-bold">{alcoholContent}</span>°
+        </span>
+      </button>
+      <div className="pointer-events-none absolute top-1 flex w-full items-center justify-between px-1">
+        <div className="ml-3 text-sm font-medium">{time}</div>
         <button
           onClick={onDeleteClick}
           aria-label="Supprimer ce verre"
-          className={`rounded p-1 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
+          className={`pointer-events-auto rounded p-3 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
-          <XMarkCircleIcon height={20} width={20} className="text-red" />
+          <XMarkCircleIcon className="text-red" role="presentation" />
         </button>
-      </div>
-      <div className="flex grow flex-col items-center justify-center">
-        {iconWithProps}
-        <p>
-          <span className="font-bold">{centilitersVolume}</span>cl à{' '}
-          <span className="font-bold">{alcoholContent}</span>°
-        </p>
       </div>
     </motion.div>
   );

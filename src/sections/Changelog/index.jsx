@@ -18,8 +18,32 @@ function Changelog() {
   }, []);
 
   return (
-    <>
-      <div className="mx-auto max-w-screen-md px-4 pb-24 pt-8 text-white">
+    <div className="mx-auto max-w-screen-md px-4 pb-24 pt-8 text-white">
+      <nav>
+        <a href="#main-content" className="sr-only py-3 focus:not-sr-only">
+          Aller au contenu principal
+        </a>
+      </nav>
+      <main id="main-content">
+        <motion.div
+          className="fixed bottom-4 left-4 right-4 mx-auto max-w-screen-md rounded-lg bg-gradient-to-r from-main to-main-2 shadow-2xl"
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
+          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+          whileTap={{
+            scale: 0.95,
+            transition: { duration: 0.2 },
+          }}
+          tabIndex={-1}
+        >
+          <Link
+            to="/"
+            className="flex h-full w-full justify-center py-4 font-semibold uppercase text-dark-1"
+          >
+            <ArrowLeftCircleIcon className="mr-1" aria-hidden="true" role="presentation" />
+            Revenir à l'application
+          </Link>
+        </motion.div>
         <div className="mb-4 flex items-center">
           <h1 className="mr-2 font-crucial text-3xl">Mon alcool tracker</h1>
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>
@@ -27,9 +51,13 @@ function Changelog() {
         <ChangelogCaption className="mb-4" />
         <VersionTitle version="1.4" name="Réglages" state="wip" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
-          <li className="opacity-50">Conformité d'accessibilité niveau AA</li>
-          <li className="opacity-50">Rafraichissement automatique du taux d'alcool dans le sang</li>
+          <li>Améliorer l'accessibilité</li>
+          <li className="opacity-50">
+            Rafraichissement automatique du taux d'alcool dans le sang + Actualisation instantané
+            avec son profil
+          </li>
           <li className="opacity-50">Nouvelles icônes dynamiques pour les verres</li>
+          <li className="opacity-50">Sitemap</li>
           <li className="opacity-50">
             Nouveau bloc graphique, avec évolution de son alcoolémie dans le temps
           </li>
@@ -100,27 +128,9 @@ function Changelog() {
           <li>Gestion de son profil (Genre, poids et permis probatoire)</li>
         </ul>
         <Footer className="mt-6" />
-      </div>
-      <motion.div
-        className="fixed bottom-4 left-4 right-4 mx-auto max-w-screen-md rounded-lg bg-gradient-to-r from-main to-main-2 shadow-2xl"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-        whileTap={{
-          scale: 0.95,
-          transition: { duration: 0.2 },
-        }}
-      >
-        <Link
-          to="/"
-          className="flex h-full w-full justify-center py-4 font-semibold uppercase text-dark-1"
-        >
-          <ArrowLeftCircleIcon className="mr-1" />
-          Revenir à l'accueil
-        </Link>
-      </motion.div>
+      </main>
       <ScrollRestoration />
-    </>
+    </div>
   );
 }
 

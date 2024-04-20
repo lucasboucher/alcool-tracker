@@ -18,7 +18,7 @@ function Result({ bloodAlcoholLevel, className }) {
   return (
     <div className={`rounded bg-dark-3 p-2 ${canIDriveTextColor(result)} ${className}`}>
       <div className="mb-1 flex items-center">
-        <CarIcon className="mr-2" />
+        <CarIcon className="mr-2" aria-hidden="true" role="presentation" />
         <span className="font-crucial text-2xl">{driveTime}</span>
       </div>
       <p className="text-sm">

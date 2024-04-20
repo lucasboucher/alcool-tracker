@@ -77,8 +77,14 @@ input[type='time']::-webkit-datetime-edit-minute-field:focus {
   @apply rounded-sm bg-blue text-white;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* pour Webkit */
+input[type='time'] {
+  background-color: white;
+}
+
+input:focus,
+button:focus,
+a:focus {
+  @apply outline-none ring-2 ring-blue;
 }
 
 .hide-scrollbar {
@@ -86,6 +92,6 @@ input[type='time']::-webkit-datetime-edit-minute-field:focus {
   scrollbar-width: none;
 }
 
-input[type='time'] {
-  background-color: white;
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -75,84 +75,91 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen px-4 pt-8">
-      <div className="md:hidden">
-        <Header className="mb-6" />
-        <UseLevel
-          bloodAlcoholLevel={myBloodAlcoholLevel}
-          openHealthModal={() => setIsHealthModalOpen(true)}
-          isHealthModalOpen={isHealthModalOpen}
-          className="mb-6"
-        />
-        <Glasses
-          consumption={consumption}
-          selectedGlassIndex={selectedGlassIndex}
-          setSelectedGlassIndex={setSelectedGlassIndex}
-          openEditGlassModal={() => setIsEditGlassModalOpen(true)}
-          openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
-          isEditGlassModalOpen={isEditGlassModalOpen}
-          isDeleteGlassModalOpen={isDeleteGlassModalOpen}
-          className="mb-12"
-        />
-        <Navigation
-          onProfileButtonClick={() => setIsProfileModalOpen(true)}
-          onResetButtonClick={() => setIsResetModalOpen(true)}
-          className="pb-24"
-        />
-        <AddGlassButton onClick={() => setIsEditGlassModalOpen(true)} />
-        <AnimatePresence>
-          {isEditGlassModalOpen && (
-            <EditGlassModal
-              closeModal={() => {
-                setIsEditGlassModalOpen(false);
-                setSelectedGlassIndex(null);
-              }}
-              setConsumption={setConsumption}
-              selectedGlassIndex={selectedGlassIndex}
-              onDeleteClick={() => {
-                setIsEditGlassModalOpen(false);
-                setIsDeleteGlassModalOpen(true);
-              }}
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {isDeleteGlassModalOpen && (
-            <DeleteGlassModal
-              closeModal={() => {
-                setIsDeleteGlassModalOpen(false);
-                setSelectedGlassIndex(null);
-              }}
-              onSubmit={() => deleteGlass()}
-              selectedGlassDate={consumption[selectedGlassIndex].date}
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {isProfileModalOpen && (
-            <ProfileModal closeModal={() => isProfileDefined() && setIsProfileModalOpen(false)} />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {isResetModalOpen && (
-            <ResetModal
-              closeModal={() => setIsResetModalOpen(false)}
-              onSubmit={() => handleReset()}
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {isHealthModalOpen && (
-            <HealthModal
-              closeModal={() => setIsHealthModalOpen(false)}
-              bloodAlcoholLevel={myBloodAlcoholLevel}
-            />
-          )}
-        </AnimatePresence>
-      </div>
-      <ViewportTooWide />
+    <div className="min-h-screen px-4 pt-8">
+      <nav aria-label="Navigation d'accessibilité">
+        <a href="#main-content" className="sr-only inline-block min-h-6 min-w-6 focus:not-sr-only">
+          Aller au contenu principal
+        </a>
+      </nav>
+      <main id="main-content">
+        <div className="md:hidden">
+          <AddGlassButton onClick={() => setIsEditGlassModalOpen(true)} />
+          <Header className="mb-6" />
+          <UseLevel
+            bloodAlcoholLevel={myBloodAlcoholLevel}
+            openHealthModal={() => setIsHealthModalOpen(true)}
+            isHealthModalOpen={isHealthModalOpen}
+            className="mb-6"
+          />
+          <Glasses
+            consumption={consumption}
+            selectedGlassIndex={selectedGlassIndex}
+            setSelectedGlassIndex={setSelectedGlassIndex}
+            openEditGlassModal={() => setIsEditGlassModalOpen(true)}
+            openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
+            isEditGlassModalOpen={isEditGlassModalOpen}
+            isDeleteGlassModalOpen={isDeleteGlassModalOpen}
+            className="mb-12"
+          />
+          <Navigation
+            onProfileButtonClick={() => setIsProfileModalOpen(true)}
+            onResetButtonClick={() => setIsResetModalOpen(true)}
+            className="pb-24"
+          />
+          <AnimatePresence>
+            {isEditGlassModalOpen && (
+              <EditGlassModal
+                closeModal={() => {
+                  setIsEditGlassModalOpen(false);
+                  setSelectedGlassIndex(null);
+                }}
+                setConsumption={setConsumption}
+                selectedGlassIndex={selectedGlassIndex}
+                onDeleteClick={() => {
+                  setIsEditGlassModalOpen(false);
+                  setIsDeleteGlassModalOpen(true);
+                }}
+              />
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isDeleteGlassModalOpen && (
+              <DeleteGlassModal
+                closeModal={() => {
+                  setIsDeleteGlassModalOpen(false);
+                  setSelectedGlassIndex(null);
+                }}
+                onSubmit={() => deleteGlass()}
+                selectedGlassDate={consumption[selectedGlassIndex].date}
+              />
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isProfileModalOpen && (
+              <ProfileModal closeModal={() => isProfileDefined() && setIsProfileModalOpen(false)} />
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isResetModalOpen && (
+              <ResetModal
+                closeModal={() => setIsResetModalOpen(false)}
+                onSubmit={() => handleReset()}
+              />
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isHealthModalOpen && (
+              <HealthModal
+                closeModal={() => setIsHealthModalOpen(false)}
+                bloodAlcoholLevel={myBloodAlcoholLevel}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+        <ViewportTooWide />
+      </main>
       <ScrollRestoration />
-    </main>
+    </div>
   );
 }
 

@@ -13,7 +13,6 @@ function DeleteGlassModal({ closeModal, onSubmit, selectedGlassDate }) {
     <Backdrop onClick={closeModal}>
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
-        onClick={(e) => e.stopPropagation()}
         variants={modalVariantsAnimation}
         initial="hidden"
         animate="visible"
@@ -22,11 +21,13 @@ function DeleteGlassModal({ closeModal, onSubmit, selectedGlassDate }) {
         <button
           onClick={closeModal}
           aria-label="Fermer la modale"
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+          className="absolute right-1 top-1 cursor-pointer p-3 text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
         >
-          <XmarkIcon />
+          <XmarkIcon role="presentation" />
         </button>
-        <h2 className="mb-3 font-crucial text-xl">Supprimer un verre</h2>
+        <h2 className="mb-3 font-crucial text-xl" id="modalLabel">
+          Supprimer un verre
+        </h2>
         <p className="mb-4">
           Voulez-vous <span className="text-red">supprimer</span> ce verre bu à{' '}
           <span className="font-bold">{selectedGlassStringDate}</span> ?

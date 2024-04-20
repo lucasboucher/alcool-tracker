@@ -13,9 +13,9 @@ function AddGlassButton({ onClick }) {
         transition: { duration: 0.2 },
       }}
       onClick={onClick}
-      className="fixed bottom-4 left-4 right-4 flex justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
+      className="fixed bottom-4 left-4 right-4 z-10 flex justify-center rounded-lg bg-gradient-to-r from-main to-main-2 py-4 font-semibold uppercase text-dark-1 shadow-2xl"
     >
-      <PlusCircleIcon className="mr-1" />
+      <PlusCircleIcon className="mr-1" aria-hidden="true" role="presentation" />
       Ajouter un verre
     </motion.button>
   );

@@ -3,20 +3,20 @@ import { motion } from 'framer-motion';
 
 import { Apple as AppleIcon } from 'iconoir-react';
 
-function CaloriesTooltip({ value, className }) {
+function CaloriesTooltip({ value }) {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   return (
-    <div className={`relative flex ${className}`}>
+    <div className="relative flex">
       <button
         onClick={() => setTooltipVisible((prevState) => !prevState)}
         aria-label="Voir les calories"
-        className={`cursor-pointer transition duration-200 ease-out active:text-dark-1/50 ${isTooltipVisible && 'text-green active:text-green/50'}`}
+        className={`cursor-pointer p-3 transition duration-200 ease-out active:text-dark-1/50 ${isTooltipVisible && 'text-green active:text-green/50'}`}
       >
-        <AppleIcon height={20} width={20} />
+        <AppleIcon role="presentation" />
       </button>
       {isTooltipVisible && (
-        <div className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 transform">
+        <div className="absolute bottom-11 left-1/2 z-10 -translate-x-1/2 transform">
           <motion.div
             initial="hidden"
             animate="visible"

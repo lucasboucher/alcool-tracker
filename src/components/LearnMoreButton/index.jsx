@@ -26,7 +26,7 @@ function LearnMoreButton() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <NavArrowDownIcon />
+          <NavArrowDownIcon aria-hidden="true" role="presentation" />
         </motion.span>
       </button>
       {isLearnMoreOpen && <LearnMore className="mt-4" />}

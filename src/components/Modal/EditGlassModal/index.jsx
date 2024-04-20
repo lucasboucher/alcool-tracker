@@ -80,7 +80,6 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
     <Backdrop onClick={closeModal}>
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
-        onClick={(e) => e.stopPropagation()}
         variants={modalVariantsAnimation}
         initial="hidden"
         animate="visible"
@@ -89,95 +88,94 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
         <button
           onClick={closeModal}
           aria-label="Fermer la modale"
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+          className="absolute right-1 top-1 cursor-pointer p-3 text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
         >
-          <XmarkIcon />
+          <XmarkIcon role="presentation" />
         </button>
         <div className="mb-3 flex items-center">
-          <h2 className="font-crucial text-xl">
+          <h2 className="font-crucial text-xl" id="modalLabel">
             {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
           </h2>
           {selectedGlassIndex !== null && (
-            <CaloriesTooltip
-              value={calories}
-              className="ml-2"
-              selectedGlassIndex={selectedGlassIndex}
-            />
+            <CaloriesTooltip value={calories} selectedGlassIndex={selectedGlassIndex} />
           )}
         </div>
-        <div className="mb-2">
-          <div className="flex">
-            <div className="mr-2 w-full">
-              <label className="mb-1 text-sm font-semibold uppercase" htmlFor="volume">
-                Volume
-              </label>
-              <div className="relative flex items-center">
+        <form>
+          <div className="mb-2">
+            <div className="flex">
+              <div className="mr-2 w-full">
+                <label className="mb-1 text-sm font-semibold uppercase" htmlFor="volume">
+                  Volume
+                </label>
+                <div className="relative flex items-center">
+                  <input
+                    className="h-12 w-full rounded border pl-2 outline-none"
+                    type="number"
+                    id="volume"
+                    inputMode="numeric"
+                    placeholder="0"
+                    value={volume}
+                    onChange={handleVolumeChange}
+                  />
+                  <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
+                    cl
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <label className="mb-1 text-sm font-semibold uppercase" htmlFor="time">
+                  Heure
+                </label>
                 <input
-                  className="h-12 w-full rounded border pl-2 outline-none"
-                  type="number"
-                  id="volume"
-                  inputMode="numeric"
-                  placeholder="0"
-                  value={volume}
-                  onChange={handleVolumeChange}
+                  className="flex h-12 w-24 cursor-pointer justify-center rounded border outline-none"
+                  type="time"
+                  id="time"
+                  value={time}
+                  onChange={handleTimeChange}
                 />
-                <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
-                  cl
-                </span>
               </div>
             </div>
-            <div className="flex flex-col">
-              <label className="mb-1 text-sm font-semibold uppercase" htmlFor="time">
-                Heure
-              </label>
+            {volumeError && <p className="mt-1 text-red">{volumeError}</p>}
+          </div>
+          <div className="mb-4">
+            <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
+              Teneur
+            </label>
+            <div className="relative flex items-center">
               <input
-                className="flex h-12 w-24 cursor-pointer justify-center rounded border outline-none"
-                type="time"
-                id="time"
-                value={time}
-                onChange={handleTimeChange}
+                className="h-12 w-full rounded border pl-2  outline-none"
+                type="number"
+                id="alcoholContent"
+                inputMode="decimal"
+                placeholder="0"
+                value={alcoholContent}
+                onChange={handleAlcoholContentChange}
               />
+              <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
+                °
+              </span>
             </div>
+            {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
           </div>
-          {volumeError && <p className="mt-1 text-red">{volumeError}</p>}
-        </div>
-        <div className="mb-4">
-          <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
-            Teneur
-          </label>
-          <div className="relative flex items-center">
-            <input
-              className="h-12 w-full rounded border pl-2  outline-none"
-              type="number"
-              id="alcoholContent"
-              inputMode="decimal"
-              placeholder="0"
-              value={alcoholContent}
-              onChange={handleAlcoholContentChange}
-            />
-            <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
-              °
-            </span>
-          </div>
-          {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
-        </div>
-        <div className="flex">
-          <button
-            onClick={handleSubmit}
-            className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white transition-colors duration-200 ease-out active:bg-dark-3"
-          >
-            Valider
-          </button>
-          {selectedGlassIndex !== null && (
+          <div className="flex">
             <button
-              onClick={onDeleteClick}
-              aria-label="Supprimer ce verre"
-              className="ml-2 rounded-lg bg-red px-4 transition-colors duration-200 ease-out active:bg-red-2"
+              type="submit"
+              onClick={handleSubmit}
+              className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white transition-colors duration-200 ease-out active:bg-dark-3"
             >
-              <BinMinusInIcon className="text-white" />
+              Valider
             </button>
-          )}
-        </div>
+            {selectedGlassIndex !== null && (
+              <button
+                onClick={onDeleteClick}
+                aria-label="Supprimer ce verre"
+                className="ml-2 rounded-lg bg-red px-4 transition-colors duration-200 ease-out active:bg-red-2"
+              >
+                <BinMinusInIcon className="text-white" role="presentation" />
+              </button>
+            )}
+          </div>
+        </form>
       </motion.div>
     </Backdrop>
   );

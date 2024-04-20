@@ -5,7 +5,13 @@ import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 function ViewportTooWide() {
   return (
     <div className="hidden min-h-screen flex-col items-center justify-center px-16 text-center md:flex">
-      <GlassEmptyIcon height={48} width={48} className="mx-auto mb-4 animate-bounce" />
+      <GlassEmptyIcon
+        height={48}
+        width={48}
+        className="mx-auto mb-4 animate-bounce"
+        aria-hidden="true"
+        role="presentation"
+      />
       <h1 className="text-lg">
         L'application <span className="font-bold">Mon alcool tracker</span> n'est pas optimisée pour
         cette taille d'écran

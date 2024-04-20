@@ -54,11 +54,13 @@ function HealthModal({ closeModal, bloodAlcoholLevel }) {
         <button
           onClick={closeModal}
           aria-label="Fermer la modale"
-          className="absolute right-4 top-4 cursor-pointer text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
+          className="absolute right-1 top-1 cursor-pointer p-3 text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
         >
-          <XmarkIcon />
+          <XmarkIcon role="presentation" />
         </button>
-        <h2 className="mb-3 font-crucial text-xl">Mon état de santé</h2>
+        <h2 className="mb-3 font-crucial text-xl" id="modalLabel">
+          Mon état de santé
+        </h2>
         <div className="flex gap-10">
           <div>
             <h3 className="font-bold">{health.title}</h3>
