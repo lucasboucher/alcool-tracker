@@ -26,7 +26,7 @@ function Changelog() {
       </nav>
       <main id="main-content">
         <motion.div
-          className="fixed bottom-4 left-4 right-4 mx-auto max-w-screen-md rounded-lg bg-gradient-to-r from-main to-main-2 shadow-2xl"
+          className="fixed bottom-4 left-4 right-4 z-10 mx-auto max-w-screen-md rounded-lg bg-gradient-to-r from-main to-main-2 shadow-2xl"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
@@ -51,19 +51,21 @@ function Changelog() {
         <ChangelogCaption className="mb-4" />
         <VersionTitle version="1.4" name="Réglages" state="wip" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
-          <li>Améliorer l'accessibilité</li>
+          <li>Conformité d'accessibilité (AA WCAG 2.2)</li>
           <li className="opacity-50">
-            Rafraichissement automatique du taux d'alcool dans le sang + Actualisation instantané
-            avec son profil
+            Nouvelle palette de couleur (pour la conformité d'accessibilité)
           </li>
-          <li className="opacity-50">Nouvelles icônes dynamiques pour les verres</li>
+          <li className="opacity-50">Utilisation de Vite</li>
+          <li className="opacity-50">
+            Nouvelle navigation avec une modale "Paramètres de l'application"
+          </li>
+          <li className="opacity-50">Intégrer le bouton "Réinitialiser" dans les réglages</li>
+          <li className="opacity-50">Ajout du mode nuit (dans les paramètres)</li>
+          <li className="opacity-50">Choix du langage (dans les paramètres)</li>
+          <li className="opacity-50">Choix de la législation par pays (dans les paramètres)</li>
+          <li className="opacity-50">Système d'Analytics</li>
           <li className="opacity-50">Sitemap</li>
-          <li className="opacity-50">
-            Nouveau bloc graphique, avec évolution de son alcoolémie dans le temps
-          </li>
-          <li className="opacity-50">Possibilité de sauvegarder rapidement son état actuel</li>
-          <li className="opacity-50">Possibilité de slider pour voir les autres états de santé</li>
-          <li className="opacity-50">Possibilité de changer l'heure du résultat</li>
+          <li className="opacity-50">SEO</li>
         </ul>
         <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
         <h3 className="text-lg">v1.3.1</h3>

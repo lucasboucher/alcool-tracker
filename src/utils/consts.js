@@ -82,25 +82,3 @@ export const BAC_LIMIT_BY_LICENSE_TYPE = {
   true: 0.2,
   false: 0.5,
 };
-
-export const modalVariantsAnimation = {
-  hidden: {
-    y: '100%',
-  },
-  visible: {
-    y: '0',
-    transition: {
-      duration: 0.4,
-      type: 'spring',
-      bounce: 0,
-    },
-  },
-  exit: {
-    y: '100%',
-    transition: {
-      duration: 0.4,
-      type: 'spring',
-      bounce: 0,
-    },
-  },
-};

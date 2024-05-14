@@ -6,7 +6,7 @@ Side-project qui a pour but de calculer son taux d'alcoolémie en direct selon s
 
 > Application bloqué en version desktop, il suffit juste de réduire sa fenêtre à 768px de large.
 
-Utilisation de Tailwind, React et la librairie d'icon [Iconoir](https://iconoir.com) pour créer une application simple et une interface travaillée.
+Utilisation de Tailwind, React et la librairie d'icon [Iconoir](https://iconoir.com) pour créer une application simple et une interface travaillée. Conforme a11y.
 
 **Déployé sur Netlify ici : https://lb-alcool-tracker.netlify.app**
 
@@ -17,6 +17,10 @@ Utilisation de Tailwind, React et la librairie d'icon [Iconoir](https://iconoir.
 J'ai utilisé [CRA](https://github.com/facebook/create-react-app) pour créer mon projet, la commande pour lancer le projet reste `npm start`.
 
 Et pour le build : `npm run build`.
+
+### Version
+
+Dès qu'une version est terminé il faut la tagger avec `git tag vX.X` puis `git push origin vX.X`.
 
 ## Ressources
 

@@ -58,6 +58,10 @@
   font-display: swap;
 }
 
+html {
+  @apply antialiased;
+}
+
 body {
   @apply bg-dark-1 text-white;
 }

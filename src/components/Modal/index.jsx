@@ -1,7 +1,29 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
-function Backdrop({ onClick, children }) {
+export const modalVariantsAnimation = {
+  hidden: {
+    y: '100%',
+  },
+  visible: {
+    y: '0',
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      bounce: 0,
+    },
+  },
+  exit: {
+    y: '100%',
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      bounce: 0,
+    },
+  },
+};
+
+function Modal({ onClick, children }) {
   const modalRef = useRef();
 
   useEffect(() => {
@@ -70,10 +92,18 @@ function Backdrop({ onClick, children }) {
         transition={{ duration: 0.4 }}
       ></motion.div>
       <aside ref={modalRef} aria-labelledby="modalLabel">
-        {children}
+        <motion.div
+          className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
+          variants={modalVariantsAnimation}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          {children}
+        </motion.div>
       </aside>
     </>
   );
 }
 
-export default Backdrop;
+export default Modal;

@@ -115,7 +115,8 @@ function App() {
                 }}
                 setConsumption={setConsumption}
                 selectedGlassIndex={selectedGlassIndex}
-                onDeleteClick={() => {
+                onDeleteClick={(e) => {
+                  e.preventDefault();
                   setIsEditGlassModalOpen(false);
                   setIsDeleteGlassModalOpen(true);
                 }}
