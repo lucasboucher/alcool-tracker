@@ -34,7 +34,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['*.config.js', '*.config.mjs'],
+    files: ['tailwind.config.js'],
     languageOptions: {
       globals: globals.node,
       parserOptions: {
