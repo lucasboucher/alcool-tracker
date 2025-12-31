@@ -21,25 +21,37 @@ export const canIDrive = (bloodAlcoholLevel, temporaryLicense) => {
 
 export const canIDriveTextColor = (canIDriveResult) => {
   if (canIDriveResult === 'no') {
-    return 'text-red';
+    return 'text-red11';
   } else if (canIDriveResult === 'almost') {
-    return 'text-main';
+    return 'text-amber11';
   } else if (canIDriveResult === 'yes') {
-    return 'text-green';
+    return 'text-green11';
   } else {
-    return 'text-white';
+    return 'text-sand11';
+  }
+};
+
+export const canIDriveIndicatorColor = (canIDriveResult) => {
+  if (canIDriveResult === 'no') {
+    return 'bg-red9';
+  } else if (canIDriveResult === 'almost') {
+    return 'bg-amber9';
+  } else if (canIDriveResult === 'yes') {
+    return 'bg-green9';
+  } else {
+    return 'bg-sand9';
   }
 };
 
 export const canIDriveBackgroundColor = (canIDriveResult) => {
   if (canIDriveResult === 'no') {
-    return 'bg-red';
+    return 'bg-red3';
   } else if (canIDriveResult === 'almost') {
-    return 'bg-main';
+    return 'bg-amber3';
   } else if (canIDriveResult === 'yes') {
-    return 'bg-green';
+    return 'bg-green3';
   } else {
-    return 'bg-dark-3';
+    return 'bg-amber3';
   }
 };
 

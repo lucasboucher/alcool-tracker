@@ -1,7 +1,7 @@
 import { cloneElement } from 'react';
 import { motion } from 'framer-motion';
 
-import { XmarkCircle as XMarkCircleIcon } from 'iconoir-react';
+import { Xmark as XMarkIcon } from 'iconoir-react';
 
 function Card({
   time,
@@ -22,7 +22,7 @@ function Card({
 
   return (
     <motion.div
-      className={`relative cursor-pointer rounded transition-colors duration-200 ease-out active:bg-dark-2 ${isSelected ? 'bg-dark-2' : 'bg-dark-3'}`}
+      className={`relative cursor-pointer rounded transition-colors duration-200 ease-out active:bg-amber4 ${isSelected ? 'bg-amber4' : 'bg-amber3'}`}
       whileTap={{
         scale: 0.95,
         transition: { duration: 0.2 },
@@ -39,15 +39,15 @@ function Card({
           <span className="font-bold">{alcoholContent}</span>°
         </span>
       </button>
-      <div className="pointer-events-none absolute top-1 flex w-full items-center justify-between px-1">
+      <div className="pointer-events-none absolute top-0 flex w-full items-center justify-between">
         <div className="ml-3 text-sm font-medium">{time}</div>
         <button
           onClick={onDeleteClick}
           aria-label="Supprimer ce verre"
-          className={`pointer-events-auto rounded p-3 text-white transition duration-200 ease-out active:bg-dark-3 active:opacity-100 ${isDeleteSelected ? 'bg-dark-3 opacity-100' : 'opacity-50'}`}
+          className="group pointer-events-auto rounded p-3 text-white transition duration-200 ease-out"
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
-          <XMarkCircleIcon className="text-red" role="presentation" />
+          <XMarkIcon className="text-amber11 group-active:text-amber12" role="presentation" />
         </button>
       </div>
     </motion.div>

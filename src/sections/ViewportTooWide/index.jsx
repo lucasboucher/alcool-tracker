@@ -22,7 +22,7 @@ function ViewportTooWide() {
       </p>
       <Link
         to="/changelog"
-        className="flex items-center justify-center rounded-lg border border-dark-3 px-6 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
+        className="flex items-center justify-center rounded-lg border border-amber7 px-6 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:bg-amber4"
       >
         Mises à jour
       </Link>

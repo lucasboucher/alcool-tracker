@@ -65,11 +65,9 @@ function Glasses({
           <button
             onClick={onAddGlassClick}
             aria-label="Ajouter un verre"
-            className={`group min-w-32 rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+            className={`min-w-32 rounded border border-dashed transition-colors duration-200 ease-out active:border-amber8 ${isEditGlassModalOpen ? 'border-amber8' : 'border-amber7'}`}
           >
-            <span
-              className={`flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-opacity duration-200 ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
-            >
+            <span className="text-sand11 active:text-sand12 flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-colors duration-200 ease-out">
               <PlusSquareIcon className="mb-1" role="presentation" />
               Ajouter
             </span>
@@ -80,11 +78,9 @@ function Glasses({
           <p className="mb-4">Vous n'avez pas encore enregistré de verres.</p>
           <button
             onClick={onAddGlassClick}
-            className={`group h-32 w-full rounded border-2 border-dashed transition-colors duration-200 ease-out active:border-dark-2 ${isEditGlassModalOpen ? 'border-dark-2' : 'border-dark-3'}`}
+            className={`h-32 w-full rounded border border-dashed transition-colors duration-200 ease-out active:border-amber8 ${isEditGlassModalOpen ? 'border-amber8' : 'border-amber7'}`}
           >
-            <span
-              className={`flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-opacity duration-200 ease-out group-active:opacity-100 ${isEditGlassModalOpen ? 'opacity-100' : 'opacity-50'}`}
-            >
+            <span className="text-sand11 active:text-sand12 flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-colors duration-200 ease-out">
               <PlusSquareIcon className="mb-1" aria-hidden="true" role="presentation" />
               Ajouter un verre
             </span>

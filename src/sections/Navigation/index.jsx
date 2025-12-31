@@ -9,25 +9,25 @@ function Navigation({ onProfileButtonClick, onResetButtonClick, className }) {
       <nav aria-label="Navigation principale">
         <button
           onClick={onProfileButtonClick}
-          className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
+          className="mb-2 w-full rounded-lg border border-amber7 bg-amber3 py-3 font-semibold uppercase transition-colors duration-200 ease-out active:border-amber8 active:bg-amber4"
         >
           Mon profil
         </button>
         <button
           onClick={onResetButtonClick}
-          className="mb-2 w-full rounded-lg border border-dark-3 py-3 font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
+          className="mb-2 w-full rounded-lg border border-amber7 bg-amber3 py-3 font-semibold uppercase transition-colors duration-200 ease-out active:border-amber8 active:bg-amber4"
         >
           Réinitialiser l'application
         </button>
         <Link
           to="/changelog"
-          className="mb-2 flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
+          className="mb-2 flex w-full items-center justify-center rounded-lg border border-amber7 bg-amber3 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:border-amber8 active:bg-amber4"
         >
           Mises à jour
         </Link>
         <a
           href="http://lucasboucher.fr"
-          className="flex w-full items-center justify-center rounded-lg border border-dark-3 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:bg-dark-2"
+          className="flex w-full items-center justify-center rounded-lg border border-amber7 bg-amber3 py-3 text-center font-semibold uppercase transition-colors duration-200 ease-out active:border-amber8 active:bg-amber4"
         >
           Lucas Boucher
           <OpenNewWindowIcon

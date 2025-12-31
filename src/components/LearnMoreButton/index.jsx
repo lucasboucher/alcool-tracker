@@ -12,10 +12,10 @@ function LearnMoreButton() {
   };
 
   return (
-    <div className="relative -top-2 rounded-b-lg border border-t-0 border-dark-3">
+    <div className="relative -top-2 rounded-b-lg border border-t-0 border-amber6">
       <button
         onClick={learnMoreHandler}
-        className={`flex w-full justify-between rounded-b-lg px-2 pb-3 pt-5 font-medium transition-colors duration-200 ease-out active:bg-dark-2 ${isLearnMoreOpen && 'bg-dark-3'}`}
+        className={`flex w-full justify-between rounded-b-lg px-2 pb-3 pt-5 font-medium transition-colors duration-200 ease-out active:bg-amber4 ${isLearnMoreOpen ? 'bg-amber5' : 'bg-amber3'}`}
       >
         En savoir plus
         <motion.span

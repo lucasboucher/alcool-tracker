@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
+import { Xmark as XmarkIcon } from 'iconoir-react';
+
 export const modalVariantsAnimation = {
   hidden: {
     y: '100%',
@@ -23,7 +25,7 @@ export const modalVariantsAnimation = {
   },
 };
 
-function Modal({ onClick, children }) {
+function Modal({ onClick, children, closable = true }) {
   const modalRef = useRef();
 
   useEffect(() => {
@@ -45,10 +47,16 @@ function Modal({ onClick, children }) {
     const firstElement = focusableModalElements[0];
     const lastElement = focusableModalElements[focusableModalElements.length - 1];
 
-    firstElement.focus();
+    if (firstElement) {
+      firstElement.focus();
+    }
 
     const trapFocus = (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+      if (e.key !== 'Tab') {
+        return;
+      }
+
+      if (!firstElement || !lastElement) {
         return;
       }
 
@@ -85,20 +93,29 @@ function Modal({ onClick, children }) {
     <>
       <motion.div
         onClick={onClick}
-        className="fixed bottom-0 left-0 right-0 top-0 z-10 cursor-pointer bg-dark-1 bg-opacity-80"
+        className="bg-blackA6 fixed bottom-0 left-0 right-0 top-0 z-10 cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
-      ></motion.div>
+      />
       <aside ref={modalRef} aria-labelledby="modalLabel">
         <motion.div
-          className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-white px-4 py-8 text-dark-1"
+          className="bg-light-sand1 text-light-sand12 fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl px-4 py-8"
           variants={modalVariantsAnimation}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
+          {closable && (
+            <button
+              onClick={onClick}
+              aria-label="Fermer la modale"
+              className="text-light-red11 active:text-light-red12 absolute right-1 top-1 cursor-pointer p-3 transition-colors duration-200 ease-out"
+            >
+              <XmarkIcon role="presentation" />
+            </button>
+          )}
           {children}
         </motion.div>
       </aside>

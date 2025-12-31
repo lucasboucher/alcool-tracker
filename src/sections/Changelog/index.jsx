@@ -18,7 +18,7 @@ function Changelog() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-screen-md px-4 pb-24 pt-8 text-white">
+    <div className="text-sand12 mx-auto max-w-screen-md px-4 pb-24 pt-8">
       <nav>
         <a href="#main-content" className="sr-only py-3 focus:not-sr-only">
           Aller au contenu principal
@@ -26,7 +26,7 @@ function Changelog() {
       </nav>
       <main id="main-content">
         <motion.div
-          className="fixed bottom-4 left-4 right-4 z-10 mx-auto max-w-screen-md rounded-lg bg-gradient-to-r from-main to-main-2 shadow-2xl"
+          className="fixed bottom-4 left-4 right-4 z-10 mx-auto max-w-screen-md rounded-lg bg-light-amber9 shadow-2xl transition-colors duration-200 ease-out active:bg-light-amber10"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
@@ -38,7 +38,7 @@ function Changelog() {
         >
           <Link
             to="/"
-            className="flex h-full w-full justify-center py-4 font-semibold uppercase text-dark-1"
+            className="flex h-full w-full justify-center py-4 font-semibold uppercase text-light-sand12"
           >
             <ArrowLeftCircleIcon className="mr-1" aria-hidden="true" role="presentation" />
             Revenir à l'application
@@ -52,20 +52,17 @@ function Changelog() {
         <VersionTitle version="1.4" name="Réglages" state="wip" className="mb-2" />
         <ul className="mb-6 list-disc pl-5">
           <li>Conformité d'accessibilité (AA WCAG 2.2)</li>
-          <li className="opacity-50">
-            Nouvelle palette de couleur (pour la conformité d'accessibilité)
+          <li>
+            Nouvelle palette de couleur (pour la conformité d'accessibilité) et ajustements du thème
           </li>
-          <li className="opacity-50">Utilisation de Vite</li>
-          <li className="opacity-50">
-            Nouvelle navigation avec une modale "Paramètres de l'application"
-          </li>
-          <li className="opacity-50">Intégrer le bouton "Réinitialiser" dans les réglages</li>
-          <li className="opacity-50">Ajout du mode nuit (dans les paramètres)</li>
-          <li className="opacity-50">Choix du langage (dans les paramètres)</li>
-          <li className="opacity-50">Choix de la législation par pays (dans les paramètres)</li>
-          <li className="opacity-50">Système d'Analytics</li>
-          <li className="opacity-50">Sitemap</li>
-          <li className="opacity-50">SEO</li>
+          <li className="text-sand11">Amélioration des performances (Vite et refactos)</li>
+          <li className="text-sand11">Nouvelle navigation</li>
+          <li className="text-sand11">Intégrer le bouton "Réinitialiser" dans les réglages</li>
+          <li className="text-sand11">Nouvelle modale "Paramètres de l'application"</li>
+          <li className="text-sand11">Ajout du mode nuit (dans les paramètres)</li>
+          <li className="text-sand11">Choix du langage (dans les paramètres)</li>
+          <li className="text-sand11">Choix de la législation par pays (dans les paramètres)</li>
+          <li className="text-sand11">Analytics, Sitemap & SEO</li>
         </ul>
         <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
         <h3 className="text-lg">v1.3.1</h3>

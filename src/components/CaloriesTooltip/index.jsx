@@ -11,7 +11,7 @@ function CaloriesTooltip({ value }) {
       <button
         onClick={() => setTooltipVisible((prevState) => !prevState)}
         aria-label="Voir les calories"
-        className={`cursor-pointer p-3 transition duration-200 ease-out active:text-dark-1/50 ${isTooltipVisible && 'text-green active:text-green/50'}`}
+        className={`cursor-pointer p-3 transition duration-200 ease-out ${isTooltipVisible ? 'text-light-green11 active:text-light-green12' : 'text-light-sand11 active:text-light-sand12'}`}
       >
         <AppleIcon role="presentation" />
       </button>
@@ -24,9 +24,9 @@ function CaloriesTooltip({ value }) {
               visible: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0 } },
               hidden: { opacity: 0, y: 25, transition: { type: 'spring', bounce: 0 } },
             }}
-            className="relative w-48 rounded bg-dark-1 bg-opacity-80 px-4 py-2 text-center text-sm text-white"
+            className="bg-blackA9 relative w-48 rounded bg-opacity-80 px-4 py-2 text-center text-sm text-white"
           >
-            <div className="absolute bottom-[-8px] left-[50%] ml-[-4px] border-4 border-transparent border-t-dark-3/90"></div>
+            <div className="absolute bottom-[-8px] left-[50%] ml-[-4px] border-4 border-transparent border-t-blackA9" />
             <p>
               Ce verre équivaut environ à <span className="font-bold">{value}</span> kcal.
             </p>

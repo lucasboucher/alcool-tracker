@@ -1,4 +1,4 @@
-import { canIDriveBackgroundColor, canIDrive, getData } from '../../utils/helpers';
+import { canIDriveIndicatorColor, canIDrive, getData } from '../../utils/helpers';
 
 import Figure from '../../components/Figure';
 import Result from '../../components/Result';
@@ -11,9 +11,9 @@ function UseLevel({ bloodAlcoholLevel, openHealthModal, isHealthModalOpen, class
       <div className="mb-2 flex items-center">
         <div className="relative mr-2 flex h-3 w-3 items-center justify-center">
           <span
-            className={`absolute h-full w-full animate-ping rounded-full opacity-75 ${canIDriveBackgroundColor(result)}`}
-          ></span>
-          <span className={`h-2 w-2 rounded-full ${canIDriveBackgroundColor(result)}`}></span>
+            className={`absolute h-full w-full animate-ping rounded-full opacity-75 ${canIDriveIndicatorColor(result)}`}
+          />
+          <span className={`h-2 w-2 rounded-full ${canIDriveIndicatorColor(result)}`} />
         </div>
         <h2 className="font-crucial text-xl" id="taux-label">
           Mon taux

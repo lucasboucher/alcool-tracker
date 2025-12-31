@@ -3,12 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { getData, setData } from '../../../utils/helpers';
 
 import Modal from '..';
-import {
-  Xmark as XmarkIcon,
-  Female as FemaleIcon,
-  Male as MaleIcon,
-  Check as CheckIcon,
-} from 'iconoir-react';
+import { Female as FemaleIcon, Male as MaleIcon, Check as CheckIcon } from 'iconoir-react';
 
 function ProfileModal({ closeModal }) {
   const [weight, setWeight] = useState('');
@@ -49,16 +44,7 @@ function ProfileModal({ closeModal }) {
   };
 
   return (
-    <Modal onClick={closeModal}>
-      {getData('weight') && (
-        <button
-          onClick={closeModal}
-          aria-label="Fermer la modale"
-          className="absolute right-1 top-1 cursor-pointer p-3 text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
-        >
-          <XmarkIcon role="presentation" />
-        </button>
-      )}
+    <Modal onClick={closeModal} closable={getData('weight') && true}>
       <h2 className="mb-3 font-crucial text-xl" id="modalLabel">
         Modifier mon profil
       </h2>
@@ -84,7 +70,7 @@ function ProfileModal({ closeModal }) {
                 />
                 <label
                   htmlFor="female"
-                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity duration-200 ease-out peer-checked:opacity-100"
+                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-light-sand6 text-light-sand12 opacity-50 transition-all duration-200 ease-out peer-checked:border-light-sand7 peer-checked:opacity-100"
                 >
                   <span className="mr-1 font-medium">Femme</span>
                   <FemaleIcon aria-hidden="true" role="presentation" />
@@ -102,7 +88,7 @@ function ProfileModal({ closeModal }) {
                 />
                 <label
                   htmlFor="male"
-                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-dark-1 text-dark-1 opacity-25 transition-opacity duration-200 ease-out peer-checked:opacity-100"
+                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-light-sand6 text-light-sand12 opacity-50 transition-all duration-200 ease-out peer-checked:border-light-sand7 peer-checked:opacity-100"
                 >
                   <span className="mr-1 font-medium">Homme</span>
                   <MaleIcon aria-hidden="true" role="presentation" />
@@ -117,7 +103,7 @@ function ProfileModal({ closeModal }) {
           </label>
           <div className="relative flex items-center">
             <input
-              className="h-12 w-full rounded border pl-2 outline-none"
+              className="border-light-sand7 h-12 w-full rounded border pl-2 outline-none"
               type="number"
               id="weight"
               inputMode="decimal"
@@ -125,11 +111,11 @@ function ProfileModal({ closeModal }) {
               value={weight}
               onChange={handleWeightChange}
             />
-            <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1">
+            <span className="pointer-events-none absolute right-2 rounded bg-light-sand3 px-3 py-1 text-light-sand12">
               kg
             </span>
           </div>
-          {error && <p className="mt-1 text-red">{error}</p>}
+          {error && <p className="mt-1 text-light-red11">{error}</p>}
         </div>
         <div className="mb-4">
           <p className="mb-1 text-sm font-semibold uppercase">Mon permis</p>
@@ -144,7 +130,7 @@ function ProfileModal({ closeModal }) {
               onChange={handleTemporaryLicenseChange}
               className="peer sr-only"
             />
-            <span className="flex h-6 w-6 items-center justify-center rounded border transition duration-200 ease-out peer-checked:border-none peer-checked:bg-blue peer-checked:shadow-[0_4px_12px_-4px] peer-checked:shadow-blue">
+            <span className="flex h-6 w-6 items-center justify-center rounded border border-light-sand7 transition duration-200 ease-out peer-checked:border-none peer-checked:bg-blue peer-checked:shadow-[0_4px_12px_-4px] peer-checked:shadow-blue">
               <CheckIcon
                 width={20}
                 height={20}
@@ -159,7 +145,7 @@ function ProfileModal({ closeModal }) {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white transition-colors duration-200 ease-out active:bg-dark-3"
+          className="flex w-full justify-center rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber11 transition-colors duration-200 ease-out active:bg-light-amber4"
         >
           Valider
         </button>

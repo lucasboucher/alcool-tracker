@@ -41,17 +41,17 @@ function LearnMore({ className }) {
         dans la liste.
       </motion.p>
       <motion.div className="mb-6 flex justify-between gap-3" variants={variantsAnimation}>
-        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
+        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-green2 py-5">
           <GlassEmptyIcon height={32} width={32} aria-label="Verre faible en alcool" />
-          <p className="text-center text-green">Peu</p>
+          <p className="text-center text-green11">Peu</p>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
+        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-amber2 py-5">
           <GlassHalfAltIcon height={32} width={32} aria-label="Verre équilibré en alcool" />
-          <p className="text-center text-main">Normal</p>
+          <p className="text-center text-amber11">Normal</p>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-dark-2 py-5">
+        <div className="flex w-full flex-col items-center justify-center gap-1 rounded bg-red2 py-5">
           <GlassHalfIcon height={32} width={32} aria-label="Verre fort en alcool" />
-          <p className="text-center text-red">Beaucoup</p>
+          <p className="text-center text-red11">Beaucoup</p>
         </div>
       </motion.div>
       <motion.h2 className="mb-2 font-crucial text-xl" variants={variantsAnimation}>
@@ -77,7 +77,7 @@ function LearnMore({ className }) {
       </motion.p>
       <motion.button
         onClick={scrollToTop}
-        className="w-full rounded-lg bg-dark-3 py-3 font-medium transition-colors duration-200 ease-out active:bg-dark-2"
+        className="w-full rounded-lg bg-amber3 py-3 font-medium transition-colors duration-200 ease-out active:bg-amber4"
         variants={variantsAnimation}
       >
         Revenir en haut

@@ -4,7 +4,7 @@ import { getData, getDate, getNow, formatTime, getCalories } from '../../../util
 
 import Modal from '..';
 import CaloriesTooltip from '../../CaloriesTooltip';
-import { Xmark as XmarkIcon, BinMinusIn as BinMinusInIcon } from 'iconoir-react';
+import { BinMinusIn as BinMinusInIcon } from 'iconoir-react';
 
 function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDeleteClick }) {
   const consumption = getData('consumption');
@@ -77,13 +77,6 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
 
   return (
     <Modal onClick={closeModal}>
-      <button
-        onClick={closeModal}
-        aria-label="Fermer la modale"
-        className="absolute right-1 top-1 cursor-pointer p-3 text-red opacity-50 transition-opacity duration-200 ease-out active:opacity-100"
-      >
-        <XmarkIcon role="presentation" />
-      </button>
       <div className="mb-3 flex items-center">
         <h2 className="font-crucial text-xl" id="modalLabel">
           {selectedGlassIndex !== null ? 'Modifier ce' : 'Ajouter un'} verre
@@ -101,7 +94,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               </label>
               <div className="relative flex items-center">
                 <input
-                  className="h-12 w-full rounded border pl-2 outline-none"
+                  className="border-light-sand7 h-12 w-full rounded border pl-2 outline-none"
                   type="number"
                   id="volume"
                   inputMode="numeric"
@@ -109,7 +102,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
                   value={volume}
                   onChange={handleVolumeChange}
                 />
-                <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
+                <span className="bg-light-sand2 pointer-events-none absolute right-2 rounded px-3 py-1 text-light-sand12">
                   cl
                 </span>
               </div>
@@ -119,7 +112,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
                 Heure
               </label>
               <input
-                className="flex h-12 w-24 cursor-pointer justify-center rounded border outline-none"
+                className="border-light-sand7 flex h-12 w-24 cursor-pointer justify-center rounded border outline-none"
                 type="time"
                 id="time"
                 value={time}
@@ -127,7 +120,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               />
             </div>
           </div>
-          {volumeError && <p className="mt-1 text-red">{volumeError}</p>}
+          {volumeError && <p className="text-light-red11 mt-1">{volumeError}</p>}
         </div>
         <div className="mb-4">
           <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
@@ -135,7 +128,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           </label>
           <div className="relative flex items-center">
             <input
-              className="h-12 w-full rounded border pl-2  outline-none"
+              className="border-light-sand7 h-12 w-full rounded border pl-2  outline-none"
               type="number"
               id="alcoholContent"
               inputMode="decimal"
@@ -143,27 +136,28 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               value={alcoholContent}
               onChange={handleAlcoholContentChange}
             />
-            <span className="pointer-events-none absolute right-2 rounded bg-grey px-3 py-1 text-dark-1	">
+            <span className="bg-light-sand2 pointer-events-none absolute right-2 rounded px-3 py-1 text-light-sand12">
               °
             </span>
           </div>
-          {alcoholContentError && <p className="mt-1 text-red">{alcoholContentError}</p>}
+          {alcoholContentError && <p className="text-light-red11 mt-1">{alcoholContentError}</p>}
         </div>
         <div className="flex">
           <button
             type="submit"
             onClick={handleSubmit}
-            className="flex w-full justify-center rounded-lg bg-dark-1 py-4 font-semibold uppercase text-white transition-colors duration-200 ease-out active:bg-dark-3"
+            className="bg-light-amber3 text-light-amber11 active:bg-light-amber4 flex w-full justify-center rounded-lg py-4 font-semibold uppercase transition-colors duration-200 ease-out"
           >
             Valider
           </button>
           {selectedGlassIndex !== null && (
             <button
-              onClick={onDeleteClick}
+              type="button"
+              onClick={(e) => onDeleteClick(e)}
               aria-label="Supprimer ce verre"
-              className="ml-2 rounded-lg bg-red px-4 transition-colors duration-200 ease-out active:bg-red-2"
+              className="bg-light-red3 active:bg-light-red4 ml-2 rounded-lg px-4 transition-colors duration-200 ease-out"
             >
-              <BinMinusInIcon className="text-white" role="presentation" />
+              <BinMinusInIcon className="text-light-red11" role="presentation" />
             </button>
           )}
         </div>
