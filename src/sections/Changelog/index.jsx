@@ -50,11 +50,8 @@ function Changelog() {
         </div>
         <ChangelogCaption className="mb-4" />
         <VersionTitle version="1.4" name="Réglages" state="wip" className="mb-2" />
+        <h3 className="text-lg">v1.4.1</h3>
         <ul className="mb-6 list-disc pl-5">
-          <li>Conformité d'accessibilité (AA WCAG 2.2)</li>
-          <li>
-            Nouvelle palette de couleur (pour la conformité d'accessibilité) et ajustements du thème
-          </li>
           <li className="text-sand11">Amélioration des performances (Vite et refactos)</li>
           <li className="text-sand11">Nouvelle navigation</li>
           <li className="text-sand11">Intégrer le bouton "Réinitialiser" dans les réglages</li>
@@ -63,6 +60,13 @@ function Changelog() {
           <li className="text-sand11">Choix du langage (dans les paramètres)</li>
           <li className="text-sand11">Choix de la législation par pays (dans les paramètres)</li>
           <li className="text-sand11">Analytics, Sitemap & SEO</li>
+        </ul>
+        <h3 className="text-lg">v1.4.0</h3>
+        <ul className="mb-6 list-disc pl-5">
+          <li>Conformité d'accessibilité (AA WCAG 2.2)</li>
+          <li>
+            Nouvelle palette de couleur (pour la conformité d'accessibilité) et ajustements du thème
+          </li>
         </ul>
         <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
         <h3 className="text-lg">v1.3.1</h3>
