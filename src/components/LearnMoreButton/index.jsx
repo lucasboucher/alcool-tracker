@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 
 import LearnMore from '../../sections/LearnMore';
 import { NavArrowDown as NavArrowDownIcon } from 'iconoir-react';

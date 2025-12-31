@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 
 import { Apple as AppleIcon } from 'iconoir-react';
 
@@ -24,7 +24,7 @@ function CaloriesTooltip({ value }) {
               visible: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0 } },
               hidden: { opacity: 0, y: 25, transition: { type: 'spring', bounce: 0 } },
             }}
-            className="bg-blackA9 relative w-48 rounded bg-opacity-80 px-4 py-2 text-center text-sm text-white"
+            className="relative w-48 rounded bg-blackA9 bg-opacity-80 px-4 py-2 text-center text-sm text-white"
           >
             <div className="absolute bottom-[-8px] left-[50%] ml-[-4px] border-4 border-transparent border-t-blackA9" />
             <p>

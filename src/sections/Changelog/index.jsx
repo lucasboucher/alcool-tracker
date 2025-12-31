@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
-import { Link, ScrollRestoration } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router';
+import { motion } from 'motion/react';
 
+import ChangelogLayout from '../../components/ChangelogLayout';
 import Footer from '../../components/Footer';
 import VersionTitle from '../../components/VersionTitle';
 import ChangelogCaption from '../../components/ChangelogCaption';
+
 import { ArrowLeftCircle as ArrowLeftCircleIcon } from 'iconoir-react';
 
 function Changelog() {
@@ -18,7 +20,7 @@ function Changelog() {
   }, []);
 
   return (
-    <div className="text-sand12 mx-auto max-w-screen-md px-4 pb-24 pt-8">
+    <ChangelogLayout>
       <nav>
         <a href="#main-content" className="sr-only py-3 focus:not-sr-only">
           Aller au contenu principal
@@ -52,7 +54,6 @@ function Changelog() {
         <VersionTitle version="1.4" name="Réglages" state="wip" className="mb-2" />
         <h3 className="text-lg">v1.4.1</h3>
         <ul className="mb-6 list-disc pl-5">
-          <li className="text-sand11">Amélioration des performances (Vite et refactos)</li>
           <li className="text-sand11">Nouvelle navigation</li>
           <li className="text-sand11">Intégrer le bouton "Réinitialiser" dans les réglages</li>
           <li className="text-sand11">Nouvelle modale "Paramètres de l'application"</li>
@@ -67,6 +68,7 @@ function Changelog() {
           <li>
             Nouvelle palette de couleur (pour la conformité d'accessibilité) et ajustements du thème
           </li>
+          <li>Amélioration des performances (Vite et refactos)</li>
         </ul>
         <VersionTitle version="1.3" name="Verres" state="current" className="mb-2" />
         <h3 className="text-lg">v1.3.1</h3>
@@ -132,8 +134,7 @@ function Changelog() {
         </ul>
         <Footer className="mt-6" />
       </main>
-      <ScrollRestoration />
-    </div>
+    </ChangelogLayout>
   );
 }
 

@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ScrollRestoration } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { useEffect, useState, useMemo } from 'react';
+import { AnimatePresence } from 'motion/react';
 
 import UseLevel from './sections/UseLevel';
 import Glasses from './sections/Glasses';
@@ -19,22 +18,39 @@ import { getData, setData, resetData, getBac } from './utils/helpers';
 
 function App() {
   const [consumption, setConsumption] = useState(getData('consumption') || []);
-  const [myBloodAlcoholLevel, setMyBloodAlcoholLevel] = useState(0);
   const [selectedGlassIndex, setSelectedGlassIndex] = useState(null);
   const [isEditGlassModalOpen, setIsEditGlassModalOpen] = useState(false);
   const [isDeleteGlassModalOpen, setIsDeleteGlassModalOpen] = useState(false);
-  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(() => {
+    const isProfileDefined = () => {
+      if (getData('weight') && getData('gender')) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+    return !isProfileDefined();
+  });
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [isHealthModalOpen, setIsHealthModalOpen] = useState(false);
 
-  useEffect(() => {
-    isProfileDefined() || setIsProfileModalOpen(true);
-  }, []);
+  const isProfileDefined = () => {
+    if (getData('weight') && getData('gender')) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const myBloodAlcoholLevel = useMemo(() => {
+    if (isProfileDefined()) {
+      return getBac(consumption, getData('gender'), getData('weight'));
+    }
+    return 0;
+  }, [consumption]);
 
   useEffect(() => {
     setData('consumption', consumption);
-    isProfileDefined() &&
-      setMyBloodAlcoholLevel(getBac(consumption, getData('gender'), getData('weight')));
   }, [consumption]);
 
   const deleteGlass = () => {
@@ -47,18 +63,9 @@ function App() {
 
   const handleReset = () => {
     resetData();
-    setMyBloodAlcoholLevel(0);
     setConsumption([]);
     setIsResetModalOpen(false);
     setIsProfileModalOpen(true);
-  };
-
-  const isProfileDefined = () => {
-    if (getData('weight') && getData('gender')) {
-      return true;
-    } else {
-      return false;
-    }
   };
 
   useEffect(() => {
@@ -98,7 +105,6 @@ function App() {
             openEditGlassModal={() => setIsEditGlassModalOpen(true)}
             openDeleteGlassModal={() => setIsDeleteGlassModalOpen(true)}
             isEditGlassModalOpen={isEditGlassModalOpen}
-            isDeleteGlassModalOpen={isDeleteGlassModalOpen}
             className="mb-12"
           />
           <Navigation
@@ -159,7 +165,6 @@ function App() {
         </div>
         <ViewportTooWide />
       </main>
-      <ScrollRestoration />
     </div>
   );
 }

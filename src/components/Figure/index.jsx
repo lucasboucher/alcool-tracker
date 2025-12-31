@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useMotionValue, useTransform, animate, motion } from 'framer-motion';
+import { useMotionValue, useTransform, animate, motion } from 'motion/react';
 
 import { InfoCircle as InfoCircleIcon } from 'iconoir-react';
 

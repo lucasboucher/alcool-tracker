@@ -16,7 +16,7 @@ function DeleteGlassModal({ closeModal, onSubmit, selectedGlassDate }) {
       </p>
       <button
         onClick={onSubmit}
-        className="bg-light-amber3 text-light-amber11 active:bg-light-amber4 flex w-full justify-center rounded-lg py-4 font-semibold uppercase transition-colors duration-200 ease-out"
+        className="flex w-full justify-center rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber11 transition-colors duration-200 ease-out active:bg-light-amber4"
       >
         Valider
       </button>

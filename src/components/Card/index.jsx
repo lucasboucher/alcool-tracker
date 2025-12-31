@@ -1,5 +1,5 @@
 import { cloneElement } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { Xmark as XMarkIcon } from 'iconoir-react';
 
@@ -11,7 +11,6 @@ function Card({
   onCardClick,
   onDeleteClick,
   isSelected,
-  isDeleteSelected,
 }) {
   const iconWithProps = cloneElement(icon, {
     className: 'mb-1',

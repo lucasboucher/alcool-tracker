@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { getData, setData } from '../../../utils/helpers';
 
@@ -6,17 +6,12 @@ import Modal from '..';
 import { Female as FemaleIcon, Male as MaleIcon, Check as CheckIcon } from 'iconoir-react';
 
 function ProfileModal({ closeModal }) {
-  const [weight, setWeight] = useState('');
-  const [gender, setGender] = useState('female');
-  const [temporaryLicense, setTemporaryLicense] = useState(false);
+  const [weight, setWeight] = useState(() => getData('weight') || '');
+  const [gender, setGender] = useState(() => getData('gender') || 'female');
+  const [temporaryLicense, setTemporaryLicense] = useState(
+    () => getData('temporaryLicense') || false,
+  );
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    setWeight(getData('weight') || '');
-    setGender(getData('gender') || 'female');
-    setTemporaryLicense(getData('temporaryLicense') || false);
-    setError('');
-  }, []);
 
   const handleWeightChange = (e) => {
     setWeight(Number(e.target.value));
@@ -103,7 +98,7 @@ function ProfileModal({ closeModal }) {
           </label>
           <div className="relative flex items-center">
             <input
-              className="border-light-sand7 h-12 w-full rounded border pl-2 outline-none"
+              className="h-12 w-full rounded border border-light-sand7 pl-2 outline-none"
               type="number"
               id="weight"
               inputMode="decimal"

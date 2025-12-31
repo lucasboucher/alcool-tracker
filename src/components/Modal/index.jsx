@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { Xmark as XmarkIcon } from 'iconoir-react';
 
-export const modalVariantsAnimation = {
+const modalVariantsAnimation = {
   hidden: {
     y: '100%',
   },
@@ -93,7 +93,7 @@ function Modal({ onClick, children, closable = true }) {
     <>
       <motion.div
         onClick={onClick}
-        className="bg-blackA6 fixed bottom-0 left-0 right-0 top-0 z-10 cursor-pointer"
+        className="fixed bottom-0 left-0 right-0 top-0 z-10 cursor-pointer bg-blackA6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -101,7 +101,7 @@ function Modal({ onClick, children, closable = true }) {
       />
       <aside ref={modalRef} aria-labelledby="modalLabel">
         <motion.div
-          className="bg-light-sand1 text-light-sand12 fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl px-4 py-8"
+          className="fixed bottom-0 left-0 right-0 z-10 rounded-t-2xl bg-light-sand1 px-4 py-8 text-light-sand12"
           variants={modalVariantsAnimation}
           initial="hidden"
           animate="visible"
@@ -111,7 +111,7 @@ function Modal({ onClick, children, closable = true }) {
             <button
               onClick={onClick}
               aria-label="Fermer la modale"
-              className="text-light-red11 active:text-light-red12 absolute right-1 top-1 cursor-pointer p-3 transition-colors duration-200 ease-out"
+              className="absolute right-1 top-1 cursor-pointer p-3 text-light-red11 transition-colors duration-200 ease-out active:text-light-red12"
             >
               <XmarkIcon role="presentation" />
             </button>

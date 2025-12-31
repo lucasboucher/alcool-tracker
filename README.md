@@ -14,9 +14,11 @@ Utilisation de Tailwind, React et la librairie d'icon [Iconoir](https://iconoir.
 
 ## Développement
 
-J'ai utilisé [CRA](https://github.com/facebook/create-react-app) pour créer mon projet, la commande pour lancer le projet reste `npm start`.
+Le projet utilise [Vite](https://vitejs.dev) comme outil de build et [Bun](https://bun.sh) comme gestionnaire de paquets. Pour lancer le projet en développement : `bun dev`.
 
-Et pour le build : `npm run build`.
+Pour le build de production : `bun run build`.
+
+Pour prévisualiser le build de production : `bun run preview`.
 
 ### Version
 

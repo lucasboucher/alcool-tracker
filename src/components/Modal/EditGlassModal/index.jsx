@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { getData, getDate, getNow, formatTime, getCalories } from '../../../utils/helpers';
 
@@ -94,7 +94,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               </label>
               <div className="relative flex items-center">
                 <input
-                  className="border-light-sand7 h-12 w-full rounded border pl-2 outline-none"
+                  className="h-12 w-full rounded border border-light-sand7 pl-2 outline-none"
                   type="number"
                   id="volume"
                   inputMode="numeric"
@@ -102,7 +102,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
                   value={volume}
                   onChange={handleVolumeChange}
                 />
-                <span className="bg-light-sand2 pointer-events-none absolute right-2 rounded px-3 py-1 text-light-sand12">
+                <span className="pointer-events-none absolute right-2 rounded bg-light-sand2 px-3 py-1 text-light-sand12">
                   cl
                 </span>
               </div>
@@ -112,7 +112,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
                 Heure
               </label>
               <input
-                className="border-light-sand7 flex h-12 w-24 cursor-pointer justify-center rounded border outline-none"
+                className="flex h-12 w-24 cursor-pointer justify-center rounded border border-light-sand7 outline-none"
                 type="time"
                 id="time"
                 value={time}
@@ -120,7 +120,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               />
             </div>
           </div>
-          {volumeError && <p className="text-light-red11 mt-1">{volumeError}</p>}
+          {volumeError && <p className="mt-1 text-light-red11">{volumeError}</p>}
         </div>
         <div className="mb-4">
           <label className="mb-1 text-sm font-semibold uppercase" htmlFor="alcoholContent">
@@ -128,7 +128,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
           </label>
           <div className="relative flex items-center">
             <input
-              className="border-light-sand7 h-12 w-full rounded border pl-2  outline-none"
+              className="h-12 w-full rounded border border-light-sand7 pl-2 outline-none"
               type="number"
               id="alcoholContent"
               inputMode="decimal"
@@ -136,17 +136,17 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               value={alcoholContent}
               onChange={handleAlcoholContentChange}
             />
-            <span className="bg-light-sand2 pointer-events-none absolute right-2 rounded px-3 py-1 text-light-sand12">
+            <span className="pointer-events-none absolute right-2 rounded bg-light-sand2 px-3 py-1 text-light-sand12">
               °
             </span>
           </div>
-          {alcoholContentError && <p className="text-light-red11 mt-1">{alcoholContentError}</p>}
+          {alcoholContentError && <p className="mt-1 text-light-red11">{alcoholContentError}</p>}
         </div>
         <div className="flex">
           <button
             type="submit"
             onClick={handleSubmit}
-            className="bg-light-amber3 text-light-amber11 active:bg-light-amber4 flex w-full justify-center rounded-lg py-4 font-semibold uppercase transition-colors duration-200 ease-out"
+            className="flex w-full justify-center rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber11 transition-colors duration-200 ease-out active:bg-light-amber4"
           >
             Valider
           </button>
@@ -155,7 +155,7 @@ function EditGlassModal({ closeModal, setConsumption, selectedGlassIndex, onDele
               type="button"
               onClick={(e) => onDeleteClick(e)}
               aria-label="Supprimer ce verre"
-              className="bg-light-red3 active:bg-light-red4 ml-2 rounded-lg px-4 transition-colors duration-200 ease-out"
+              className="ml-2 rounded-lg bg-light-red3 px-4 transition-colors duration-200 ease-out active:bg-light-red4"
             >
               <BinMinusInIcon className="text-light-red11" role="presentation" />
             </button>

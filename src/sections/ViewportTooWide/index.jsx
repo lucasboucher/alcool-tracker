@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { GlassEmpty as GlassEmptyIcon } from 'iconoir-react';
 

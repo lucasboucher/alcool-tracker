@@ -13,7 +13,7 @@ import {
 } from '@radix-ui/colors';
 
 module.exports = {
-  content: ['./src/**/*.{js,jsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
       ...amberDark,

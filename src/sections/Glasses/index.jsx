@@ -15,7 +15,6 @@ function Glasses({
   openEditGlassModal,
   openDeleteGlassModal,
   isEditGlassModalOpen,
-  isDeleteGlassModalOpen,
   className,
 }) {
   const onCardClick = (index) => {
@@ -57,9 +56,6 @@ function Glasses({
               onCardClick={() => onCardClick(index)}
               onDeleteClick={(e) => onDeleteClick(e, index)}
               isSelected={selectedGlassIndex === index ? true : false}
-              isDeleteSelected={
-                isDeleteGlassModalOpen && selectedGlassIndex === index ? true : false
-              }
             />
           ))}
           <button
@@ -67,7 +63,7 @@ function Glasses({
             aria-label="Ajouter un verre"
             className={`min-w-32 rounded border border-dashed transition-colors duration-200 ease-out active:border-amber8 ${isEditGlassModalOpen ? 'border-amber8' : 'border-amber7'}`}
           >
-            <span className="text-sand11 active:text-sand12 flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-colors duration-200 ease-out">
+            <span className="flex h-full flex-col items-center justify-center text-sm font-medium uppercase text-sand11 transition-colors duration-200 ease-out active:text-sand12">
               <PlusSquareIcon className="mb-1" role="presentation" />
               Ajouter
             </span>
@@ -80,7 +76,7 @@ function Glasses({
             onClick={onAddGlassClick}
             className={`h-32 w-full rounded border border-dashed transition-colors duration-200 ease-out active:border-amber8 ${isEditGlassModalOpen ? 'border-amber8' : 'border-amber7'}`}
           >
-            <span className="text-sand11 active:text-sand12 flex h-full flex-col items-center justify-center text-sm font-medium uppercase transition-colors duration-200 ease-out">
+            <span className="flex h-full flex-col items-center justify-center text-sm font-medium uppercase text-sand11 transition-colors duration-200 ease-out active:text-sand12">
               <PlusSquareIcon className="mb-1" aria-hidden="true" role="presentation" />
               Ajouter un verre
             </span>

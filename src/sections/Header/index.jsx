@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { getRandomAdvices } from '../../utils/helpers';
 
@@ -6,11 +6,7 @@ import Quote from '../../components/Quote';
 import LearnMoreButton from '../../components/LearnMoreButton';
 
 function Header({ className }) {
-  const [advice, setAdvice] = useState('');
-
-  useEffect(() => {
-    setAdvice(getRandomAdvices());
-  }, []);
+  const [advice] = useState(() => getRandomAdvices());
 
   return (
     <header className={className}>
