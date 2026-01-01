@@ -41,7 +41,7 @@ function Changelog() {
           >
             <Link
               to="/"
-              className="flex h-full w-full justify-center py-4 font-semibold uppercase text-light-sand12"
+              className="flex size-full justify-center py-4 font-semibold uppercase text-light-sand12"
             >
               <ArrowLeftCircleIcon className="mr-1" aria-hidden="true" role="presentation" />
               Revenir à l'application

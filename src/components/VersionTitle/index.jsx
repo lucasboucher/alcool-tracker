@@ -12,13 +12,13 @@ function VersionTitle({ version, name, state, className }) {
         v{version} \{name}
       </h2>
       {state === 'old' ? (
-        <span className="ml-2 h-2 w-2 rounded-full bg-red9" />
+        <span className="ml-2 size-2 rounded-full bg-red9" />
       ) : (
-        <div className="relative ml-2 flex h-3 w-3 items-center justify-center">
+        <div className="relative ml-2 flex size-3 items-center justify-center">
           <span
-            className={`absolute h-full w-full animate-ping rounded-full opacity-75 ${backgroundClassName}`}
+            className={`absolute size-full animate-ping rounded-full opacity-75 ${backgroundClassName}`}
           />
-          <span className={`h-2 w-2 rounded-full ${backgroundClassName}`} />
+          <span className={`size-2 rounded-full ${backgroundClassName}`} />
         </div>
       )}
     </div>

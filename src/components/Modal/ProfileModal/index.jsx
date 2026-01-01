@@ -125,7 +125,7 @@ function ProfileModal({ closeModal }) {
               onChange={handleTemporaryLicenseChange}
               className="peer sr-only"
             />
-            <span className="flex h-6 w-6 items-center justify-center rounded border border-light-sand7 transition duration-200 ease-out peer-checked:border-none peer-checked:bg-blue peer-checked:shadow-[0_4px_12px_-4px] peer-checked:shadow-blue">
+            <span className="flex size-6 items-center justify-center rounded border border-light-sand7 transition duration-200 ease-out peer-checked:border-none peer-checked:bg-blue peer-checked:shadow-[0_4px_12px_-4px] peer-checked:shadow-blue">
               <CheckIcon
                 width={20}
                 height={20}
