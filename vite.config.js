@@ -80,14 +80,6 @@ export default defineConfig({
 
           const packageName = nodeModulesMatch[1];
 
-          if (
-            packageName === 'react' ||
-            packageName === 'react-dom' ||
-            packageName === 'react-router'
-          ) {
-            return 'react-vendor';
-          }
-
           if (packageName === 'iconoir-react') {
             return 'iconoir-vendor';
           }
