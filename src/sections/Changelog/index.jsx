@@ -27,25 +27,28 @@ function Changelog() {
         </a>
       </nav>
       <main id="main-content">
-        <motion.div
-          className="fixed bottom-4 left-4 right-4 z-10 mx-auto max-w-screen-md rounded-lg bg-light-amber9 shadow-2xl transition-colors duration-200 ease-out active:bg-light-amber10"
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-          whileTap={{
-            scale: 0.95,
-            transition: { duration: 0.2 },
-          }}
-          tabIndex={-1}
-        >
-          <Link
-            to="/"
-            className="flex h-full w-full justify-center py-4 font-semibold uppercase text-light-sand12"
+        <div>
+          <motion.div
+            className="fixed bottom-4 left-4 right-4 z-10 mx-auto max-w-screen-md rounded-lg bg-light-amber9 shadow-2xl transition-colors duration-200 ease-out active:bg-light-amber10"
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+            whileTap={{
+              scale: 0.95,
+              transition: { duration: 0.2 },
+            }}
+            tabIndex={-1}
           >
-            <ArrowLeftCircleIcon className="mr-1" aria-hidden="true" role="presentation" />
-            Revenir à l'application
-          </Link>
-        </motion.div>
+            <Link
+              to="/"
+              className="flex h-full w-full justify-center py-4 font-semibold uppercase text-light-sand12"
+            >
+              <ArrowLeftCircleIcon className="mr-1" aria-hidden="true" role="presentation" />
+              Revenir à l'application
+            </Link>
+          </motion.div>
+          <div className="fixed right-0 top-[calc(100%-4px)] z-10 aspect-square w-screen bg-amber1" />
+        </div>
         <div className="mb-4 flex items-center">
           <h1 className="mr-2 font-crucial text-3xl">Mon alcool tracker</h1>
           <span className="rounded border px-1 py-0.5 text-xs font-medium uppercase">MàJ</span>

@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'prompt',
-      includeAssets: ['favicon.ico', 'logo192.png', 'logo512.png', 'robots.txt'],
+      includeAssets: ['robots.txt'],
       manifest: {
         name: 'Mon alcool tracker',
         short_name: 'Alcool Tracker',
@@ -17,7 +17,6 @@ export default defineConfig({
         background_color: '#16120C',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
         start_url: '/',
         icons: [
           {
@@ -42,26 +41,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\./,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-        ],
       },
       devOptions: {
         enabled: true,
-        type: 'module',
         disableDevLogs: true,
       },
     }),
