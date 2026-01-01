@@ -35,7 +35,7 @@ function UpdateAppModal() {
           <div className="flex gap-2">
             <button
               onClick={handleUpdate}
-              className="flex-1 rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber11 transition-colors duration-200 ease-out active:bg-light-amber4"
+              className="flex-1 rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber12 transition-colors duration-200 ease-out active:bg-light-amber4"
             >
               Mettre à jour
             </button>

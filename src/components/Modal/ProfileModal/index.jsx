@@ -65,7 +65,7 @@ function ProfileModal({ closeModal }) {
                 />
                 <label
                   htmlFor="female"
-                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-light-sand6 text-light-sand12 opacity-50 transition-all duration-200 ease-out peer-checked:border-light-sand7 peer-checked:opacity-100"
+                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-light-sand6 text-light-sand11 transition-all duration-200 ease-out peer-checked:border-light-sand7 peer-checked:text-light-sand12"
                 >
                   <span className="mr-1 font-medium">Femme</span>
                   <FemaleIcon aria-hidden="true" role="presentation" />
@@ -83,7 +83,7 @@ function ProfileModal({ closeModal }) {
                 />
                 <label
                   htmlFor="male"
-                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-light-sand6 text-light-sand12 opacity-50 transition-all duration-200 ease-out peer-checked:border-light-sand7 peer-checked:opacity-100"
+                  className="flex h-12 cursor-pointer items-center justify-center rounded border border-light-sand6 text-light-sand11 transition-all duration-200 ease-out peer-checked:border-light-sand7 peer-checked:text-light-sand12"
                 >
                   <span className="mr-1 font-medium">Homme</span>
                   <MaleIcon aria-hidden="true" role="presentation" />
@@ -140,7 +140,7 @@ function ProfileModal({ closeModal }) {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="flex w-full justify-center rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber11 transition-colors duration-200 ease-out active:bg-light-amber4"
+          className="flex w-full justify-center rounded-lg bg-light-amber3 py-4 font-semibold uppercase text-light-amber12 transition-colors duration-200 ease-out active:bg-light-amber4"
         >
           Valider
         </button>
