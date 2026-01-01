@@ -13,6 +13,7 @@ import DeleteGlassModal from './components/Modal/DeleteGlassModal';
 import ProfileModal from './components/Modal/ProfileModal';
 import ResetModal from './components/Modal/ResetModal';
 import HealthModal from './components/Modal/HealthModal';
+import UpdateAppModal from './components/Modal/UpdateAppModal';
 
 import { getData, setData, resetData, getBac } from './utils/helpers';
 
@@ -165,6 +166,7 @@ function App() {
         </div>
         <ViewportTooWide />
       </main>
+      <UpdateAppModal />
     </div>
   );
 }
